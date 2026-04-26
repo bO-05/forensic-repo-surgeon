@@ -1,0 +1,33 @@
+node_modules/
+.pnpm-store/
+# Ignore everything in dist/ EXCEPT the canonical exported proof bundle.
+# `dist/demo-package/` is the static, self-contained, distributable proof
+# package produced by `exportDemoPackage()` and is intentionally tracked
+# so a GitHub-first reviewer can browse the latest proof without running
+# anything locally. The working `/artifacts/` directory below stays ignored
+# because `pnpm demo` clobbers it on every run. Patterns for `artifacts/`,
+# `inputs/`, etc. are anchored with `/` so they ONLY match the repo root,
+# not nested copies inside the tracked demo-package bundle.
+dist/*
+!dist/demo-package/
+coverage/
+playwright-report/
+test-results/
+/artifacts/
+/inputs/
+/demo-targets/
+/.surgeon-targets/
+/documents/
+/tools/
+playwright/.auth/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# Vercel CLI artifacts (project linking, deploy state)
+.vercel/
+
+

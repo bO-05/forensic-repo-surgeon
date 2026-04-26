@@ -1,0 +1,80 @@
+{
+  "id": "visual-deterministic-proof-benchmark",
+  "version": "0.1.0",
+  "mission": "Evaluate whether Forensic Repo Surgeon produces visual and deterministic proof for reproducible frontend UI repairs.",
+  "acceptanceBars": [
+    {
+      "id": "controlled-demo",
+      "description": "Minimum bar for a credible live demo on known cases.",
+      "minimumArtifactProofCases": 2,
+      "minimumTargets": 1,
+      "minimumBugClasses": 2,
+      "requireNegativeControls": false
+    },
+    {
+      "id": "production-confidence",
+      "description": "Minimum bar before claiming the product is broadly worthy for UI-heavy teams.",
+      "minimumArtifactProofCases": 5,
+      "minimumTargets": 2,
+      "minimumBugClasses": 4,
+      "requireNegativeControls": true
+    }
+  ],
+  "requiredArtifacts": [
+    "screenshot",
+    "success",
+    "trace",
+    "console",
+    "network",
+    "axTree",
+    "domSnapshot",
+    "candidates",
+    "patch",
+    "beforeVerify",
+    "verify",
+    "reasoner",
+    "reasonerReport",
+    "doctor",
+    "run",
+    "scorecard",
+    "report",
+    "viewer"
+  ],
+  "cases": [
+    {
+      "id": "crwa-mobile-date-range-drawer",
+      "casePath": "cases/cypress-realworld-mobile-date-range-drawer.case.json",
+      "target": "cypress-realworld-app",
+      "bugClass": "responsive-viewport-clipping",
+      "minimumAssertions": 4,
+      "requiredAssertions": [
+        "date range drawer is visible",
+        "calendar container is within the mobile viewport",
+        "calendar starts near top of the mobile viewport",
+        "no unexpected console errors"
+      ],
+      "negativeControlArtifact": "before-verify.json"
+    },
+    {
+      "id": "crwa-mobile-onboarding-dialog",
+      "casePath": "cases/cypress-realworld-mobile-onboarding-dialog.case.json",
+      "target": "cypress-realworld-app",
+      "bugClass": "mobile-dialog-overflow",
+      "minimumAssertions": 7,
+      "requiredAssertions": [
+        "onboarding dialog is visible",
+        "within the mobile viewport",
+        "next button uses mobile touch width",
+        "do not overlap",
+        "horizontal overflow",
+        "no unexpected console errors"
+      ],
+      "negativeControlArtifact": "before-verify.json"
+    }
+  ],
+  "knownGaps": [
+    "Current verified cases are from one target repo.",
+    "Current runs record deterministic before-state negative controls, but only for the two locked CRWA cases.",
+    "Current patches are tracked fixtures, so the benchmark evaluates proof packaging and verification more than autonomous patch synthesis."
+  ]
+}

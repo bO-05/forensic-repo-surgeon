@@ -1,0 +1,183 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "status": "passing",
+  "startedAt": "2026-04-26T13:22:10.781Z",
+  "command": "surgeon run --case crwa-mobile-date-range-drawer",
+  "options": {
+    "keepTargetRunning": false,
+    "restoreOriginal": true,
+    "skipTypecheck": false
+  },
+  "phases": [
+    {
+      "name": "preflight-doctor",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:22:10.791Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\doctor.json",
+      "endedAt": "2026-04-26T13:22:13.521Z",
+      "durationMs": 2730
+    },
+    {
+      "name": "reset-target-before-state",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:22:13.522Z",
+      "detail": "Target is already in before-state.",
+      "endedAt": "2026-04-26T13:22:14.025Z",
+      "durationMs": 503
+    },
+    {
+      "name": "start-target",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:22:14.026Z",
+      "detail": "Demo target ready at http://localhost:3000/signin api=4656 web=1308",
+      "endedAt": "2026-04-26T13:23:21.849Z",
+      "durationMs": 67823
+    },
+    {
+      "name": "capture-failing-evidence",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:23:21.850Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer",
+      "endedAt": "2026-04-26T13:23:52.722Z",
+      "durationMs": 30872
+    },
+    {
+      "name": "capture-before-verification",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:23:52.725Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer",
+      "endedAt": "2026-04-26T13:24:00.371Z",
+      "durationMs": 7646
+    },
+    {
+      "name": "localize-source-candidates",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:00.373Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\candidates.json",
+      "endedAt": "2026-04-26T13:24:02.499Z",
+      "durationMs": 2126
+    },
+    {
+      "name": "reason-over-artifacts",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:02.506Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\reasoner.json",
+      "endedAt": "2026-04-26T13:24:17.926Z",
+      "durationMs": 15420
+    },
+    {
+      "name": "apply-target-patch",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:17.927Z",
+      "detail": "Target patch applied for after-state verification.",
+      "endedAt": "2026-04-26T13:24:18.530Z",
+      "durationMs": 603
+    },
+    {
+      "name": "capture-passing-verification",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:18.531Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer",
+      "endedAt": "2026-04-26T13:24:26.948Z",
+      "durationMs": 8417
+    },
+    {
+      "name": "write-repair-hypothesis",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:26.949Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\hypothesis.md",
+      "endedAt": "2026-04-26T13:24:26.963Z",
+      "durationMs": 14
+    },
+    {
+      "name": "regenerate-pr-report",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:26.992Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\PR.md",
+      "endedAt": "2026-04-26T13:24:27.016Z",
+      "durationMs": 24
+    },
+    {
+      "name": "write-artifact-viewer",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:27.018Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\index.html",
+      "endedAt": "2026-04-26T13:24:27.108Z",
+      "durationMs": 90
+    },
+    {
+      "name": "typecheck-controller",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:27.110Z",
+      "detail": "> forensic-repo-surgeon@0.1.0 typecheck D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\n> tsc --noEmit",
+      "endedAt": "2026-04-26T13:24:40.806Z",
+      "durationMs": 13696
+    },
+    {
+      "name": "restore-target-before-state",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:40.807Z",
+      "detail": "Target patch removed for before-state capture.",
+      "endedAt": "2026-04-26T13:24:41.197Z",
+      "durationMs": 390
+    },
+    {
+      "name": "stop-target",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:41.198Z",
+      "detail": "Stopped 2 demo target process(es).",
+      "endedAt": "2026-04-26T13:24:42.219Z",
+      "durationMs": 1021
+    },
+    {
+      "name": "write-proof-scorecard",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:42.221Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\scorecard.json",
+      "endedAt": "2026-04-26T13:24:42.259Z",
+      "durationMs": 38
+    },
+    {
+      "name": "write-github-summary",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:42.261Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\github-check.md",
+      "endedAt": "2026-04-26T13:24:42.304Z",
+      "durationMs": 43
+    },
+    {
+      "name": "write-evidence-manifest",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:42.305Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\evidence-manifest.json",
+      "endedAt": "2026-04-26T13:24:42.468Z",
+      "durationMs": 163
+    },
+    {
+      "name": "refresh-artifact-viewer",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:42.470Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\index.html",
+      "endedAt": "2026-04-26T13:24:42.524Z",
+      "durationMs": 54
+    },
+    {
+      "name": "write-demo-cockpit",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:42.526Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\index.html",
+      "endedAt": "2026-04-26T13:24:43.113Z",
+      "durationMs": 587
+    },
+    {
+      "name": "export-demo-package",
+      "status": "passing",
+      "startedAt": "2026-04-26T13:24:43.169Z",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\dist\\demo-package",
+      "endedAt": "2026-04-26T13:24:46.446Z",
+      "durationMs": 3277
+    }
+  ],
+  "endedAt": "2026-04-26T13:24:48.016Z",
+  "durationMs": 157235
+}

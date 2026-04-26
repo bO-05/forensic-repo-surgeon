@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forensic Repo Surgeon Dossier - crwa-mobile-onboarding-dialog</title>
+  <style>
+    :root {
+      --ink: #17130d;
+      --paper: #f3ead8;
+      --paper-deep: #dfcfaf;
+      --charcoal: #25221d;
+      --line: #8f7f5d;
+      --green: #2f6f4e;
+      --red: #9d2e24;
+      --amber: #c17817;
+      --blueprint: #193a4a;
+      --white: #fffaf0;
+      --shadow: 0 22px 70px rgba(23, 19, 13, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 12%, rgba(193, 120, 23, 0.18), transparent 30%),
+        linear-gradient(135deg, rgba(25, 58, 74, 0.18) 0 1px, transparent 1px 24px),
+        var(--paper);
+      font-family: Georgia, Cambria, "Times New Roman", serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 34px;
+      border: 2px solid var(--ink);
+      background: linear-gradient(120deg, rgba(255, 250, 240, 0.96), rgba(223, 207, 175, 0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 320px;
+      height: 320px;
+      border: 32px solid rgba(37, 34, 29, 0.08);
+      transform: rotate(17deg);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(40px, 6vw, 82px);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 18px 0 0;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .stamp {
+      align-self: start;
+      min-width: 178px;
+      padding: 18px;
+      border: 2px solid currentColor;
+      transform: rotate(2deg);
+      text-align: center;
+      font-family: "Cascadia Code", Consolas, monospace;
+      background: var(--white);
+    }
+
+    .stamp.pass {
+      color: var(--green);
+    }
+
+    .stamp.fail {
+      color: var(--red);
+    }
+
+    .stamp strong {
+      display: block;
+      font-size: 42px;
+      letter-spacing: -0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      grid-column: span 6;
+      padding: 22px;
+      border: 1px solid rgba(23, 19, 13, 0.28);
+      background: rgba(255, 250, 240, 0.88);
+      box-shadow: 0 12px 34px rgba(23, 19, 13, 0.08);
+    }
+
+    .card.wide {
+      grid-column: span 12;
+    }
+
+    .card.third {
+      grid-column: span 4;
+    }
+
+    .card h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      padding: 14px;
+      border: 1px solid rgba(23, 19, 13, 0.24);
+      background: var(--charcoal);
+      color: var(--white);
+      min-height: 104px;
+    }
+
+    .metric span {
+      display: block;
+      color: rgba(255, 250, 240, 0.66);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 30px;
+      letter-spacing: -0.05em;
+    }
+
+    .shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      max-height: 760px;
+      object-fit: contain;
+      border: 2px solid var(--ink);
+      background: #111;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 12px 14px;
+      border-left: 5px solid var(--line);
+      background: rgba(223, 207, 175, 0.42);
+    }
+
+    .list li.pass {
+      border-left-color: var(--green);
+    }
+
+    .list li.fail {
+      border-left-color: var(--red);
+    }
+
+    .list li.warning {
+      border-left-color: var(--amber);
+    }
+
+    .mono,
+    pre,
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+    }
+
+    pre {
+      max-height: 420px;
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f7f0df;
+      background: #16130f;
+      border: 1px solid rgba(23, 19, 13, 0.4);
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      display: inline-flex;
+      padding: 10px 12px;
+      border: 1px solid var(--ink);
+      background: var(--white);
+      text-decoration: none;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline {
+      counter-reset: step;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 56px;
+    }
+
+    .timeline li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 12px;
+      top: 11px;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--blueprint);
+      color: var(--white);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .shots,
+      .kpi {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .card.third {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Forensic Repo Surgeon validation dossier</p>
+        <h1>New-user mobile onboarding dialog overflow</h1>
+        <p class="subtitle">Capture a newly created mobile user's onboarding dialog where the action row and content can overflow horizontally. This page is generated from artifacts only; raw files are linked for audit.</p>
+      </div>
+      <div class="stamp pass">
+        <span>scorecard</span>
+        <strong>100</strong>
+        <span>passing</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card wide">
+        <h2>Proof Gates</h2>
+        <div class="kpi">
+          <div class="metric"><span>artifacts</span><strong>100%</strong><span>required files present</span></div>
+          <div class="metric"><span>before control</span><strong>yes</strong><span>expected failure observed</span></div>
+          <div class="metric"><span>verification</span><strong>100%</strong><span>assertions pass</span></div>
+          <div class="metric"><span>patch relevance</span><strong>yes</strong><span>touches top candidate</span></div>
+          <div class="metric"><span>run duration</span><strong>92.8s</strong><span>cleanup passed</span></div>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <h2>Before And After</h2>
+        <div class="shots">
+          <figure>
+            <img src="failure.png" alt="Before screenshot showing the failing UI state" />
+            <figcaption>Before: failure.png</figcaption>
+          </figure>
+          <figure>
+            <img src="success.png" alt="After screenshot showing the verified UI state" />
+            <figcaption>After: success.png</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>User Workflow</h2>
+        <ol class="list timeline">
+          <li>Open the mobile sign-up route</li>
+<li>Create a brand-new local user through the UI</li>
+<li>Sign in with that user on the same viewport</li>
+<li>Wait for the onboarding dialog to appear at step one</li>
+<li>Capture the resulting mobile UI state and evidence bundle</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Before Negative Control</h2>
+        <ul class="list">
+          <li class="pass"><strong>passing</strong>: expected before-state failure</li>
+          <li class="pass"><strong>pass</strong>: onboarding dialog is visible</li>
+<li class="pass"><strong>pass</strong>: logout button is visible</li>
+<li class="pass"><strong>pass</strong>: next button is visible</li>
+<li class="pass"><strong>pass</strong>: logout button is within the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: next button is within the mobile viewport</li>
+<li class="fail"><strong>fail</strong>: logout button uses mobile touch width</li>
+<li class="fail"><strong>fail</strong>: next button uses mobile touch width</li>
+<li class="pass"><strong>pass</strong>: onboarding action buttons do not overlap</li>
+<li class="pass"><strong>pass</strong>: onboarding step one does not introduce horizontal overflow</li>
+<li class="pass"><strong>pass</strong>: no unexpected console errors appear during onboarding verification</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Verification Assertions</h2>
+        <ul class="list">
+          <li class="pass"><strong>pass</strong>: onboarding dialog is visible</li>
+<li class="pass"><strong>pass</strong>: logout button is visible</li>
+<li class="pass"><strong>pass</strong>: next button is visible</li>
+<li class="pass"><strong>pass</strong>: logout button is within the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: next button is within the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: logout button uses mobile touch width</li>
+<li class="pass"><strong>pass</strong>: next button uses mobile touch width</li>
+<li class="pass"><strong>pass</strong>: onboarding action buttons do not overlap</li>
+<li class="pass"><strong>pass</strong>: onboarding step one does not introduce horizontal overflow</li>
+<li class="pass"><strong>pass</strong>: no unexpected console errors appear during onboarding verification</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Source Localization</h2>
+        <ul class="list">
+          <li><strong>#1 src/containers/UserOnboardingContainer.tsx</strong> <span class="mono">score 475</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#2 src/components/TransactionItem.tsx</strong> <span class="mono">score 288</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#3 src/components/TransactionDetail.tsx</strong> <span class="mono">score 267</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#4 src/components/TransactionListAmountRangeFilter.tsx</strong> <span class="mono">score 266</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#5 src/components/TransactionDateRangeFilter.tsx</strong> <span class="mono">score 250</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Gate Details</h2>
+        <ul class="list">
+          <li class="pass"><strong>pass</strong>: artifactsComplete</li>
+<li class="pass"><strong>pass</strong>: negativeControlPassed</li>
+<li class="pass"><strong>pass</strong>: verificationPassing</li>
+<li class="pass"><strong>pass</strong>: localizationPresent</li>
+<li class="pass"><strong>pass</strong>: patchRelevant</li>
+<li class="pass"><strong>pass</strong>: reasonerPresent</li>
+<li class="pass"><strong>pass</strong>: reasonerReferencesArtifacts</li>
+<li class="pass"><strong>pass</strong>: doctorPassing</li>
+<li class="pass"><strong>pass</strong>: runCompleted</li>
+<li class="pass"><strong>pass</strong>: cleanupSucceeded</li>
+<li class="pass"><strong>pass</strong>: redactionPassed</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Changed Files</h2>
+        <ul class="list">
+          <li><code>src/containers/UserOnboardingContainer.tsx</code></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Reasoning Boundary</h2>
+        <ul class="list">
+          <li class="pass"><strong>provider</strong>: anthropic-messages-api</li>
+          <li class="pass"><strong>live model used</strong>: yes</li>
+          <li class="pass"><strong>model</strong>: claude-opus-4-7</li>
+          <li class="pass"><strong>request id</strong>: req_011CaSTXBAAadx5QG7ahq7xF</li>
+          <li class="pass"><strong>latency</strong>: 13234ms</li>
+          <li class="pass"><strong>usage</strong>: input 1100 / output 790</li>
+          <li class="pass"><strong>intended model boundary</strong>: claude-code-or-anthropic-api</li>
+          <li class="warning"><strong>recorded run note</strong>: This recorded run used the Anthropic Messages API to generate the reasoner diagnosis from summarized evidence artifacts.</li>
+          <li><strong>truth boundary</strong>: The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Model Authorship — Claude Code Agent Loop</h2>
+        <p>Opus 4.7 ran inside the target repository and authored a candidate patch using Read, Glob, Grep, and Edit tools. The deterministic verifier evaluated this patch against the same gates as the fixture above.</p>
+        <div class="metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-top: 14px;">
+          <div class="metric"><span>Turns</span><strong>6</strong><span>agent turns</span></div>
+          <div class="metric"><span>Tool Calls</span><strong>2</strong><span>tool calls</span></div>
+          <div class="metric"><span>Files Read</span><strong>1</strong><span>files read</span></div>
+          <div class="metric"><span>Files Edited</span><strong>1</strong><span>files edited</span></div>
+          <div class="metric"><span>Duration</span><strong>22.9s</strong><span>wall clock</span></div>
+          <div class="metric"><span>Cost</span><strong>$0.1699</strong><span>client estimate</span></div>
+        </div>
+        <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+          <div class="pass" style="padding: 14px; border: 1px solid currentColor;">
+            <strong>Fixture Patch</strong>
+            <div style="font-size: 22px;">passing (100)</div>
+            <div class="mono">human-authored, golden baseline</div>
+          </div>
+          <div class="fail" style="padding: 14px; border: 1px solid currentColor;">
+            <strong>Model Patch</strong>
+            <div style="font-size: 22px;">failing (92)</div>
+            <div class="mono">claude-opus-4-7 via Claude Code SDK</div>
+          </div>
+        </div>
+        <ul class="list" style="margin-top: 18px;">
+          <li class="pass"><strong>provider</strong>: claude-agent-sdk</li>
+          <li class="pass"><strong>live model used</strong>: yes</li>
+          <li class="pass"><strong>model</strong>: claude-opus-4-7</li>
+          <li class="pass"><strong>session id</strong>: 9ca64c8a-9850-46fa-862d-0b4e52ebfca2</li>
+          <li><strong>loaded tools</strong>: Task, AskUserQuestion, Bash, CronCreate, CronDelete, CronList, Edit, EnterPlanMode, EnterWorktree, ExitPlanMode, ExitWorktree, Glob, Grep, Monitor, NotebookEdit, PowerShell, PushNotification, Read, RemoteTrigger, ScheduleWakeup, Skill, TaskOutput, TaskStop, TodoWrite, ToolSearch, Write</li>
+          <li><strong>result subtype</strong>: success</li>
+          <li><strong>tokens</strong>: input 8 / output 1853 / cache-read 78092</li>
+          <li><strong>truth boundary</strong>: The agent proposes a candidate patch. The deterministic verifier evaluates it against the same gates as the fixture patch.</li>
+          <li class="warning"><strong>recorded run note</strong>: Model-authored patch produced by Claude Code agent loop running inside the target repository. The deterministic verifier evaluates this candidate alongside the fixture patch.</li>
+        </ul>
+        
+        
+      </article>
+
+      <article class="card wide">
+        <h2>Model-Authored Patch</h2>
+        <p>This diff was authored by Claude Code (claude-opus-4-7) inside the target repository. The same deterministic verifier evaluated it against the same gates as the fixture patch above.</p>
+        <pre>diff --git a/src/containers/UserOnboardingContainer.tsx b/src/containers/UserOnboardingContainer.tsx
+index d6b1a28..64ad053 100644
+--- a/src/containers/UserOnboardingContainer.tsx
++++ b/src/containers/UserOnboardingContainer.tsx
+@@ -111,11 +111,12 @@ const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsSer
+           )}
+         &lt;/Box&gt;
+       &lt;/DialogContent&gt;
+-      &lt;DialogActions&gt;
+-        &lt;Grid container justifyContent=&quot;space-between&quot;&gt;
+-          &lt;Grid item&gt;
++      &lt;DialogActions style={{ flexDirection: &quot;column&quot;, alignItems: &quot;stretch&quot; }}&gt;
++        &lt;Grid container direction=&quot;column&quot; spacing={1}&gt;
++          &lt;Grid item xs={12}&gt;
+             &lt;Button
+-              style={{ paddingRight: &quot;80%&quot; }}
++              fullWidth
++              variant=&quot;outlined&quot;
+               onClick={/* istanbul ignore next */ () =&gt; sendAuth(&quot;LOGOUT&quot;)}
+               color=&quot;secondary&quot;
+               data-test=&quot;user-onboarding-logout&quot;
+@@ -123,9 +124,15 @@ const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsSer
+               Logout
+             &lt;/Button&gt;
+           &lt;/Grid&gt;
+-          &lt;Grid item&gt;
++          &lt;Grid item xs={12}&gt;
+             {!userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; (
+-              &lt;Button onClick={() =&gt; nextStep()} color=&quot;primary&quot; data-test=&quot;user-onboarding-next&quot;&gt;
++              &lt;Button
++                fullWidth
++                variant=&quot;contained&quot;
++                onClick={() =&gt; nextStep()}
++                color=&quot;primary&quot;
++                data-test=&quot;user-onboarding-next&quot;
++              &gt;
+                 {userOnboardingState.matches(&quot;stepThree&quot;) ? &quot;Done&quot; : &quot;Next&quot;}
+               &lt;/Button&gt;
+             )}
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Agent Timeline</h2>
+        <p>Each turn shows what Opus 4.7 said and what tools it called. Tool calls are the substance: <code>Read</code>, <code>Glob</code>, <code>Grep</code> for understanding; <code>Edit</code> for the candidate patch.</p>
+        <ol class="list timeline">
+          <li>
+        <strong>Turn 1</strong>
+        
+        
+      </li>
+<li>
+        <strong>Turn 2</strong>
+        
+        <ul class="list"><li class="pass"><strong>Read</strong>: <code>D:/Repo/ALL HACKATHONS/Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnbo...</code></li></ul>
+      </li>
+<li>
+        <strong>Turn 3</strong>
+        
+        
+      </li>
+<li>
+        <strong>Turn 4</strong>
+        <p>Now I can see the bug. The Logout button has `paddingRight: &quot;80%&quot;` which causes horizontal overflow, and the buttons are laid out side-by-side in a Grid with `space-between`. For the verifier to pass, both buttons need to be ≥300px wide on a 390px viewport, which means they must stack vertically and take full width.
+
+Let me make the minimal fix:</p>
+        
+      </li>
+<li>
+        <strong>Turn 5</strong>
+        
+        <ul class="list"><li class="pass"><strong>Edit</strong>: <code>D:/Repo/ALL HACKATHONS/Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnbo...</code></li></ul>
+      </li>
+<li>
+        <strong>Turn 6</strong>
+        <p>I edited `src/containers/UserOnboardingContainer.tsx` in the `&lt;DialogActions&gt;` block. The original Logout button had `paddingRight: &quot;80%&quot;` which caused horizontal overflow on a 390px viewport, and the two buttons sat side-by-side via `Grid justifyContent=&quot;space-between&quot;` so neither could reach the required 300px width. I replaced this with a vertical stack (`direction=&quot;column&quot;`, `xs={12}`, `fullWidth`) so each button spans the dialog width and easily clears the 300px-wide assertion while staying inside the viewport, with no horizontal overflow and no overlap.</p>
+        
+      </li>
+        </ol>
+      </article>
+
+      <article class="card wide">
+        <h2>Recorded Run Environment</h2>
+        <p>This section reports the machine that produced this recorded run. It does not validate the reviewer's current machine.</p>
+        <ul class="list">
+          <li class="pass"><strong>passing</strong>: controller Node runtime<br><span class="mono">Node 20.11.1; target app runtime is checked separately.</span></li>
+<li class="pass"><strong>passing</strong>: target Node runtime<br><span class="mono">target Node runtime: D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\tools\node-v22.12.0-win-x64\node.exe</span></li>
+<li class="pass"><strong>passing</strong>: pnpm package manager<br><span class="mono">9.15.0</span></li>
+<li class="pass"><strong>passing</strong>: case patch fixture<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\patches\crwa-mobile-onboarding-dialog.diff</span></li>
+<li class="pass"><strong>passing</strong>: demo ports<br><span class="mono">Ports 3000, 3001 are free.</span></li>
+<li class="pass"><strong>passing</strong>: cypress-realworld-app target repo<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\.surgeon-targets\cypress-realworld-app</span></li>
+<li class="pass"><strong>passing</strong>: case patch artifact<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\artifacts\crwa-mobile-onboarding-dialog\patch.diff</span></li>
+<li class="pass"><strong>passing</strong>: workspace drive<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon has 16.9 GiB free.</span></li>
+<li class="pass"><strong>passing</strong>: target drive<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\.surgeon-targets\cypress-realworld-app has 16.9 GiB free.</span></li>
+<li class="pass"><strong>passing</strong>: target patch state<br><span class="mono">Target is in before-state and patch can be applied.</span></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Run Timeline</h2>
+        <ul class="list timeline">
+          <li class="pass"><strong>passing</strong>: preflight-doctor <span class="mono">2.5s</span></li>
+<li class="pass"><strong>passing</strong>: reset-target-before-state <span class="mono">686ms</span></li>
+<li class="pass"><strong>passing</strong>: start-target <span class="mono">20.2s</span></li>
+<li class="pass"><strong>passing</strong>: capture-failing-evidence <span class="mono">24.2s</span></li>
+<li class="pass"><strong>passing</strong>: capture-before-verification <span class="mono">8.2s</span></li>
+<li class="pass"><strong>passing</strong>: localize-source-candidates <span class="mono">310ms</span></li>
+<li class="pass"><strong>passing</strong>: reason-over-artifacts <span class="mono">13.3s</span></li>
+<li class="pass"><strong>passing</strong>: apply-target-patch <span class="mono">606ms</span></li>
+<li class="pass"><strong>passing</strong>: capture-passing-verification <span class="mono">8.9s</span></li>
+<li class="pass"><strong>passing</strong>: write-repair-hypothesis <span class="mono">8ms</span></li>
+<li class="pass"><strong>passing</strong>: regenerate-pr-report <span class="mono">17ms</span></li>
+<li class="pass"><strong>passing</strong>: write-artifact-viewer <span class="mono">43ms</span></li>
+<li class="pass"><strong>passing</strong>: typecheck-controller <span class="mono">12.5s</span></li>
+<li class="pass"><strong>passing</strong>: restore-target-before-state <span class="mono">351ms</span></li>
+<li class="pass"><strong>passing</strong>: stop-target <span class="mono">800ms</span></li>
+<li class="pass"><strong>passing</strong>: write-proof-scorecard <span class="mono">45ms</span></li>
+<li class="pass"><strong>passing</strong>: write-github-summary <span class="mono">44ms</span></li>
+<li class="pass"><strong>passing</strong>: write-evidence-manifest <span class="mono">28ms</span></li>
+<li class="pass"><strong>passing</strong>: refresh-artifact-viewer <span class="mono">126ms</span></li>
+<li class="pass"><strong>passing</strong>: write-demo-cockpit <span class="mono">50ms</span></li>
+<li class="pass"><strong>passing</strong>: export-demo-package <span class="mono">2.8s</span></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Repair Hypothesis</h2>
+        <pre># Repair Hypothesis
+
+Case: `crwa-mobile-onboarding-dialog`
+
+## Evidence Read
+
+- Before screenshot: `./artifacts/crwa-mobile-onboarding-dialog/failure.png`
+- Browser trace: `./artifacts/crwa-mobile-onboarding-dialog/trace.zip`
+- DOM snapshot: `./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json`
+- Accessibility tree: `./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json`
+
+## Localization Hypothesis
+
+The highest-confidence source candidate is `src/containers/UserOnboardingContainer.tsx` with score `475`.
+- Matches data-test hooks found in the captured DOM.
+- File path/name matches the case vocabulary.
+
+## Root-Cause Hypothesis
+
+The onboarding dialog in src/containers/UserOnboardingContainer.tsx (top candidate, matching captured DOM data-test hooks) likely uses a fixed width or non-responsive layout for its content/action row (e.g., a fixed min-width, large padding, or a Dialog/Button row without flex-wrap or max-width: 100%), causing horizontal overflow at narrow mobile widths.
+
+## Patch Hypothesis
+
+Constrain the dialog within the viewport by setting a responsive max-width (e.g., maxWidth=&quot;xs&quot; or width: 100% with boxSizing) on the Dialog/Paper, and allow the action row to wrap (flex-wrap: wrap) or shrink (min-width: 0) inside UserOnboardingContainer.tsx, so both the content text and DialogActions buttons fit within 390px.
+
+Changed files:
+- `src/containers/UserOnboardingContainer.tsx`
+
+## Verification Evidence
+
+- Before-state negative control: `passing`
+- Verification status: `passing`
+- pass: onboarding dialog is visible
+- pass: logout button is visible
+- pass: next button is visible
+- pass: logout button is within the mobile viewport
+- pass: next button is within the mobile viewport
+- pass: logout button uses mobile touch width
+- pass: next button uses mobile touch width
+- pass: onboarding action buttons do not overlap
+- pass: onboarding step one does not introduce horizontal overflow
+- pass: no unexpected console errors appear during onboarding verification
+
+## Truth Boundary
+
+This hypothesis is not proof by itself. The proof is the passing verification artifact plus the before/after browser evidence.
+- Residual risk: Other dialogs sharing the same Dialog/Paper styles could be affected if global styles are changed instead of local ones.
+- Residual risk: Wrapping the action row may alter button order/visual hierarchy on small screens.
+- Residual risk: Console errors (6) and xstate transient-transition warnings are unrelated here but may mask other onboarding state issues.
+- Residual risk: Screenshot alone cannot confirm exact overflow source; runtime inspection of computed styles is needed.
+- Residual risk: Fix may not address overflow if it originates from a child component (e.g., TransactionItem) embedded in the dialog.
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Reasoner Artifact</h2>
+        <pre># Reasoning Boundary
+
+Case: `crwa-mobile-onboarding-dialog`
+Provider: `anthropic-messages-api`
+Live model used: `yes`
+Model: `claude-opus-4-7`
+Request id: `req_011CaSTXBAAadx5QG7ahq7xF`
+Latency: `13234ms`
+Usage: `input 1100 / output 790`
+Intended model boundary: `claude-code-or-anthropic-api`
+
+This recorded run used the Anthropic Messages API to generate the reasoner diagnosis from summarized evidence artifacts.
+
+## Truth Boundary
+
+The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.
+
+## Evidence References
+
+- `./artifacts/crwa-mobile-onboarding-dialog/failure.png`
+- `./artifacts/crwa-mobile-onboarding-dialog/trace.zip`
+- `./artifacts/crwa-mobile-onboarding-dialog/console.ndjson`
+- `./artifacts/crwa-mobile-onboarding-dialog/network.ndjson`
+- `./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json`
+- `./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json`
+- `./artifacts/crwa-mobile-onboarding-dialog/candidates.json`
+- `./artifacts/crwa-mobile-onboarding-dialog/patch.diff`
+- `./artifacts/crwa-mobile-onboarding-dialog/verify.json`
+
+## Top Source Candidate
+
+- `src/containers/UserOnboardingContainer.tsx` score `475`
+- Matches data-test hooks found in the captured DOM.
+- File path/name matches the case vocabulary.
+
+## Diagnosis
+
+- Symptom: On iPhone 13 viewport (390x844) at /signup, a newly created user's onboarding dialog renders with its content and action row overflowing horizontally beyond the viewport.
+- Likely root cause: The onboarding dialog in src/containers/UserOnboardingContainer.tsx (top candidate, matching captured DOM data-test hooks) likely uses a fixed width or non-responsive layout for its content/action row (e.g., a fixed min-width, large padding, or a Dialog/Button row without flex-wrap or max-width: 100%), causing horizontal overflow at narrow mobile widths.
+- Patch hypothesis: Constrain the dialog within the viewport by setting a responsive max-width (e.g., maxWidth=&quot;xs&quot; or width: 100% with boxSizing) on the Dialog/Paper, and allow the action row to wrap (flex-wrap: wrap) or shrink (min-width: 0) inside UserOnboardingContainer.tsx, so both the content text and DialogActions buttons fit within 390px.
+
+## Verification Plan
+
+- Reload /signup at 390x844 as a new user and confirm the onboarding dialog is fully visible with no horizontal scroll.
+- Check that document.scrollingElement.scrollWidth &lt;= viewport width while the dialog is open.
+- Verify the action row buttons remain tappable and wrap rather than clipping.
+- Re-run at a wider viewport (e.g., 1280px) to confirm no regression in desktop layout.
+- Inspect verify.json/patch.diff outputs to confirm the change is scoped to UserOnboardingContainer.tsx.
+
+## Residual Risks
+
+- Other dialogs sharing the same Dialog/Paper styles could be affected if global styles are changed instead of local ones.
+- Wrapping the action row may alter button order/visual hierarchy on small screens.
+- Console errors (6) and xstate transient-transition warnings are unrelated here but may mask other onboarding state issues.
+- Screenshot alone cannot confirm exact overflow source; runtime inspection of computed styles is needed.
+- Fix may not address overflow if it originates from a child component (e.g., TransactionItem) embedded in the dialog.
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Evidence Integrity</h2>
+        <pre># Evidence Integrity Manifest
+
+Case: `crwa-mobile-onboarding-dialog`
+Generated at: `2026-04-26T13:26:20.980Z`
+Bundle fingerprint: `196985a0988cfab085249acca57d52f705ccda649c4466aa858b0ab2b5d7fbea`
+
+This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.
+
+## Review Order
+
+1. Compare `./artifacts/crwa-mobile-onboarding-dialog/failure.png` and `./artifacts/crwa-mobile-onboarding-dialog/success.png`.
+2. Read `./artifacts/crwa-mobile-onboarding-dialog/reasoner.md`, `./artifacts/crwa-mobile-onboarding-dialog/PR.md`, and `./artifacts/crwa-mobile-onboarding-dialog/scorecard.json`.
+3. Use the hashes below to compare this artifact set against another copy.
+
+## Hashed Files
+
+- `axTree` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json` sha256 `79ab467d9e5ddcb8dcea28992bfe85c808501b1a449d0e7cb75706a847968943` size `65202`
+- `beforeVerify` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/before-verify.json` sha256 `cb4581f7f31b9f240fcc8728d594190e2f5bab43288853780cea031b73872542` size `3011`
+- `candidates` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/candidates.json` sha256 `b8b27b69d612292b55bd887cb3f1df0142aa1fd5a03efc7502c24051453306cf` size `49197`
+- `console` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/console.ndjson` sha256 `851d990a89c4fe5cec1b1036ee5bbd4e21b846e2e1d9b69d87e46dd39569a4a8` size `7236`
+- `doctor` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/doctor.json` sha256 `39c676673f741278feecbe6f56933185466a2bb83cdc4cab85f4afbee7f3f697` size `2302`
+- `domSnapshot` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json` sha256 `a8e7344b30e7b466a98fce621805ccd5112aa025bacf329833b1d0a60a15adeb` size `690391`
+- `screenshot` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/failure.png` sha256 `6d2ecc08d42d88fcb19906fb5b545cff7ebd1a3eb39be5d9e70b2800a7810241` size `21415`
+- `hypothesis` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/hypothesis.md` sha256 `241ff6b415f00fbc94403c6c17d3fd1082b3c7a68e716a83814a2de6a41f21ff` size `2781`
+- `input` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/input.json` sha256 `245c3345d5f143551c6931e67792cb0c2512f80d86d1e44941b8c53d6e261d13` size `3392`
+- `network` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/network.ndjson` sha256 `f27f314a3691506e538a90c8264776dd58bf49fe0363714c3c583b801461d2ac` size `15816`
+- `patch` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/patch.diff` sha256 `e80bc4af755e7140950b2b4855883284417f7614d2705d91a00d860d92c0f5b1` size `3868`
+- `report` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/PR.md` sha256 `2ab24299e528e0d476d9408bf09d7571e5b461046e756813fc1beed0db28c735` size `4661`
+- `reasoner` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/reasoner.json` sha256 `66388de1ff09e4fd5a22bdc8a9f0c20ab74bca75cba64809928f369a459a1123` size `3631`
+- `reasonerReport` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/reasoner.md` sha256 `5b4329fdf5e37bb30a48fe1b6b999b13301ceabd5e171849583a610ca4424ef2` size `3311`
+- `redactionReport` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/redaction-report.json` sha256 `87da8a9bef5b508166d4a9eb587a004ca5c0b92bed7063efa64e1036410edc24` size `219`
+- `scorecard` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/scorecard.json` sha256 `64445b22a9b2057b405cd3c724a6ae1571c85ae36b1f130f42ff89063b77e709` size `4208`
+- `success` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/success.png` sha256 `abf2a0d373a7fcaa85a990ccf3a452dcbb1eb2ce410cd246d2e8eb7f3aafae87` size `23802`
+- `trace` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/trace.zip` sha256 `0cd145b6eda83bdff5fba8519e43fba643c65ce443de16877f09f68938187c20` size `1843705`
+- `verify` -&gt; `./artifacts/crwa-mobile-onboarding-dialog/verify.json` sha256 `b022f95987643cf0158ace4b45de528ae282de0601391f5cf4a50ec0e3dc4e52` size `2525`
+</pre>
+      </article>
+
+      <article class="card">
+        <h2>Reasoner Evidence</h2>
+        <ul class="list">
+          <li><code>./artifacts/crwa-mobile-onboarding-dialog/failure.png</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/trace.zip</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/console.ndjson</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/network.ndjson</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/candidates.json</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/patch.diff</code></li>
+<li><code>./artifacts/crwa-mobile-onboarding-dialog/verify.json</code></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Verification Plan</h2>
+        <ul class="list">
+          <li>Reload /signup at 390x844 as a new user and confirm the onboarding dialog is fully visible with no horizontal scroll.</li>
+<li>Check that document.scrollingElement.scrollWidth &lt;= viewport width while the dialog is open.</li>
+<li>Verify the action row buttons remain tappable and wrap rather than clipping.</li>
+<li>Re-run at a wider viewport (e.g., 1280px) to confirm no regression in desktop layout.</li>
+<li>Inspect verify.json/patch.diff outputs to confirm the change is scoped to UserOnboardingContainer.tsx.</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Patch Diff</h2>
+        <pre>diff --git a/src/containers/UserOnboardingContainer.tsx b/src/containers/UserOnboardingContainer.tsx
+index d6b1a28..52b66f0 100644
+--- a/src/containers/UserOnboardingContainer.tsx
++++ b/src/containers/UserOnboardingContainer.tsx
+@@ -4,7 +4,6 @@ import {
+   Box,
+   useTheme,
+   useMediaQuery,
+-  Grid,
+   Dialog,
+   DialogActions,
+   DialogContent,
+@@ -77,12 +76,30 @@ const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsSer
+         {userOnboardingState.matches(&quot;stepThree&quot;) &amp;&amp; &quot;Finished&quot;}
+       &lt;/DialogTitle&gt;
+       &lt;DialogContent data-test=&quot;user-onboarding-dialog-content&quot;&gt;
+-        &lt;Box display=&quot;flex&quot; alignItems=&quot;center&quot; justifyContent=&quot;center&quot;&gt;
++        &lt;Box
++          display=&quot;flex&quot;
++          alignItems=&quot;center&quot;
++          justifyContent=&quot;center&quot;
++          flexDirection={fullScreen ? &quot;column&quot; : &quot;row&quot;}
++          textAlign={fullScreen ? &quot;center&quot; : &quot;left&quot;}
++          gap={fullScreen ? 2 : 0}
++          sx={{
++            &quot;&amp; svg&quot;: {
++              maxWidth: &quot;100%&quot;,
++              height: &quot;auto&quot;,
++            },
++          }}
++        &gt;
+           {userOnboardingState.matches(&quot;stepOne&quot;) &amp;&amp; (
+             &lt;&gt;
+               &lt;NavigatorIllustration /&gt;
+               &lt;br /&gt;
+-              &lt;DialogContentText style={{ paddingLeft: 20 }}&gt;
++              &lt;DialogContentText
++                style={{
++                  paddingLeft: fullScreen ? 0 : 20,
++                  paddingTop: fullScreen ? 12 : 0,
++                }}
++              &gt;
+                 Real World App requires a Bank Account to perform transactions.
+                 &lt;br /&gt;
+                 &lt;br /&gt;
+@@ -101,7 +118,12 @@ const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsSer
+             &lt;&gt;
+               &lt;PersonalFinance /&gt;
+               &lt;br /&gt;
+-              &lt;DialogContentText style={{ paddingLeft: 20 }}&gt;
++              &lt;DialogContentText
++                style={{
++                  paddingLeft: fullScreen ? 0 : 20,
++                  paddingTop: fullScreen ? 12 : 0,
++                }}
++              &gt;
+                 You're all set!
+                 &lt;br /&gt;
+                 &lt;br /&gt;
+@@ -112,25 +134,28 @@ const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsSer
+         &lt;/Box&gt;
+       &lt;/DialogContent&gt;
+       &lt;DialogActions&gt;
+-        &lt;Grid container justifyContent=&quot;space-between&quot;&gt;
+-          &lt;Grid item&gt;
+-            &lt;Button
+-              style={{ paddingRight: &quot;80%&quot; }}
+-              onClick={/* istanbul ignore next */ () =&gt; sendAuth(&quot;LOGOUT&quot;)}
+-              color=&quot;secondary&quot;
+-              data-test=&quot;user-onboarding-logout&quot;
+-            &gt;
+-              Logout
++        &lt;Box
++          display=&quot;flex&quot;
++          flexDirection={fullScreen ? &quot;column-reverse&quot; : &quot;row&quot;}
++          justifyContent=&quot;space-between&quot;
++          alignItems={fullScreen ? &quot;stretch&quot; : &quot;center&quot;}
++          gap={2}
++          width=&quot;100%&quot;
++        &gt;
++          &lt;Button
++            fullWidth={fullScreen}
++            onClick={/* istanbul ignore next */ () =&gt; sendAuth(&quot;LOGOUT&quot;)}
++            color=&quot;secondary&quot;
++            data-test=&quot;user-onboarding-logout&quot;
++          &gt;
++            Logout
++          &lt;/Button&gt;
++          {!userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; (
++            &lt;Button fullWidth={fullScreen} onClick={() =&gt; nextStep()} color=&quot;primary&quot; data-test=&quot;user-onboarding-next&quot;&gt;
++              {userOnboardingState.matches(&quot;stepThree&quot;) ? &quot;Done&quot; : &quot;Next&quot;}
+             &lt;/Button&gt;
+-          &lt;/Grid&gt;
+-          &lt;Grid item&gt;
+-            {!userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; (
+-              &lt;Button onClick={() =&gt; nextStep()} color=&quot;primary&quot; data-test=&quot;user-onboarding-next&quot;&gt;
+-                {userOnboardingState.matches(&quot;stepThree&quot;) ? &quot;Done&quot; : &quot;Next&quot;}
+-              &lt;/Button&gt;
+-            )}
+-          &lt;/Grid&gt;
+-        &lt;/Grid&gt;
++          )}
++        &lt;/Box&gt;
+       &lt;/DialogActions&gt;
+     &lt;/Dialog&gt;
+   );
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Raw Audit Links</h2>
+        <div class="links">
+          <a href="PR.md">PR report</a>
+<a href="scorecard.json">Scorecard</a>
+<a href="before-verify.json">Before verification</a>
+<a href="doctor.json">Doctor</a>
+<a href="reasoner.json">Reasoner JSON</a>
+<a href="reasoner.md">Reasoner report</a>
+<a href="evidence-manifest.json">Evidence manifest JSON</a>
+<a href="evidence-manifest.md">Evidence manifest</a>
+<a href="redaction-report.json">Redaction report</a>
+<a href="github-check.md">GitHub check summary</a>
+<a href="hypothesis.md">Hypothesis</a>
+<a href="candidates.json">Candidates</a>
+<a href="verify.json">Verification</a>
+<a href="run.json">Run timeline</a>
+<a href="patch.diff">Patch</a>
+<a href="trace.zip">Trace</a>
+<a href="console.ndjson">Console</a>
+<a href="network.ndjson">Network</a>
+<a href="ax-tree.json">AX tree</a>
+<a href="dom-snapshot.json">DOM snapshot</a>
+<a href="model-agent-trace.json">Model agent trace JSON</a>
+<a href="model-agent-trace.md">Model agent transcript</a>
+<a href="model-patch.diff">Model patch</a>
+<a href="model-verify.json">Model verification</a>
+<a href="model-patch.png">Model after screenshot</a>
+<a href="model-scorecard.json">Model scorecard</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

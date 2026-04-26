@@ -1,0 +1,54 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "generatedAt": "2026-04-26T13:25:57.486Z",
+  "provider": "anthropic-messages-api",
+  "liveModelUsed": true,
+  "model": "claude-opus-4-7",
+  "requestId": "req_011CaSTXBAAadx5QG7ahq7xF",
+  "latencyMs": 13234,
+  "usage": {
+    "inputTokens": 1100,
+    "outputTokens": 790
+  },
+  "recordedRunNote": "This recorded run used the Anthropic Messages API to generate the reasoner diagnosis from summarized evidence artifacts.",
+  "intendedModelBoundary": "claude-code-or-anthropic-api",
+  "truthBoundary": "The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.",
+  "evidenceReferences": [
+    "./artifacts/crwa-mobile-onboarding-dialog/failure.png",
+    "./artifacts/crwa-mobile-onboarding-dialog/trace.zip",
+    "./artifacts/crwa-mobile-onboarding-dialog/console.ndjson",
+    "./artifacts/crwa-mobile-onboarding-dialog/network.ndjson",
+    "./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json",
+    "./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json",
+    "./artifacts/crwa-mobile-onboarding-dialog/candidates.json",
+    "./artifacts/crwa-mobile-onboarding-dialog/patch.diff",
+    "./artifacts/crwa-mobile-onboarding-dialog/verify.json"
+  ],
+  "topCandidate": {
+    "relativeFile": "src/containers/UserOnboardingContainer.tsx",
+    "score": 475,
+    "reasons": [
+      "Matches data-test hooks found in the captured DOM.",
+      "File path/name matches the case vocabulary."
+    ]
+  },
+  "diagnosis": {
+    "symptom": "On iPhone 13 viewport (390x844) at /signup, a newly created user's onboarding dialog renders with its content and action row overflowing horizontally beyond the viewport.",
+    "likelyRootCause": "The onboarding dialog in src/containers/UserOnboardingContainer.tsx (top candidate, matching captured DOM data-test hooks) likely uses a fixed width or non-responsive layout for its content/action row (e.g., a fixed min-width, large padding, or a Dialog/Button row without flex-wrap or max-width: 100%), causing horizontal overflow at narrow mobile widths.",
+    "patchHypothesis": "Constrain the dialog within the viewport by setting a responsive max-width (e.g., maxWidth=\"xs\" or width: 100% with boxSizing) on the Dialog/Paper, and allow the action row to wrap (flex-wrap: wrap) or shrink (min-width: 0) inside UserOnboardingContainer.tsx, so both the content text and DialogActions buttons fit within 390px.",
+    "verificationPlan": [
+      "Reload /signup at 390x844 as a new user and confirm the onboarding dialog is fully visible with no horizontal scroll.",
+      "Check that document.scrollingElement.scrollWidth <= viewport width while the dialog is open.",
+      "Verify the action row buttons remain tappable and wrap rather than clipping.",
+      "Re-run at a wider viewport (e.g., 1280px) to confirm no regression in desktop layout.",
+      "Inspect verify.json/patch.diff outputs to confirm the change is scoped to UserOnboardingContainer.tsx."
+    ],
+    "residualRisks": [
+      "Other dialogs sharing the same Dialog/Paper styles could be affected if global styles are changed instead of local ones.",
+      "Wrapping the action row may alter button order/visual hierarchy on small screens.",
+      "Console errors (6) and xstate transient-transition warnings are unrelated here but may mask other onboarding state issues.",
+      "Screenshot alone cannot confirm exact overflow source; runtime inspection of computed styles is needed.",
+      "Fix may not address overflow if it originates from a child component (e.g., TransactionItem) embedded in the dialog."
+    ]
+  }
+}

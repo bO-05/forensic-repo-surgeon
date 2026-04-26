@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forensic Repo Surgeon Dossier - crwa-mobile-date-range-drawer</title>
+  <style>
+    :root {
+      --ink: #17130d;
+      --paper: #f3ead8;
+      --paper-deep: #dfcfaf;
+      --charcoal: #25221d;
+      --line: #8f7f5d;
+      --green: #2f6f4e;
+      --red: #9d2e24;
+      --amber: #c17817;
+      --blueprint: #193a4a;
+      --white: #fffaf0;
+      --shadow: 0 22px 70px rgba(23, 19, 13, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 12%, rgba(193, 120, 23, 0.18), transparent 30%),
+        linear-gradient(135deg, rgba(25, 58, 74, 0.18) 0 1px, transparent 1px 24px),
+        var(--paper);
+      font-family: Georgia, Cambria, "Times New Roman", serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 34px;
+      border: 2px solid var(--ink);
+      background: linear-gradient(120deg, rgba(255, 250, 240, 0.96), rgba(223, 207, 175, 0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 320px;
+      height: 320px;
+      border: 32px solid rgba(37, 34, 29, 0.08);
+      transform: rotate(17deg);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(40px, 6vw, 82px);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 18px 0 0;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .stamp {
+      align-self: start;
+      min-width: 178px;
+      padding: 18px;
+      border: 2px solid currentColor;
+      transform: rotate(2deg);
+      text-align: center;
+      font-family: "Cascadia Code", Consolas, monospace;
+      background: var(--white);
+    }
+
+    .stamp.pass {
+      color: var(--green);
+    }
+
+    .stamp.fail {
+      color: var(--red);
+    }
+
+    .stamp strong {
+      display: block;
+      font-size: 42px;
+      letter-spacing: -0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      grid-column: span 6;
+      padding: 22px;
+      border: 1px solid rgba(23, 19, 13, 0.28);
+      background: rgba(255, 250, 240, 0.88);
+      box-shadow: 0 12px 34px rgba(23, 19, 13, 0.08);
+    }
+
+    .card.wide {
+      grid-column: span 12;
+    }
+
+    .card.third {
+      grid-column: span 4;
+    }
+
+    .card h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      padding: 14px;
+      border: 1px solid rgba(23, 19, 13, 0.24);
+      background: var(--charcoal);
+      color: var(--white);
+      min-height: 104px;
+    }
+
+    .metric span {
+      display: block;
+      color: rgba(255, 250, 240, 0.66);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 30px;
+      letter-spacing: -0.05em;
+    }
+
+    .shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      max-height: 760px;
+      object-fit: contain;
+      border: 2px solid var(--ink);
+      background: #111;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 12px 14px;
+      border-left: 5px solid var(--line);
+      background: rgba(223, 207, 175, 0.42);
+    }
+
+    .list li.pass {
+      border-left-color: var(--green);
+    }
+
+    .list li.fail {
+      border-left-color: var(--red);
+    }
+
+    .list li.warning {
+      border-left-color: var(--amber);
+    }
+
+    .mono,
+    pre,
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+    }
+
+    pre {
+      max-height: 420px;
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f7f0df;
+      background: #16130f;
+      border: 1px solid rgba(23, 19, 13, 0.4);
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      display: inline-flex;
+      padding: 10px 12px;
+      border: 1px solid var(--ink);
+      background: var(--white);
+      text-decoration: none;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline {
+      counter-reset: step;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 56px;
+    }
+
+    .timeline li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 12px;
+      top: 11px;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--blueprint);
+      color: var(--white);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .shots,
+      .kpi {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .card.third {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Forensic Repo Surgeon validation dossier</p>
+        <h1>Authenticated mobile date range drawer evidence capture</h1>
+        <p class="subtitle">Capture an authenticated mobile transaction-feed state with the date range drawer open. This page is generated from artifacts only; raw files are linked for audit.</p>
+      </div>
+      <div class="stamp pass">
+        <span>scorecard</span>
+        <strong>100</strong>
+        <span>passing</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card wide">
+        <h2>Proof Gates</h2>
+        <div class="kpi">
+          <div class="metric"><span>artifacts</span><strong>100%</strong><span>required files present</span></div>
+          <div class="metric"><span>before control</span><strong>yes</strong><span>expected failure observed</span></div>
+          <div class="metric"><span>verification</span><strong>100%</strong><span>assertions pass</span></div>
+          <div class="metric"><span>patch relevance</span><strong>yes</strong><span>touches top candidate</span></div>
+          <div class="metric"><span>run duration</span><strong>151.4s</strong><span>cleanup passed</span></div>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <h2>Before And After</h2>
+        <div class="shots">
+          <figure>
+            <img src="failure.png" alt="Before screenshot showing the failing UI state" />
+            <figcaption>Before: failure.png</figcaption>
+          </figure>
+          <figure>
+            <img src="success.png" alt="After screenshot showing the verified UI state" />
+            <figcaption>After: success.png</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>User Workflow</h2>
+        <ol class="list timeline">
+          <li>Open the mobile sign-in route</li>
+<li>Log in with a seeded local user</li>
+<li>Wait for the transaction feed</li>
+<li>Open the date range filter drawer</li>
+<li>Capture the resulting mobile UI state and evidence bundle</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Before Negative Control</h2>
+        <ul class="list">
+          <li class="pass"><strong>passing</strong>: expected before-state failure</li>
+          <li class="pass"><strong>pass</strong>: date range drawer is visible</li>
+<li class="pass"><strong>pass</strong>: drawer close button is visible</li>
+<li class="pass"><strong>pass</strong>: calendar container is within the mobile viewport</li>
+<li class="fail"><strong>fail</strong>: calendar starts near top of the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: no unexpected console errors appear during drawer verification</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Verification Assertions</h2>
+        <ul class="list">
+          <li class="pass"><strong>pass</strong>: date range drawer is visible</li>
+<li class="pass"><strong>pass</strong>: drawer close button is visible</li>
+<li class="pass"><strong>pass</strong>: calendar container is within the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: calendar starts near top of the mobile viewport</li>
+<li class="pass"><strong>pass</strong>: no unexpected console errors appear during drawer verification</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Source Localization</h2>
+        <ul class="list">
+          <li><strong>#1 src/components/TransactionDateRangeFilter.tsx</strong> <span class="mono">score 541</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#2 src/components/TransactionListAmountRangeFilter.tsx</strong> <span class="mono">score 342</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#3 src/components/TransactionItem.tsx</strong> <span class="mono">score 270</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#4 src/components/TransactionDetail.tsx</strong> <span class="mono">score 249</span><br>Matches data-test hooks found in the captured DOM. File path/name matches the case vocabulary.</li>
+<li><strong>#5 src/components/NavBar.tsx</strong> <span class="mono">score 244</span><br>Matches data-test hooks found in the captured DOM.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Gate Details</h2>
+        <ul class="list">
+          <li class="pass"><strong>pass</strong>: artifactsComplete</li>
+<li class="pass"><strong>pass</strong>: negativeControlPassed</li>
+<li class="pass"><strong>pass</strong>: verificationPassing</li>
+<li class="pass"><strong>pass</strong>: localizationPresent</li>
+<li class="pass"><strong>pass</strong>: patchRelevant</li>
+<li class="pass"><strong>pass</strong>: reasonerPresent</li>
+<li class="pass"><strong>pass</strong>: reasonerReferencesArtifacts</li>
+<li class="pass"><strong>pass</strong>: doctorPassing</li>
+<li class="pass"><strong>pass</strong>: runCompleted</li>
+<li class="pass"><strong>pass</strong>: cleanupSucceeded</li>
+<li class="pass"><strong>pass</strong>: redactionPassed</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Changed Files</h2>
+        <ul class="list">
+          <li><code>src/components/TransactionDateRangeFilter.tsx</code></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Reasoning Boundary</h2>
+        <ul class="list">
+          <li class="pass"><strong>provider</strong>: deterministic-fallback</li>
+          <li class="warning"><strong>live model used</strong>: no</li>
+          <li class="warning"><strong>model</strong>: n/a</li>
+          <li class="warning"><strong>request id</strong>: n/a</li>
+          <li class="warning"><strong>latency</strong>: n/a</li>
+          <li class="warning"><strong>usage</strong>: input n/a / output n/a</li>
+          <li class="pass"><strong>intended model boundary</strong>: claude-code-or-anthropic-api</li>
+          <li class="warning"><strong>recorded run note</strong>: Anthropic request failed before a valid response was returned. Deterministic fallback was used instead.</li>
+          <li><strong>truth boundary</strong>: The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Model Authorship — Claude Code Agent Loop</h2>
+        <p>Opus 4.7 ran inside the target repository and authored a candidate patch using Read, Glob, Grep, and Edit tools. The deterministic verifier evaluated this patch against the same gates as the fixture above.</p>
+        <div class="metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-top: 14px;">
+          <div class="metric"><span>Turns</span><strong>6</strong><span>agent turns</span></div>
+          <div class="metric"><span>Tool Calls</span><strong>2</strong><span>tool calls</span></div>
+          <div class="metric"><span>Files Read</span><strong>1</strong><span>files read</span></div>
+          <div class="metric"><span>Files Edited</span><strong>1</strong><span>files edited</span></div>
+          <div class="metric"><span>Duration</span><strong>49.6s</strong><span>wall clock</span></div>
+          <div class="metric"><span>Cost</span><strong>$0.2292</strong><span>client estimate</span></div>
+        </div>
+        <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+          <div class="pass" style="padding: 14px; border: 1px solid currentColor;">
+            <strong>Fixture Patch</strong>
+            <div style="font-size: 22px;">passing (100)</div>
+            <div class="mono">human-authored, golden baseline</div>
+          </div>
+          <div class="pass" style="padding: 14px; border: 1px solid currentColor;">
+            <strong>Model Patch</strong>
+            <div style="font-size: 22px;">passing (100)</div>
+            <div class="mono">claude-opus-4-7 via Claude Code SDK</div>
+          </div>
+        </div>
+        <ul class="list" style="margin-top: 18px;">
+          <li class="pass"><strong>provider</strong>: claude-agent-sdk</li>
+          <li class="pass"><strong>live model used</strong>: yes</li>
+          <li class="pass"><strong>model</strong>: claude-opus-4-7</li>
+          <li class="pass"><strong>session id</strong>: 4fa8a3cb-0649-434c-a033-b4403dfd7a68</li>
+          <li><strong>loaded tools</strong>: Task, AskUserQuestion, Bash, CronCreate, CronDelete, CronList, Edit, EnterPlanMode, EnterWorktree, ExitPlanMode, ExitWorktree, Glob, Grep, Monitor, NotebookEdit, PowerShell, PushNotification, Read, RemoteTrigger, ScheduleWakeup, Skill, TaskOutput, TaskStop, TodoWrite, ToolSearch, Write</li>
+          <li><strong>result subtype</strong>: success</li>
+          <li><strong>tokens</strong>: input 8 / output 3680 / cache-read 78288</li>
+          <li><strong>truth boundary</strong>: The agent proposes a candidate patch. The deterministic verifier evaluates it against the same gates as the fixture patch.</li>
+          <li class="warning"><strong>recorded run note</strong>: Model-authored patch produced by Claude Code agent loop running inside the target repository. The deterministic verifier evaluates this candidate alongside the fixture patch.</li>
+        </ul>
+        
+        
+      </article>
+
+      <article class="card wide">
+        <h2>Model-Authored Patch</h2>
+        <p>This diff was authored by Claude Code (claude-opus-4-7) inside the target repository. The same deterministic verifier evaluated it against the same gates as the fixture patch above.</p>
+        <pre>diff --git a/src/components/TransactionDateRangeFilter.tsx b/src/components/TransactionDateRangeFilter.tsx
+index 9822724..d1ab232 100644
+--- a/src/components/TransactionDateRangeFilter.tsx
++++ b/src/components/TransactionDateRangeFilter.tsx
+@@ -139,7 +139,7 @@ const TransactionListDateRangeFilter: React.FC&lt;TransactionListDateRangeFilterPro
+           id={dateRangeId}
+           open={dateRangeOpen}
+           ModalProps={{ onClose: handleDateRangeClose }}
+-          anchor=&quot;bottom&quot;
++          anchor=&quot;top&quot;
+           data-test=&quot;date-range-filter-drawer&quot;
+         &gt;
+           &lt;Button data-test=&quot;date-range-filter-drawer-close&quot; onClick={() =&gt; handleDateRangeClose()}&gt;
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Agent Timeline</h2>
+        <p>Each turn shows what Opus 4.7 said and what tools it called. Tool calls are the substance: <code>Read</code>, <code>Glob</code>, <code>Grep</code> for understanding; <code>Edit</code> for the candidate patch.</p>
+        <ol class="list timeline">
+          <li>
+        <strong>Turn 1</strong>
+        
+        
+      </li>
+<li>
+        <strong>Turn 2</strong>
+        
+        <ul class="list"><li class="pass"><strong>Read</strong>: <code>D:/Repo/ALL HACKATHONS/Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/Transact...</code></li></ul>
+      </li>
+<li>
+        <strong>Turn 3</strong>
+        
+        
+      </li>
+<li>
+        <strong>Turn 4</strong>
+        <p>Now I understand the bug. The drawer uses `anchor=&quot;bottom&quot;`, which slides up from the bottom of the viewport. That places the calendar near the bottom, so `[data-test=&quot;transaction-list-filter-date-range&quot;]` has a `top` far greater than 120px. The verifier needs the calendar's top within 120px of the viewport top, so changing the anchor to `&quot;top&quot;` will make the drawer slide from the top — placing the close button at top and the calendar just below it (well within 120px).</p>
+        
+      </li>
+<li>
+        <strong>Turn 5</strong>
+        
+        <ul class="list"><li class="pass"><strong>Edit</strong>: <code>D:/Repo/ALL HACKATHONS/Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/Transact...</code></li></ul>
+      </li>
+<li>
+        <strong>Turn 6</strong>
+        <p>### Summary
+
+I edited `src/components/TransactionDateRangeFilter.tsx` and changed the mobile (`xsBreakpoint`) `Drawer`'s `anchor` from `&quot;bottom&quot;` to `&quot;top&quot;`. Previously the drawer slid up from the bottom of the iPhone 13 viewport, which placed the calendar (`[data-test=&quot;transaction-list-filter-date-range&quot;]`) hundreds of pixels down — well past the 120px top threshold the verifier asserts. With `anchor=&quot;top&quot;`, the drawer is pinned to the top of the viewport, so the close button sits at the top edge and the calendar's `top` lands roughly 36–48px down — comfortably within 120px and still inside t...</p>
+        
+      </li>
+        </ol>
+      </article>
+
+      <article class="card wide">
+        <h2>Recorded Run Environment</h2>
+        <p>This section reports the machine that produced this recorded run. It does not validate the reviewer's current machine.</p>
+        <ul class="list">
+          <li class="pass"><strong>passing</strong>: controller Node runtime<br><span class="mono">Node 20.11.1; target app runtime is checked separately.</span></li>
+<li class="pass"><strong>passing</strong>: target Node runtime<br><span class="mono">target Node runtime: D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\tools\node-v22.12.0-win-x64\node.exe</span></li>
+<li class="pass"><strong>passing</strong>: pnpm package manager<br><span class="mono">9.15.0</span></li>
+<li class="pass"><strong>passing</strong>: case patch fixture<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\patches\crwa-mobile-date-range-drawer.diff</span></li>
+<li class="pass"><strong>passing</strong>: demo ports<br><span class="mono">Ports 3000, 3001 are free.</span></li>
+<li class="pass"><strong>passing</strong>: cypress-realworld-app target repo<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\.surgeon-targets\cypress-realworld-app</span></li>
+<li class="pass"><strong>passing</strong>: case patch artifact<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\artifacts\crwa-mobile-date-range-drawer\patch.diff</span></li>
+<li class="pass"><strong>passing</strong>: workspace drive<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon has 16.9 GiB free.</span></li>
+<li class="pass"><strong>passing</strong>: target drive<br><span class="mono">D:\Repo\ALL HACKATHONS\Cerebral Valley &amp; Anthropic - Built with Opus 4.7 Claude Code hackathon\.surgeon-targets\cypress-realworld-app has 16.9 GiB free.</span></li>
+<li class="pass"><strong>passing</strong>: target patch state<br><span class="mono">Target is in before-state and patch can be applied.</span></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Run Timeline</h2>
+        <ul class="list timeline">
+          <li class="pass"><strong>passing</strong>: preflight-doctor <span class="mono">2.7s</span></li>
+<li class="pass"><strong>passing</strong>: reset-target-before-state <span class="mono">503ms</span></li>
+<li class="pass"><strong>passing</strong>: start-target <span class="mono">67.8s</span></li>
+<li class="pass"><strong>passing</strong>: capture-failing-evidence <span class="mono">30.9s</span></li>
+<li class="pass"><strong>passing</strong>: capture-before-verification <span class="mono">7.6s</span></li>
+<li class="pass"><strong>passing</strong>: localize-source-candidates <span class="mono">2.1s</span></li>
+<li class="pass"><strong>passing</strong>: reason-over-artifacts <span class="mono">15.4s</span></li>
+<li class="pass"><strong>passing</strong>: apply-target-patch <span class="mono">603ms</span></li>
+<li class="pass"><strong>passing</strong>: capture-passing-verification <span class="mono">8.4s</span></li>
+<li class="pass"><strong>passing</strong>: write-repair-hypothesis <span class="mono">14ms</span></li>
+<li class="pass"><strong>passing</strong>: regenerate-pr-report <span class="mono">24ms</span></li>
+<li class="pass"><strong>passing</strong>: write-artifact-viewer <span class="mono">90ms</span></li>
+<li class="pass"><strong>passing</strong>: typecheck-controller <span class="mono">13.7s</span></li>
+<li class="pass"><strong>passing</strong>: restore-target-before-state <span class="mono">390ms</span></li>
+<li class="pass"><strong>passing</strong>: stop-target <span class="mono">1.0s</span></li>
+<li class="pass"><strong>passing</strong>: write-proof-scorecard <span class="mono">38ms</span></li>
+<li class="pass"><strong>passing</strong>: write-github-summary <span class="mono">43ms</span></li>
+<li class="pass"><strong>passing</strong>: write-evidence-manifest <span class="mono">163ms</span></li>
+<li class="pass"><strong>passing</strong>: refresh-artifact-viewer <span class="mono">54ms</span></li>
+<li class="pass"><strong>passing</strong>: write-demo-cockpit <span class="mono">587ms</span></li>
+<li class="pass"><strong>passing</strong>: export-demo-package <span class="mono">3.3s</span></li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Repair Hypothesis</h2>
+        <pre># Repair Hypothesis
+
+Case: `crwa-mobile-date-range-drawer`
+
+## Evidence Read
+
+- Before screenshot: `./artifacts/crwa-mobile-date-range-drawer/failure.png`
+- Browser trace: `./artifacts/crwa-mobile-date-range-drawer/trace.zip`
+- DOM snapshot: `./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json`
+- Accessibility tree: `./artifacts/crwa-mobile-date-range-drawer/ax-tree.json`
+
+## Localization Hypothesis
+
+The highest-confidence source candidate is `src/components/TransactionDateRangeFilter.tsx` with score `541`.
+- Matches data-test hooks found in the captured DOM.
+- File path/name matches the case vocabulary.
+
+## Root-Cause Hypothesis
+
+The Material UI bottom drawer and calendar wrapper are not bounded to the mobile viewport, so the date picker content can extend below the screen.
+
+## Patch Hypothesis
+
+Constrain the drawer paper to full viewport height and make the date-range calendar wrapper viewport-bounded and scrollable.
+
+Changed files:
+- `src/components/TransactionDateRangeFilter.tsx`
+
+## Verification Evidence
+
+- Before-state negative control: `passing`
+- Verification status: `passing`
+- pass: date range drawer is visible
+- pass: drawer close button is visible
+- pass: calendar container is within the mobile viewport
+- pass: calendar starts near top of the mobile viewport
+- pass: no unexpected console errors appear during drawer verification
+
+## Truth Boundary
+
+This hypothesis is not proof by itself. The proof is the passing verification artifact plus the before/after browser evidence.
+- Residual risk: Desktop popover behavior should be reviewed before upstreaming.
+- Residual risk: Adjacent mobile viewport sizes are not exhaustively checked.
+- Residual risk: Anthropic error: Unterminated string in JSON at position 2500
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Reasoner Artifact</h2>
+        <pre># Reasoning Boundary
+
+Case: `crwa-mobile-date-range-drawer`
+Provider: `deterministic-fallback`
+Live model used: `no`
+Model: `n/a`
+Request id: `n/a`
+Latency: `n/a`
+Usage: `input n/a / output n/a`
+Intended model boundary: `claude-code-or-anthropic-api`
+
+Anthropic request failed before a valid response was returned. Deterministic fallback was used instead.
+
+## Truth Boundary
+
+The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.
+
+## Evidence References
+
+- `./artifacts/crwa-mobile-date-range-drawer/failure.png`
+- `./artifacts/crwa-mobile-date-range-drawer/trace.zip`
+- `./artifacts/crwa-mobile-date-range-drawer/console.ndjson`
+- `./artifacts/crwa-mobile-date-range-drawer/network.ndjson`
+- `./artifacts/crwa-mobile-date-range-drawer/ax-tree.json`
+- `./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json`
+- `./artifacts/crwa-mobile-date-range-drawer/candidates.json`
+- `./artifacts/crwa-mobile-date-range-drawer/patch.diff`
+- `./artifacts/crwa-mobile-date-range-drawer/verify.json`
+
+## Top Source Candidate
+
+- `src/components/TransactionDateRangeFilter.tsx` score `541`
+- Matches data-test hooks found in the captured DOM.
+- File path/name matches the case vocabulary.
+
+## Diagnosis
+
+- Symptom: Authenticated mobile transaction feed opens a date-range drawer where the calendar can be clipped outside the visible viewport.
+- Likely root cause: The Material UI bottom drawer and calendar wrapper are not bounded to the mobile viewport, so the date picker content can extend below the screen.
+- Patch hypothesis: Constrain the drawer paper to full viewport height and make the date-range calendar wrapper viewport-bounded and scrollable.
+
+## Verification Plan
+
+- Rerun the same authenticated mobile workflow.
+- Assert the drawer is visible.
+- Assert the drawer close button is visible.
+- Assert the calendar container remains inside the 390x844 viewport.
+- Capture an after screenshot and machine-readable verification report.
+
+## Residual Risks
+
+- Desktop popover behavior should be reviewed before upstreaming.
+- Adjacent mobile viewport sizes are not exhaustively checked.
+- Anthropic error: Unterminated string in JSON at position 2500
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Evidence Integrity</h2>
+        <pre># Evidence Integrity Manifest
+
+Case: `crwa-mobile-date-range-drawer`
+Generated at: `2026-04-26T13:24:42.445Z`
+Bundle fingerprint: `ea3e4a086f156422f2c4cbcb6338905c90d89d36f4f8a77cd2d289b8b96239a8`
+
+This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.
+
+## Review Order
+
+1. Compare `./artifacts/crwa-mobile-date-range-drawer/failure.png` and `./artifacts/crwa-mobile-date-range-drawer/success.png`.
+2. Read `./artifacts/crwa-mobile-date-range-drawer/reasoner.md`, `./artifacts/crwa-mobile-date-range-drawer/PR.md`, and `./artifacts/crwa-mobile-date-range-drawer/scorecard.json`.
+3. Use the hashes below to compare this artifact set against another copy.
+
+## Hashed Files
+
+- `axTree` -&gt; `./artifacts/crwa-mobile-date-range-drawer/ax-tree.json` sha256 `c4f9b908ca4746405b5adecd07f7bc52975b9c711ae51e4f09c5c66789182f2b` size `201980`
+- `beforeVerify` -&gt; `./artifacts/crwa-mobile-date-range-drawer/before-verify.json` sha256 `1ce124b1dea0efdbc0f2f435b383b56adbf49df9f0de810bc00f296baad14df4` size `1612`
+- `candidates` -&gt; `./artifacts/crwa-mobile-date-range-drawer/candidates.json` sha256 `21eb7806eb6e58c3b0d77e34b5b9dfba889648eeaac926fa60ef911a5e9af383` size `48111`
+- `console` -&gt; `./artifacts/crwa-mobile-date-range-drawer/console.ndjson` sha256 `fe5abfa24abc0ea8a8fc41fb750f07ace90ad2ce7167931949716332ea66b5cd` size `7033`
+- `doctor` -&gt; `./artifacts/crwa-mobile-date-range-drawer/doctor.json` sha256 `e088de29dc91df41c9bb5fbb6943d3cd34749d43331a3e35a747ee1865c41a68` size `2302`
+- `domSnapshot` -&gt; `./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json` sha256 `3cc3db20c7f8c85b1bf82250182242d05b4782f2261792b00b2eb889f7053495` size `715905`
+- `screenshot` -&gt; `./artifacts/crwa-mobile-date-range-drawer/failure.png` sha256 `87606cabfdc494c5cb02533c53d1080ec4bbddc75f3d718134496fa2e768f8b0` size `27554`
+- `hypothesis` -&gt; `./artifacts/crwa-mobile-date-range-drawer/hypothesis.md` sha256 `9cc6930247e3a17d37b24c096a705941b5fa4451828eb22164c1e728191da448` size `1755`
+- `input` -&gt; `./artifacts/crwa-mobile-date-range-drawer/input.json` sha256 `ea7e59c03b0e6c36337627fe36a9aed83e2bfde8d1b5cfaac54153f71cb1fc0d` size `2451`
+- `network` -&gt; `./artifacts/crwa-mobile-date-range-drawer/network.ndjson` sha256 `3c62f35a85499148e5634353e880c88908c15c6a4dd4d93ee513f96d0a14cbb5` size `15639`
+- `patch` -&gt; `./artifacts/crwa-mobile-date-range-drawer/patch.diff` sha256 `603a03fc3c0ae9cbdd5e0f4d401276b3ab214f6ad31d972290b9fc6691e12a15` size `1472`
+- `report` -&gt; `./artifacts/crwa-mobile-date-range-drawer/PR.md` sha256 `bc5921ae2266ea7e5247fdbc5049db35926c76c86915019b39dfb661de556814` size `3488`
+- `reasoner` -&gt; `./artifacts/crwa-mobile-date-range-drawer/reasoner.json` sha256 `88d4401b413d4b3dbea9e5771f8b37583fe9151420b05e9a7fb612fcfd847773` size `2394`
+- `reasonerReport` -&gt; `./artifacts/crwa-mobile-date-range-drawer/reasoner.md` sha256 `5f9aa27e4c38e3e137642c64aa43663db2c6f0cb4558c99b392acce330421118` size `2212`
+- `redactionReport` -&gt; `./artifacts/crwa-mobile-date-range-drawer/redaction-report.json` sha256 `064c02aee07331ba2af41d78e80ddb5338987b83f3c04655e0a3d1165fca4178` size `219`
+- `scorecard` -&gt; `./artifacts/crwa-mobile-date-range-drawer/scorecard.json` sha256 `072964095c2a33c502620f06cf556b70a8a542bcd5bbb1dafcbe44d0d96d648e` size `4216`
+- `success` -&gt; `./artifacts/crwa-mobile-date-range-drawer/success.png` sha256 `3234e2ff02a73ff51da4aa86b59e46f895a204b5b880b186e5347f239b6df693` size `12125`
+- `trace` -&gt; `./artifacts/crwa-mobile-date-range-drawer/trace.zip` sha256 `b78fc1343c1cf7235890a2c2df024ef8ac95ad4a49b6cfcad1b6b94ddfc5c7a4` size `1109801`
+- `verify` -&gt; `./artifacts/crwa-mobile-date-range-drawer/verify.json` sha256 `fee69703e4bc99ab78268d650458c6831c96582ca9520dedc5d1c6622bb8cac6` size `1224`
+</pre>
+      </article>
+
+      <article class="card">
+        <h2>Reasoner Evidence</h2>
+        <ul class="list">
+          <li><code>./artifacts/crwa-mobile-date-range-drawer/failure.png</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/trace.zip</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/console.ndjson</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/network.ndjson</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/ax-tree.json</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/candidates.json</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/patch.diff</code></li>
+<li><code>./artifacts/crwa-mobile-date-range-drawer/verify.json</code></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Verification Plan</h2>
+        <ul class="list">
+          <li>Rerun the same authenticated mobile workflow.</li>
+<li>Assert the drawer is visible.</li>
+<li>Assert the drawer close button is visible.</li>
+<li>Assert the calendar container remains inside the 390x844 viewport.</li>
+<li>Capture an after screenshot and machine-readable verification report.</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Patch Diff</h2>
+        <pre>diff --git a/src/components/TransactionDateRangeFilter.tsx b/src/components/TransactionDateRangeFilter.tsx
+index 9822724..32dd373 100644
+--- a/src/components/TransactionDateRangeFilter.tsx
++++ b/src/components/TransactionDateRangeFilter.tsx
+@@ -141,6 +141,13 @@ const TransactionListDateRangeFilter: React.FC&lt;TransactionListDateRangeFilterPro
+           ModalProps={{ onClose: handleDateRangeClose }}
+           anchor=&quot;bottom&quot;
+           data-test=&quot;date-range-filter-drawer&quot;
++          PaperProps={{
++            sx: {
++              height: &quot;100vh&quot;,
++              maxHeight: &quot;100vh&quot;,
++              overflow: &quot;hidden&quot;,
++            },
++          }}
+         &gt;
+           &lt;Button data-test=&quot;date-range-filter-drawer-close&quot; onClick={() =&gt; handleDateRangeClose()}&gt;
+             Close
+@@ -173,8 +180,8 @@ export function RangeCalendar({
+ }) {
+   const [value, setValue] = useState&lt;Value&gt;(defaultValue);
+ 
+-  const width = xsBreakpoint ? window.innerWidth : 350;
+-  const height = xsBreakpoint ? window.innerHeight : 300;
++  const width = xsBreakpoint ? &quot;100vw&quot; : 350;
++  const height = xsBreakpoint ? &quot;calc(100vh - 48px)&quot; : 300;
+ 
+   const handleChange = (val: Value, _: any) =&gt; {
+     setValue(val);
+@@ -187,6 +194,9 @@ export function RangeCalendar({
+       style={{
+         width,
+         maxWidth: &quot;100%&quot;,
++        height,
++        overflowY: &quot;auto&quot;,
++        boxSizing: &quot;border-box&quot;,
+         background: color[&quot;400&quot;],
+         padding: 8,
+         borderRadius: 8,
+</pre>
+      </article>
+
+      <article class="card wide">
+        <h2>Raw Audit Links</h2>
+        <div class="links">
+          <a href="PR.md">PR report</a>
+<a href="scorecard.json">Scorecard</a>
+<a href="before-verify.json">Before verification</a>
+<a href="doctor.json">Doctor</a>
+<a href="reasoner.json">Reasoner JSON</a>
+<a href="reasoner.md">Reasoner report</a>
+<a href="evidence-manifest.json">Evidence manifest JSON</a>
+<a href="evidence-manifest.md">Evidence manifest</a>
+<a href="redaction-report.json">Redaction report</a>
+<a href="github-check.md">GitHub check summary</a>
+<a href="hypothesis.md">Hypothesis</a>
+<a href="candidates.json">Candidates</a>
+<a href="verify.json">Verification</a>
+<a href="run.json">Run timeline</a>
+<a href="patch.diff">Patch</a>
+<a href="trace.zip">Trace</a>
+<a href="console.ndjson">Console</a>
+<a href="network.ndjson">Network</a>
+<a href="ax-tree.json">AX tree</a>
+<a href="dom-snapshot.json">DOM snapshot</a>
+<a href="model-agent-trace.json">Model agent trace JSON</a>
+<a href="model-agent-trace.md">Model agent transcript</a>
+<a href="model-patch.diff">Model patch</a>
+<a href="model-verify.json">Model verification</a>
+<a href="model-patch.png">Model after screenshot</a>
+<a href="model-scorecard.json">Model scorecard</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

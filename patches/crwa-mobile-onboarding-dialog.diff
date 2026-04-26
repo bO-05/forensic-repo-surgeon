@@ -1,0 +1,106 @@
+diff --git a/src/containers/UserOnboardingContainer.tsx b/src/containers/UserOnboardingContainer.tsx
+index d6b1a28..52b66f0 100644
+--- a/src/containers/UserOnboardingContainer.tsx
++++ b/src/containers/UserOnboardingContainer.tsx
+@@ -4,7 +4,6 @@ import {
+   Box,
+   useTheme,
+   useMediaQuery,
+-  Grid,
+   Dialog,
+   DialogActions,
+   DialogContent,
+@@ -77,12 +76,30 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
+         {userOnboardingState.matches("stepThree") && "Finished"}
+       </DialogTitle>
+       <DialogContent data-test="user-onboarding-dialog-content">
+-        <Box display="flex" alignItems="center" justifyContent="center">
++        <Box
++          display="flex"
++          alignItems="center"
++          justifyContent="center"
++          flexDirection={fullScreen ? "column" : "row"}
++          textAlign={fullScreen ? "center" : "left"}
++          gap={fullScreen ? 2 : 0}
++          sx={{
++            "& svg": {
++              maxWidth: "100%",
++              height: "auto",
++            },
++          }}
++        >
+           {userOnboardingState.matches("stepOne") && (
+             <>
+               <NavigatorIllustration />
+               <br />
+-              <DialogContentText style={{ paddingLeft: 20 }}>
++              <DialogContentText
++                style={{
++                  paddingLeft: fullScreen ? 0 : 20,
++                  paddingTop: fullScreen ? 12 : 0,
++                }}
++              >
+                 Real World App requires a Bank Account to perform transactions.
+                 <br />
+                 <br />
+@@ -101,7 +118,12 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
+             <>
+               <PersonalFinance />
+               <br />
+-              <DialogContentText style={{ paddingLeft: 20 }}>
++              <DialogContentText
++                style={{
++                  paddingLeft: fullScreen ? 0 : 20,
++                  paddingTop: fullScreen ? 12 : 0,
++                }}
++              >
+                 You're all set!
+                 <br />
+                 <br />
+@@ -112,25 +134,28 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
+         </Box>
+       </DialogContent>
+       <DialogActions>
+-        <Grid container justifyContent="space-between">
+-          <Grid item>
+-            <Button
+-              style={{ paddingRight: "80%" }}
+-              onClick={/* istanbul ignore next */ () => sendAuth("LOGOUT")}
+-              color="secondary"
+-              data-test="user-onboarding-logout"
+-            >
+-              Logout
++        <Box
++          display="flex"
++          flexDirection={fullScreen ? "column-reverse" : "row"}
++          justifyContent="space-between"
++          alignItems={fullScreen ? "stretch" : "center"}
++          gap={2}
++          width="100%"
++        >
++          <Button
++            fullWidth={fullScreen}
++            onClick={/* istanbul ignore next */ () => sendAuth("LOGOUT")}
++            color="secondary"
++            data-test="user-onboarding-logout"
++          >
++            Logout
++          </Button>
++          {!userOnboardingState.matches("stepTwo") && (
++            <Button fullWidth={fullScreen} onClick={() => nextStep()} color="primary" data-test="user-onboarding-next">
++              {userOnboardingState.matches("stepThree") ? "Done" : "Next"}
+             </Button>
+-          </Grid>
+-          <Grid item>
+-            {!userOnboardingState.matches("stepTwo") && (
+-              <Button onClick={() => nextStep()} color="primary" data-test="user-onboarding-next">
+-                {userOnboardingState.matches("stepThree") ? "Done" : "Next"}
+-              </Button>
+-            )}
+-          </Grid>
+-        </Grid>
++          )}
++        </Box>
+       </DialogActions>
+     </Dialog>
+   );

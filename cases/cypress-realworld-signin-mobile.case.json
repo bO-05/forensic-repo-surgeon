@@ -1,0 +1,41 @@
+{
+  "id": "crwa-signin-mobile-baseline",
+  "title": "Baseline mobile signin evidence capture",
+  "target": {
+    "repo": "cypress-realworld-app",
+    "stack": "React + Material UI + TypeScript",
+    "baseUrl": "http://localhost:3000"
+  },
+  "route": "/signin",
+  "viewport": {
+    "name": "iPhone 13",
+    "width": 390,
+    "height": 844,
+    "isMobile": true
+  },
+  "auth": {
+    "mode": "none",
+    "notes": "Baseline no-auth evidence capture for validating the Playwright pipeline."
+  },
+  "input": {
+    "screenshotPath": "./inputs/signin-mobile-reference.png",
+    "note": "Capture the mobile sign-in page as the baseline evidence bundle."
+  },
+  "repro": {
+    "steps": [
+      "Launch app on the canonical local origin",
+      "Open the mobile sign-in route",
+      "Capture the initial browser state and evidence bundle"
+    ]
+  },
+  "artifacts": {
+    "directory": "./artifacts/crwa-signin-mobile-baseline"
+  },
+  "verification": {
+    "mustPass": [
+      "The sign-in page loads in the browser",
+      "The evidence bundle is written to disk",
+      "Trace, screenshot, AX tree, and DOM snapshot are present"
+    ]
+  }
+}

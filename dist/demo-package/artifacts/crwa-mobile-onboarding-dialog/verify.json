@@ -1,0 +1,104 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "status": "passing",
+  "checkedAt": "2026-04-26T13:26:05.421Z",
+  "screenshot": "./artifacts/crwa-mobile-onboarding-dialog/success.png",
+  "assertions": [
+    {
+      "name": "onboarding dialog is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "next button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 8,
+        "y": 802.5625,
+        "width": 374,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 8,
+        "y": 753.125,
+        "width": 374,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "logout button uses mobile touch width",
+      "pass": true,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 8,
+        "y": 802.5625,
+        "width": 374,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button uses mobile touch width",
+      "pass": true,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 8,
+        "y": 753.125,
+        "width": 374,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "onboarding action buttons do not overlap",
+      "pass": true,
+      "expected": "boxes do not overlap",
+      "actual": {
+        "targetBox": {
+          "x": 8,
+          "y": 802.5625,
+          "width": 374,
+          "height": 33.4375
+        },
+        "blockerBox": {
+          "x": 8,
+          "y": 753.125,
+          "width": 374,
+          "height": 33.4375
+        }
+      }
+    },
+    {
+      "name": "onboarding step one does not introduce horizontal overflow",
+      "pass": true,
+      "expected": "document scrollWidth <= viewport width",
+      "actual": {
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during onboarding verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ]
+}

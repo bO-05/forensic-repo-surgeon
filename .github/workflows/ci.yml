@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify source
+        run: pnpm verify:source
+
+      - name: Summarize proof artifacts
+        if: always()
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          summaries=(artifacts/**/github-check.md)
+          if (( ${#summaries[@]} )); then
+            cat "${summaries[@]}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "## Forensic Repo Surgeon proof path"
+              echo ""
+              echo "Primary artifact: \`scorecard.json\`."
+              echo ""
+              echo "Run \`pnpm demo\` to produce \`github-check.md\`, screenshots, trace, verification JSON, redaction report, and scorecard artifacts."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Post GitHub Check Run for each verified case
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          for case_path in cases/*.case.json; do
+            check_json="artifacts/$(basename "$case_path" .case.json | sed -e 's/cypress-realworld-mobile-/crwa-mobile-/' -e 's/\.case$//')/github-check.json"
+            if [ -f "$check_json" ]; then
+              pnpm surgeon github-check-post --case "$case_path" || true
+            fi
+          done
+
+      - name: Upload proof artifacts when present
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forensic-proof-artifacts
+          if-no-files-found: ignore
+          path: |
+            artifacts/**/scorecard.json
+            artifacts/**/github-check.json
+            artifacts/**/github-check.md
+            artifacts/**/redaction-report.json
+            artifacts/**/before-verify.json
+            artifacts/**/verify.json
+            artifacts/**/PR.md
+            artifacts/**/run.json
+            artifacts/**/failure.png
+            artifacts/**/success.png
+            artifacts/**/trace.zip
+            artifacts/**/model-patch.diff
+            artifacts/**/model-agent-trace.json
+            artifacts/**/model-agent-trace.md
+            artifacts/**/model-scorecard.json
+            artifacts/**/model-verify.json
+            artifacts/**/model-patch.png
+            dist/demo-package/**

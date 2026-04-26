@@ -1,0 +1,39 @@
+diff --git a/src/components/TransactionDateRangeFilter.tsx b/src/components/TransactionDateRangeFilter.tsx
+index 9822724..32dd373 100644
+--- a/src/components/TransactionDateRangeFilter.tsx
++++ b/src/components/TransactionDateRangeFilter.tsx
+@@ -141,6 +141,13 @@ const TransactionListDateRangeFilter: React.FC<TransactionListDateRangeFilterPro
+           ModalProps={{ onClose: handleDateRangeClose }}
+           anchor="bottom"
+           data-test="date-range-filter-drawer"
++          PaperProps={{
++            sx: {
++              height: "100vh",
++              maxHeight: "100vh",
++              overflow: "hidden",
++            },
++          }}
+         >
+           <Button data-test="date-range-filter-drawer-close" onClick={() => handleDateRangeClose()}>
+             Close
+@@ -173,8 +180,8 @@ export function RangeCalendar({
+ }) {
+   const [value, setValue] = useState<Value>(defaultValue);
+ 
+-  const width = xsBreakpoint ? window.innerWidth : 350;
+-  const height = xsBreakpoint ? window.innerHeight : 300;
++  const width = xsBreakpoint ? "100vw" : 350;
++  const height = xsBreakpoint ? "calc(100vh - 48px)" : 300;
+ 
+   const handleChange = (val: Value, _: any) => {
+     setValue(val);
+@@ -187,6 +194,9 @@ export function RangeCalendar({
+       style={{
+         width,
+         maxWidth: "100%",
++        height,
++        overflowY: "auto",
++        boxSizing: "border-box",
+         background: color["400"],
+         padding: 8,
+         borderRadius: 8,

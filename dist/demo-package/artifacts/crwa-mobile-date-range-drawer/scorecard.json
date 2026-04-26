@@ -1,0 +1,160 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "generatedAt": "2026-04-26T13:24:42.258Z",
+  "status": "passing",
+  "score": 100,
+  "metrics": {
+    "artifactCompletenessRatio": 1,
+    "verificationPassRate": 1,
+    "patchTouchesTopCandidate": true,
+    "negativeControlPassed": true,
+    "reasonerProvider": "deterministic-fallback",
+    "doctorStatus": "passing",
+    "runStatus": "passing",
+    "cleanupSucceeded": true,
+    "redactionStatus": "passing",
+    "totalRunDurationMs": 151439,
+    "topCandidate": "src/components/TransactionDateRangeFilter.tsx",
+    "changedFiles": [
+      "src/components/TransactionDateRangeFilter.tsx"
+    ]
+  },
+  "gates": {
+    "artifactsComplete": true,
+    "negativeControlPassed": true,
+    "verificationPassing": true,
+    "localizationPresent": true,
+    "patchRelevant": true,
+    "reasonerPresent": true,
+    "reasonerReferencesArtifacts": true,
+    "doctorPassing": true,
+    "runCompleted": true,
+    "cleanupSucceeded": true,
+    "redactionPassed": true
+  },
+  "artifactChecks": [
+    {
+      "key": "input",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/input.json",
+      "exists": true,
+      "sizeBytes": 2451
+    },
+    {
+      "key": "screenshot",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/failure.png",
+      "exists": true,
+      "sizeBytes": 27554
+    },
+    {
+      "key": "trace",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/trace.zip",
+      "exists": true,
+      "sizeBytes": 1109801
+    },
+    {
+      "key": "console",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/console.ndjson",
+      "exists": true,
+      "sizeBytes": 7033
+    },
+    {
+      "key": "network",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/network.ndjson",
+      "exists": true,
+      "sizeBytes": 15639
+    },
+    {
+      "key": "axTree",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/ax-tree.json",
+      "exists": true,
+      "sizeBytes": 201980
+    },
+    {
+      "key": "domSnapshot",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json",
+      "exists": true,
+      "sizeBytes": 715905
+    },
+    {
+      "key": "candidates",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/candidates.json",
+      "exists": true,
+      "sizeBytes": 48111
+    },
+    {
+      "key": "patch",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/patch.diff",
+      "exists": true,
+      "sizeBytes": 1472
+    },
+    {
+      "key": "success",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/success.png",
+      "exists": true,
+      "sizeBytes": 12125
+    },
+    {
+      "key": "verify",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/verify.json",
+      "exists": true,
+      "sizeBytes": 1224
+    },
+    {
+      "key": "hypothesis",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/hypothesis.md",
+      "exists": true,
+      "sizeBytes": 1755
+    },
+    {
+      "key": "reasoner",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/reasoner.json",
+      "exists": true,
+      "sizeBytes": 2394
+    },
+    {
+      "key": "reasonerReport",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/reasoner.md",
+      "exists": true,
+      "sizeBytes": 2212
+    },
+    {
+      "key": "redactionReport",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/redaction-report.json",
+      "exists": true,
+      "sizeBytes": 219
+    },
+    {
+      "key": "doctor",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/doctor.json",
+      "exists": true,
+      "sizeBytes": 2302
+    },
+    {
+      "key": "run",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/run.json",
+      "exists": true,
+      "sizeBytes": 5448
+    },
+    {
+      "key": "report",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/PR.md",
+      "exists": true,
+      "sizeBytes": 3488
+    },
+    {
+      "key": "viewer",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/index.html",
+      "exists": true,
+      "sizeBytes": 35386
+    },
+    {
+      "key": "beforeVerify",
+      "path": "./artifacts/crwa-mobile-date-range-drawer/before-verify.json",
+      "exists": true,
+      "sizeBytes": 1612
+    }
+  ],
+  "notes": [
+    "All proof gates passed."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "generatedAt": "2026-04-26T08:33:19.722Z",
+  "status": "failing",
+  "score": 92,
+  "source": "claude-agent-sdk",
+  "comparedTo": "fixture-scorecard",
+  "metrics": {
+    "verificationPassRate": 0.8,
+    "patchTouchesTopCandidate": true,
+    "patchByteLength": 1675,
+    "changedFiles": [
+      "src/containers/UserOnboardingContainer.tsx"
+    ],
+    "durationMs": 34650
+  },
+  "gates": {
+    "patchProvided": true,
+    "patchApplies": true,
+    "verificationPassing": false,
+    "patchRelevant": true
+  },
+  "artifacts": {
+    "modelPatch": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.diff",
+    "modelVerify": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-verify.json",
+    "modelScreenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
+    "modelTrace": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-agent-trace.json"
+  },
+  "notes": [
+    "Model patch did not pass the deterministic verifier.",
+    "Verifier reported: Verification failed for crwa-mobile-onboarding-dialog. See ./artifacts/crwa-mobile-onboarding-dialog/verify.json"
+  ]
+}

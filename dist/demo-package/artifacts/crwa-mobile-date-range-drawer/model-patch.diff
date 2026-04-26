@@ -1,0 +1,13 @@
+diff --git a/src/components/TransactionDateRangeFilter.tsx b/src/components/TransactionDateRangeFilter.tsx
+index 9822724..d1ab232 100644
+--- a/src/components/TransactionDateRangeFilter.tsx
++++ b/src/components/TransactionDateRangeFilter.tsx
+@@ -139,7 +139,7 @@ const TransactionListDateRangeFilter: React.FC<TransactionListDateRangeFilterPro
+           id={dateRangeId}
+           open={dateRangeOpen}
+           ModalProps={{ onClose: handleDateRangeClose }}
+-          anchor="bottom"
++          anchor="top"
+           data-test="date-range-filter-drawer"
+         >
+           <Button data-test="date-range-filter-drawer-close" onClick={() => handleDateRangeClose()}>

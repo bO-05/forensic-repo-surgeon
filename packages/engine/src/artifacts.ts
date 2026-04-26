@@ -1,0 +1,42 @@
+import { type ArtifactManifest, type CaseFile } from "../../schemas/src/index.ts";
+
+export function createPlannedArtifactManifest(caseFile: CaseFile): ArtifactManifest {
+  return {
+    caseId: caseFile.id,
+    status: "planned",
+    files: {
+      input: `${caseFile.artifacts.directory}/input.json`,
+      screenshot: `${caseFile.artifacts.directory}/failure.png`,
+      trace: `${caseFile.artifacts.directory}/trace.zip`,
+      console: `${caseFile.artifacts.directory}/console.ndjson`,
+      network: `${caseFile.artifacts.directory}/network.ndjson`,
+      axTree: `${caseFile.artifacts.directory}/ax-tree.json`,
+      domSnapshot: `${caseFile.artifacts.directory}/dom-snapshot.json`,
+      candidates: `${caseFile.artifacts.directory}/candidates.json`,
+      patch: `${caseFile.artifacts.directory}/patch.diff`,
+      beforeVerify: `${caseFile.artifacts.directory}/${caseFile.verification.negativeControl?.artifact ?? "before-verify.json"}`,
+      beforeVerifyScreenshot: `${caseFile.artifacts.directory}/before-verify.png`,
+      success: `${caseFile.artifacts.directory}/success.png`,
+      verify: `${caseFile.artifacts.directory}/verify.json`,
+      hypothesis: `${caseFile.artifacts.directory}/hypothesis.md`,
+      reasoner: `${caseFile.artifacts.directory}/reasoner.json`,
+      reasonerReport: `${caseFile.artifacts.directory}/reasoner.md`,
+      evidenceManifest: `${caseFile.artifacts.directory}/evidence-manifest.json`,
+      evidenceReport: `${caseFile.artifacts.directory}/evidence-manifest.md`,
+      redactionReport: `${caseFile.artifacts.directory}/redaction-report.json`,
+      doctor: `${caseFile.artifacts.directory}/doctor.json`,
+      scorecard: `${caseFile.artifacts.directory}/scorecard.json`,
+      githubCheckJson: `${caseFile.artifacts.directory}/github-check.json`,
+      githubCheckMarkdown: `${caseFile.artifacts.directory}/github-check.md`,
+      run: `${caseFile.artifacts.directory}/run.json`,
+      report: `${caseFile.artifacts.directory}/PR.md`,
+      viewer: `${caseFile.artifacts.directory}/index.html`,
+      modelPatch: `${caseFile.artifacts.directory}/model-patch.diff`,
+      modelTrace: `${caseFile.artifacts.directory}/model-agent-trace.json`,
+      modelTraceReport: `${caseFile.artifacts.directory}/model-agent-trace.md`,
+      modelVerify: `${caseFile.artifacts.directory}/model-verify.json`,
+      modelScreenshot: `${caseFile.artifacts.directory}/model-patch.png`,
+      modelScorecard: `${caseFile.artifacts.directory}/model-scorecard.json`,
+    },
+  };
+}

@@ -1,0 +1,45 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "generatedAt": "2026-04-26T13:24:17.916Z",
+  "provider": "deterministic-fallback",
+  "liveModelUsed": false,
+  "recordedRunNote": "Anthropic request failed before a valid response was returned. Deterministic fallback was used instead.",
+  "intendedModelBoundary": "claude-code-or-anthropic-api",
+  "truthBoundary": "The reasoner proposes and explains. Deterministic verification, doctor, run timeline, and scorecard decide acceptance.",
+  "evidenceReferences": [
+    "./artifacts/crwa-mobile-date-range-drawer/failure.png",
+    "./artifacts/crwa-mobile-date-range-drawer/trace.zip",
+    "./artifacts/crwa-mobile-date-range-drawer/console.ndjson",
+    "./artifacts/crwa-mobile-date-range-drawer/network.ndjson",
+    "./artifacts/crwa-mobile-date-range-drawer/ax-tree.json",
+    "./artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json",
+    "./artifacts/crwa-mobile-date-range-drawer/candidates.json",
+    "./artifacts/crwa-mobile-date-range-drawer/patch.diff",
+    "./artifacts/crwa-mobile-date-range-drawer/verify.json"
+  ],
+  "topCandidate": {
+    "relativeFile": "src/components/TransactionDateRangeFilter.tsx",
+    "score": 541,
+    "reasons": [
+      "Matches data-test hooks found in the captured DOM.",
+      "File path/name matches the case vocabulary."
+    ]
+  },
+  "diagnosis": {
+    "symptom": "Authenticated mobile transaction feed opens a date-range drawer where the calendar can be clipped outside the visible viewport.",
+    "likelyRootCause": "The Material UI bottom drawer and calendar wrapper are not bounded to the mobile viewport, so the date picker content can extend below the screen.",
+    "patchHypothesis": "Constrain the drawer paper to full viewport height and make the date-range calendar wrapper viewport-bounded and scrollable.",
+    "verificationPlan": [
+      "Rerun the same authenticated mobile workflow.",
+      "Assert the drawer is visible.",
+      "Assert the drawer close button is visible.",
+      "Assert the calendar container remains inside the 390x844 viewport.",
+      "Capture an after screenshot and machine-readable verification report."
+    ],
+    "residualRisks": [
+      "Desktop popover behavior should be reviewed before upstreaming.",
+      "Adjacent mobile viewport sizes are not exhaustively checked.",
+      "Anthropic error: Unterminated string in JSON at position 2500"
+    ]
+  }
+}

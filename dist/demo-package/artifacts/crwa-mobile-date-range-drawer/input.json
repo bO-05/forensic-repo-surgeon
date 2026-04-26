@@ -1,0 +1,80 @@
+{
+  "id": "crwa-mobile-date-range-drawer",
+  "title": "Authenticated mobile date range drawer evidence capture",
+  "target": {
+    "repo": "cypress-realworld-app",
+    "stack": "React + Material UI + TypeScript",
+    "baseUrl": "http://localhost:3000"
+  },
+  "workflow": "crwa-mobile-date-range-drawer",
+  "route": "/signin",
+  "viewport": {
+    "name": "iPhone 13",
+    "width": 390,
+    "height": 844,
+    "isMobile": true
+  },
+  "auth": {
+    "mode": "ui",
+    "username": "Heath93",
+    "password": "s3cret",
+    "notes": "Uses the first seeded user from the target repo's database.json."
+  },
+  "input": {
+    "screenshotPath": "./inputs/mobile-date-range-drawer.png",
+    "note": "Capture an authenticated mobile transaction-feed state with the date range drawer open."
+  },
+  "repro": {
+    "steps": [
+      "Open the mobile sign-in route",
+      "Log in with a seeded local user",
+      "Wait for the transaction feed",
+      "Open the date range filter drawer",
+      "Capture the resulting mobile UI state and evidence bundle"
+    ]
+  },
+  "artifacts": {
+    "directory": "./artifacts/crwa-mobile-date-range-drawer"
+  },
+  "verification": {
+    "mustPass": [
+      "The user can authenticate through the local app",
+      "The transaction feed is visible",
+      "The mobile date range drawer or calendar is visible",
+      "Trace, screenshot, AX tree, and DOM snapshot are present"
+    ],
+    "assertions": [
+      {
+        "type": "visible",
+        "name": "date range drawer is visible",
+        "selector": "[data-test=\"date-range-filter-drawer\"]"
+      },
+      {
+        "type": "visible",
+        "name": "drawer close button is visible",
+        "selector": "[data-test=\"date-range-filter-drawer-close\"]"
+      },
+      {
+        "type": "insideViewport",
+        "name": "calendar container is within the mobile viewport",
+        "selector": "[data-test=\"transaction-list-filter-date-range\"]"
+      },
+      {
+        "type": "topWithin",
+        "name": "calendar starts near top of the mobile viewport",
+        "selector": "[data-test=\"transaction-list-filter-date-range\"]",
+        "maxY": 120
+      },
+      {
+        "type": "noConsoleRegression",
+        "name": "no unexpected console errors appear during drawer verification"
+      }
+    ],
+    "negativeControl": {
+      "artifact": "before-verify.json",
+      "expectedFailures": [
+        "calendar starts near top of the mobile viewport"
+      ]
+    }
+  }
+}

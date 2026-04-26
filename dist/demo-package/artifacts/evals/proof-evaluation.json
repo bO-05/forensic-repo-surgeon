@@ -1,0 +1,136 @@
+{
+  "id": "visual-deterministic-proof-benchmark",
+  "version": "0.1.0",
+  "generatedAt": "2026-04-26T13:26:25.078Z",
+  "mission": "Evaluate whether Forensic Repo Surgeon produces visual and deterministic proof for reproducible frontend UI repairs.",
+  "status": "needs-more-evidence",
+  "summary": {
+    "casesEvaluated": 2,
+    "artifactProofCases": 2,
+    "benchmarkReadyCases": 2,
+    "targetCount": 1,
+    "bugClassCount": 2,
+    "assertionCount": 15,
+    "assertionFamilies": [
+      "insideViewport",
+      "noConsoleRegression",
+      "noHorizontalOverflow",
+      "noOverlap",
+      "topWithin",
+      "visible",
+      "widthAtLeast"
+    ]
+  },
+  "acceptanceBars": [
+    {
+      "id": "controlled-demo",
+      "description": "Minimum bar for a credible live demo on known cases.",
+      "minimumArtifactProofCases": 2,
+      "minimumTargets": 1,
+      "minimumBugClasses": 2,
+      "requireNegativeControls": false,
+      "passing": true,
+      "actual": {
+        "artifactProofCases": 2,
+        "targetCount": 1,
+        "bugClassCount": 2,
+        "negativeControlsComplete": true
+      },
+      "missing": []
+    },
+    {
+      "id": "production-confidence",
+      "description": "Minimum bar before claiming the product is broadly worthy for UI-heavy teams.",
+      "minimumArtifactProofCases": 5,
+      "minimumTargets": 2,
+      "minimumBugClasses": 4,
+      "requireNegativeControls": true,
+      "passing": false,
+      "actual": {
+        "artifactProofCases": 2,
+        "targetCount": 1,
+        "bugClassCount": 2,
+        "negativeControlsComplete": true
+      },
+      "missing": [
+        "needs 5 artifact-proof cases; has 2",
+        "needs 2 target repos; has 1",
+        "needs 4 bug classes; has 2"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "crwa-mobile-date-range-drawer",
+      "title": "Authenticated mobile date range drawer evidence capture",
+      "target": "cypress-realworld-app",
+      "bugClass": "responsive-viewport-clipping",
+      "artifactProofPassing": true,
+      "benchmarkReady": true,
+      "score": 100,
+      "assertionCount": 5,
+      "assertionFamilies": [
+        "insideViewport",
+        "noConsoleRegression",
+        "topWithin",
+        "visible"
+      ],
+      "missingArtifacts": [],
+      "missingRequiredAssertions": [],
+      "gates": {
+        "requiredArtifactsPresent": true,
+        "scorecardPassing": true,
+        "deterministicAfterAssertionsPassing": true,
+        "minimumAssertionsMet": true,
+        "requiredAssertionsCovered": true,
+        "patchTouchesTopCandidate": true,
+        "reasonerDisclosurePresent": true,
+        "negativeControlPresent": true,
+        "negativeControlPassed": true
+      },
+      "notes": [
+        "All case-level evaluation gates passed."
+      ]
+    },
+    {
+      "id": "crwa-mobile-onboarding-dialog",
+      "title": "New-user mobile onboarding dialog overflow",
+      "target": "cypress-realworld-app",
+      "bugClass": "mobile-dialog-overflow",
+      "artifactProofPassing": true,
+      "benchmarkReady": true,
+      "score": 100,
+      "assertionCount": 10,
+      "assertionFamilies": [
+        "insideViewport",
+        "noConsoleRegression",
+        "noHorizontalOverflow",
+        "noOverlap",
+        "visible",
+        "widthAtLeast"
+      ],
+      "missingArtifacts": [],
+      "missingRequiredAssertions": [],
+      "gates": {
+        "requiredArtifactsPresent": true,
+        "scorecardPassing": true,
+        "deterministicAfterAssertionsPassing": true,
+        "minimumAssertionsMet": true,
+        "requiredAssertionsCovered": true,
+        "patchTouchesTopCandidate": true,
+        "reasonerDisclosurePresent": true,
+        "negativeControlPresent": true,
+        "negativeControlPassed": true
+      },
+      "notes": [
+        "All case-level evaluation gates passed."
+      ]
+    }
+  ],
+  "knownGaps": [
+    "Current verified cases are from one target repo.",
+    "Current runs record deterministic before-state negative controls, but only for the two locked CRWA cases.",
+    "Current patches are tracked fixtures, so the benchmark evaluates proof packaging and verification more than autonomous patch synthesis."
+  ],
+  "verdict": "Controlled demo proof passes, but production confidence still needs more cases, more targets, and more bug classes."
+}

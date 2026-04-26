@@ -1,0 +1,160 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "generatedAt": "2026-04-26T13:26:20.894Z",
+  "status": "passing",
+  "score": 100,
+  "metrics": {
+    "artifactCompletenessRatio": 1,
+    "verificationPassRate": 1,
+    "patchTouchesTopCandidate": true,
+    "negativeControlPassed": true,
+    "reasonerProvider": "anthropic-messages-api",
+    "doctorStatus": "passing",
+    "runStatus": "passing",
+    "cleanupSucceeded": true,
+    "redactionStatus": "passing",
+    "totalRunDurationMs": 92803,
+    "topCandidate": "src/containers/UserOnboardingContainer.tsx",
+    "changedFiles": [
+      "src/containers/UserOnboardingContainer.tsx"
+    ]
+  },
+  "gates": {
+    "artifactsComplete": true,
+    "negativeControlPassed": true,
+    "verificationPassing": true,
+    "localizationPresent": true,
+    "patchRelevant": true,
+    "reasonerPresent": true,
+    "reasonerReferencesArtifacts": true,
+    "doctorPassing": true,
+    "runCompleted": true,
+    "cleanupSucceeded": true,
+    "redactionPassed": true
+  },
+  "artifactChecks": [
+    {
+      "key": "input",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/input.json",
+      "exists": true,
+      "sizeBytes": 3392
+    },
+    {
+      "key": "screenshot",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/failure.png",
+      "exists": true,
+      "sizeBytes": 21415
+    },
+    {
+      "key": "trace",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/trace.zip",
+      "exists": true,
+      "sizeBytes": 1843705
+    },
+    {
+      "key": "console",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/console.ndjson",
+      "exists": true,
+      "sizeBytes": 7236
+    },
+    {
+      "key": "network",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/network.ndjson",
+      "exists": true,
+      "sizeBytes": 15816
+    },
+    {
+      "key": "axTree",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/ax-tree.json",
+      "exists": true,
+      "sizeBytes": 65202
+    },
+    {
+      "key": "domSnapshot",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json",
+      "exists": true,
+      "sizeBytes": 690391
+    },
+    {
+      "key": "candidates",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/candidates.json",
+      "exists": true,
+      "sizeBytes": 49197
+    },
+    {
+      "key": "patch",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/patch.diff",
+      "exists": true,
+      "sizeBytes": 3868
+    },
+    {
+      "key": "success",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/success.png",
+      "exists": true,
+      "sizeBytes": 23802
+    },
+    {
+      "key": "verify",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/verify.json",
+      "exists": true,
+      "sizeBytes": 2525
+    },
+    {
+      "key": "hypothesis",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/hypothesis.md",
+      "exists": true,
+      "sizeBytes": 2781
+    },
+    {
+      "key": "reasoner",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/reasoner.json",
+      "exists": true,
+      "sizeBytes": 3631
+    },
+    {
+      "key": "reasonerReport",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/reasoner.md",
+      "exists": true,
+      "sizeBytes": 3311
+    },
+    {
+      "key": "redactionReport",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/redaction-report.json",
+      "exists": true,
+      "sizeBytes": 219
+    },
+    {
+      "key": "doctor",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/doctor.json",
+      "exists": true,
+      "sizeBytes": 2302
+    },
+    {
+      "key": "run",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/run.json",
+      "exists": true,
+      "sizeBytes": 5445
+    },
+    {
+      "key": "report",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/PR.md",
+      "exists": true,
+      "sizeBytes": 4661
+    },
+    {
+      "key": "viewer",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/index.html",
+      "exists": true,
+      "sizeBytes": 42780
+    },
+    {
+      "key": "beforeVerify",
+      "path": "./artifacts/crwa-mobile-onboarding-dialog/before-verify.json",
+      "exists": true,
+      "sizeBytes": 3011
+    }
+  ],
+  "notes": [
+    "All proof gates passed."
+  ]
+}

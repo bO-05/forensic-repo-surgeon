@@ -1,0 +1,48 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "status": "passing",
+  "checkedAt": "2026-04-26T08:31:39.934Z",
+  "screenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\model-patch.png",
+  "assertions": [
+    {
+      "name": "date range drawer is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "drawer close button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "calendar container is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 0,
+        "y": 33.4375,
+        "width": 390,
+        "height": 281
+      }
+    },
+    {
+      "name": "calendar starts near top of the mobile viewport",
+      "pass": true,
+      "expected": "element top y <= 120",
+      "actual": {
+        "x": 0,
+        "y": 33.4375,
+        "width": 390,
+        "height": 281
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during drawer verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ]
+}

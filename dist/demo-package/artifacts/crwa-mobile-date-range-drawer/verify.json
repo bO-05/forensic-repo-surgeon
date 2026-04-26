@@ -1,0 +1,48 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "status": "passing",
+  "checkedAt": "2026-04-26T13:24:25.266Z",
+  "screenshot": "./artifacts/crwa-mobile-date-range-drawer/success.png",
+  "assertions": [
+    {
+      "name": "date range drawer is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "drawer close button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "calendar container is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 0,
+        "y": 33.4375,
+        "width": 390,
+        "height": 796
+      }
+    },
+    {
+      "name": "calendar starts near top of the mobile viewport",
+      "pass": true,
+      "expected": "element top y <= 120",
+      "actual": {
+        "x": 0,
+        "y": 33.4375,
+        "width": 390,
+        "height": 796
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during drawer verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ]
+}

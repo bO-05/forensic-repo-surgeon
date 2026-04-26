@@ -1,0 +1,32 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "generatedAt": "2026-04-26T08:31:43.145Z",
+  "status": "passing",
+  "score": 100,
+  "source": "claude-agent-sdk",
+  "comparedTo": "fixture-scorecard",
+  "metrics": {
+    "verificationPassRate": 1,
+    "patchTouchesTopCandidate": true,
+    "patchByteLength": 672,
+    "changedFiles": [
+      "src/components/TransactionDateRangeFilter.tsx"
+    ],
+    "durationMs": 215013
+  },
+  "gates": {
+    "patchProvided": true,
+    "patchApplies": true,
+    "verificationPassing": true,
+    "patchRelevant": true
+  },
+  "artifacts": {
+    "modelPatch": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\model-patch.diff",
+    "modelVerify": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\model-verify.json",
+    "modelScreenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\model-patch.png",
+    "modelTrace": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-date-range-drawer\\model-agent-trace.json"
+  },
+  "notes": [
+    "Model-authored patch passed every gate the fixture patch had to pass."
+  ]
+}

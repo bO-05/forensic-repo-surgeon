@@ -1,0 +1,104 @@
+{
+  "id": "crwa-mobile-onboarding-dialog",
+  "title": "New-user mobile onboarding dialog overflow",
+  "target": {
+    "repo": "cypress-realworld-app",
+    "stack": "React + Material UI + TypeScript",
+    "baseUrl": "http://localhost:3000"
+  },
+  "workflow": "crwa-mobile-onboarding-dialog",
+  "route": "/signup",
+  "viewport": {
+    "name": "iPhone 13",
+    "width": 390,
+    "height": 844,
+    "isMobile": true
+  },
+  "auth": {
+    "mode": "none",
+    "notes": "The workflow creates a fresh user through the UI, then signs in with that user to reach onboarding step one."
+  },
+  "input": {
+    "screenshotPath": "./inputs/mobile-onboarding-dialog-overflow.png",
+    "note": "Capture a newly created mobile user's onboarding dialog where the action row and content can overflow horizontally."
+  },
+  "repro": {
+    "steps": [
+      "Open the mobile sign-up route",
+      "Create a brand-new local user through the UI",
+      "Sign in with that user on the same viewport",
+      "Wait for the onboarding dialog to appear at step one",
+      "Capture the resulting mobile UI state and evidence bundle"
+    ]
+  },
+  "artifacts": {
+    "directory": "./artifacts/crwa-mobile-onboarding-dialog"
+  },
+  "verification": {
+    "mustPass": [
+      "The new user can sign up and sign in through the local app",
+      "The onboarding dialog is visible on iPhone 13",
+      "The onboarding action buttons stay inside the viewport without overlap",
+      "The page has no horizontal overflow and the proof bundle is complete"
+    ],
+    "assertions": [
+      {
+        "type": "visible",
+        "name": "onboarding dialog is visible",
+        "selector": "[data-test=\"user-onboarding-dialog\"]"
+      },
+      {
+        "type": "visible",
+        "name": "logout button is visible",
+        "selector": "[data-test=\"user-onboarding-logout\"]"
+      },
+      {
+        "type": "visible",
+        "name": "next button is visible",
+        "selector": "[data-test=\"user-onboarding-next\"]"
+      },
+      {
+        "type": "insideViewport",
+        "name": "logout button is within the mobile viewport",
+        "selector": "[data-test=\"user-onboarding-logout\"]"
+      },
+      {
+        "type": "insideViewport",
+        "name": "next button is within the mobile viewport",
+        "selector": "[data-test=\"user-onboarding-next\"]"
+      },
+      {
+        "type": "widthAtLeast",
+        "name": "logout button uses mobile touch width",
+        "selector": "[data-test=\"user-onboarding-logout\"]",
+        "minWidth": 300
+      },
+      {
+        "type": "widthAtLeast",
+        "name": "next button uses mobile touch width",
+        "selector": "[data-test=\"user-onboarding-next\"]",
+        "minWidth": 300
+      },
+      {
+        "type": "noOverlap",
+        "name": "onboarding action buttons do not overlap",
+        "targetSelector": "[data-test=\"user-onboarding-logout\"]",
+        "blockerSelector": "[data-test=\"user-onboarding-next\"]"
+      },
+      {
+        "type": "noHorizontalOverflow",
+        "name": "onboarding step one does not introduce horizontal overflow"
+      },
+      {
+        "type": "noConsoleRegression",
+        "name": "no unexpected console errors appear during onboarding verification"
+      }
+    ],
+    "negativeControl": {
+      "artifact": "before-verify.json",
+      "expectedFailures": [
+        "next button uses mobile touch width"
+      ]
+    }
+  }
+}

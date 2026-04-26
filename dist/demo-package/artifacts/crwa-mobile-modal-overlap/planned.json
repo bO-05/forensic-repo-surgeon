@@ -1,0 +1,8 @@
+{
+  "caseId": "crwa-mobile-modal-overlap",
+  "status": "planned",
+  "generatedAt": "2026-04-23T14:33:41.876Z",
+  "title": "Mobile bottom nav overlaps modal",
+  "reason": "Second same-target case is reserved for safe expansion after the primary golden path remains stable.",
+  "nextProofStep": "Add case-specific verification assertions and run the same scorecard proof gates before marking verified."
+}

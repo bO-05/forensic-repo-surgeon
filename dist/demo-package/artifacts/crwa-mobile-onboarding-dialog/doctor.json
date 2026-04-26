@@ -1,0 +1,61 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "generatedAt": "2026-04-26T13:24:50.595Z",
+  "status": "passing",
+  "target": {
+    "id": "cypress-realworld-app",
+    "repoPath": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app"
+  },
+  "checks": [
+    {
+      "name": "controller Node runtime",
+      "status": "passing",
+      "detail": "Node 20.11.1; target app runtime is checked separately."
+    },
+    {
+      "name": "target Node runtime",
+      "status": "passing",
+      "detail": "target Node runtime: D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\tools\\node-v22.12.0-win-x64\\node.exe"
+    },
+    {
+      "name": "pnpm package manager",
+      "status": "passing",
+      "detail": "9.15.0"
+    },
+    {
+      "name": "case patch fixture",
+      "status": "passing",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\patches\\crwa-mobile-onboarding-dialog.diff"
+    },
+    {
+      "name": "demo ports",
+      "status": "passing",
+      "detail": "Ports 3000, 3001 are free."
+    },
+    {
+      "name": "cypress-realworld-app target repo",
+      "status": "passing",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app"
+    },
+    {
+      "name": "case patch artifact",
+      "status": "passing",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\patch.diff"
+    },
+    {
+      "name": "workspace drive",
+      "status": "passing",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon has 16.9 GiB free."
+    },
+    {
+      "name": "target drive",
+      "status": "passing",
+      "detail": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app has 16.9 GiB free."
+    },
+    {
+      "name": "target patch state",
+      "status": "passing",
+      "detail": "Target is in before-state and patch can be applied."
+    }
+  ]
+}

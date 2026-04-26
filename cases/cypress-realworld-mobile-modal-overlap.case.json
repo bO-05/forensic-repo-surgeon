@@ -1,0 +1,45 @@
+{
+  "id": "crwa-mobile-modal-overlap",
+  "title": "Mobile bottom nav overlaps modal",
+  "target": {
+    "repo": "cypress-realworld-app",
+    "stack": "React + Material UI + TypeScript",
+    "baseUrl": "http://localhost:3000"
+  },
+  "route": "/signin",
+  "viewport": {
+    "name": "iPhone 13",
+    "width": 390,
+    "height": 844,
+    "isMobile": true
+  },
+  "auth": {
+    "mode": "storageState",
+    "storageStatePath": "./playwright/.auth/user.json",
+    "notes": "Use a seeded local user from the repo. Keep one canonical origin."
+  },
+  "input": {
+    "screenshotPath": "./inputs/mobile-modal-overlap.png",
+    "note": "The mobile bottom navigation renders above an open modal on small screens."
+  },
+  "repro": {
+    "steps": [
+      "Launch app on the canonical local origin",
+      "Restore authenticated browser state",
+      "Open the target flow that triggers the modal",
+      "Set a mobile viewport",
+      "Capture the failing modal overlap state"
+    ]
+  },
+  "artifacts": {
+    "directory": "./artifacts/crwa-mobile-modal-overlap"
+  },
+  "verification": {
+    "mustPass": [
+      "The modal visually appears above the bottom navigation",
+      "The relevant Playwright assertion passes",
+      "No new console errors appear in the target flow",
+      "The app build remains green"
+    ]
+  }
+}

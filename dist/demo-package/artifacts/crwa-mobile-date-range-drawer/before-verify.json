@@ -1,0 +1,62 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "status": "failing",
+  "checkedAt": "2026-04-26T13:23:58.375Z",
+  "screenshot": "./artifacts/crwa-mobile-date-range-drawer/before-verify.png",
+  "assertions": [
+    {
+      "name": "date range drawer is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "drawer close button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "calendar container is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 0,
+        "y": 563,
+        "width": 390,
+        "height": 281
+      }
+    },
+    {
+      "name": "calendar starts near top of the mobile viewport",
+      "pass": false,
+      "expected": "element top y <= 120",
+      "actual": {
+        "x": 0,
+        "y": 563,
+        "width": 390,
+        "height": 281
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during drawer verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ],
+  "negativeControl": {
+    "status": "passing",
+    "expectedFailures": [
+      "calendar starts near top of the mobile viewport"
+    ],
+    "actualFailures": [
+      "calendar starts near top of the mobile viewport"
+    ],
+    "matchedExpectedFailures": [
+      "calendar starts near top of the mobile viewport"
+    ],
+    "missingExpectedFailures": [],
+    "additionalFailures": []
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "status": "failing",
+  "checkedAt": "2026-04-26T13:25:42.791Z",
+  "screenshot": "./artifacts/crwa-mobile-onboarding-dialog/before-verify.png",
+  "assertions": [
+    {
+      "name": "onboarding dialog is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "next button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 8,
+        "y": 802.5625,
+        "width": 113.015625,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 318,
+        "y": 802.5625,
+        "width": 64,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "logout button uses mobile touch width",
+      "pass": false,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 8,
+        "y": 802.5625,
+        "width": 113.015625,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button uses mobile touch width",
+      "pass": false,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 318,
+        "y": 802.5625,
+        "width": 64,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "onboarding action buttons do not overlap",
+      "pass": true,
+      "expected": "boxes do not overlap",
+      "actual": {
+        "targetBox": {
+          "x": 8,
+          "y": 802.5625,
+          "width": 113.015625,
+          "height": 33.4375
+        },
+        "blockerBox": {
+          "x": 318,
+          "y": 802.5625,
+          "width": 64,
+          "height": 33.4375
+        }
+      }
+    },
+    {
+      "name": "onboarding step one does not introduce horizontal overflow",
+      "pass": true,
+      "expected": "document scrollWidth <= viewport width",
+      "actual": {
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during onboarding verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ],
+  "negativeControl": {
+    "status": "passing",
+    "expectedFailures": [
+      "next button uses mobile touch width"
+    ],
+    "actualFailures": [
+      "logout button uses mobile touch width",
+      "next button uses mobile touch width"
+    ],
+    "matchedExpectedFailures": [
+      "next button uses mobile touch width"
+    ],
+    "missingExpectedFailures": [],
+    "additionalFailures": [
+      "logout button uses mobile touch width"
+    ]
+  }
+}

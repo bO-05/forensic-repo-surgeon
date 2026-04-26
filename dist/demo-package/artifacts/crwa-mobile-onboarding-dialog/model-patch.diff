@@ -1,0 +1,39 @@
+diff --git a/src/containers/UserOnboardingContainer.tsx b/src/containers/UserOnboardingContainer.tsx
+index d6b1a28..64ad053 100644
+--- a/src/containers/UserOnboardingContainer.tsx
++++ b/src/containers/UserOnboardingContainer.tsx
+@@ -111,11 +111,12 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
+           )}
+         </Box>
+       </DialogContent>
+-      <DialogActions>
+-        <Grid container justifyContent="space-between">
+-          <Grid item>
++      <DialogActions style={{ flexDirection: "column", alignItems: "stretch" }}>
++        <Grid container direction="column" spacing={1}>
++          <Grid item xs={12}>
+             <Button
+-              style={{ paddingRight: "80%" }}
++              fullWidth
++              variant="outlined"
+               onClick={/* istanbul ignore next */ () => sendAuth("LOGOUT")}
+               color="secondary"
+               data-test="user-onboarding-logout"
+@@ -123,9 +124,15 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
+               Logout
+             </Button>
+           </Grid>
+-          <Grid item>
++          <Grid item xs={12}>
+             {!userOnboardingState.matches("stepTwo") && (
+-              <Button onClick={() => nextStep()} color="primary" data-test="user-onboarding-next">
++              <Button
++                fullWidth
++                variant="contained"
++                onClick={() => nextStep()}
++                color="primary"
++                data-test="user-onboarding-next"
++              >
+                 {userOnboardingState.matches("stepThree") ? "Done" : "Next"}
+               </Button>
+             )}

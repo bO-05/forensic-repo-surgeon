@@ -1,0 +1,1825 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "generatedAt": "2026-04-26T13:25:44.207Z",
+  "repoPath": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app",
+  "artifactDirectory": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog",
+  "method": [
+    "Extract high-signal UI hooks from DOMSnapshot attributes.",
+    "Extract visible roles and names from the accessibility tree.",
+    "Scan first-party source files for exact hook, class, import, and case-keyword matches.",
+    "Rank files by explainable signal weights; do not claim source-map certainty."
+  ],
+  "evidence": {
+    "keywords": [
+      "onboarding",
+      "dialog",
+      "overflow",
+      "newly",
+      "created",
+      "where",
+      "action",
+      "content",
+      "horizontally",
+      "sign",
+      "create",
+      "brand",
+      "same",
+      "viewport",
+      "wait",
+      "appear",
+      "step",
+      "resulting",
+      "state",
+      "bundle",
+      "signup",
+      "mobile",
+      "Calendar",
+      "styles",
+      "NavBar-newTransactionButton",
+      "nav-top-new-transaction",
+      "transaction",
+      "nav-transaction-tabs",
+      "tabs",
+      "MainLayout-content",
+      "TransactionList-paper",
+      "TransactionListFilters-paper",
+      "transaction-list-filter-date-range-button",
+      "list",
+      "filter",
+      "date",
+      "range",
+      "button",
+      "transaction-list-filter-amount-range-button",
+      "amount",
+      "transaction-list",
+      "TransactionInfiniteList-transactionList",
+      "transaction-item-J5Fd3dlBEBu",
+      "item",
+      "j5fd3dl",
+      "bebu",
+      "TransactionItem-paper",
+      "TransactionItem-root",
+      "TransactionTitle-title",
+      "TransactionTitle-titleName",
+      "transaction-sender-J5Fd3dlBEBu",
+      "sender",
+      "TransactionTitle-titleAction",
+      "transaction-action-J5Fd3dlBEBu",
+      "transaction-receiver-J5Fd3dlBEBu",
+      "receiver",
+      "TransactionItem-socialStats",
+      "TransactionItem-countIcons",
+      "TransactionItem-countText",
+      "transaction-like-count",
+      "like",
+      "count",
+      "transaction-comment-count",
+      "comment",
+      "TransactionAmount-amountPositive",
+      "transaction-amount-J5Fd3dlBEBu",
+      "transaction-item-Ec6hHyL6SC2F",
+      "ec6h",
+      "l6sc2f",
+      "transaction-sender-Ec6hHyL6SC2F",
+      "transaction-action-Ec6hHyL6SC2F",
+      "transaction-receiver-Ec6hHyL6SC2F",
+      "TransactionAmount-amountNegative",
+      "transaction-amount-Ec6hHyL6SC2F",
+      "transaction-item-GiWvOORKa8fF",
+      "oorka8f",
+      "transaction-sender-GiWvOORKa8fF",
+      "transaction-action-GiWvOORKa8fF",
+      "transaction-receiver-GiWvOORKa8fF",
+      "transaction-amount-GiWvOORKa8fF"
+    ],
+    "highSignalDomAttributes": [
+      {
+        "nodeIndex": 1629,
+        "nodeName": "A",
+        "attribute": "data-test",
+        "value": "nav-top-new-transaction"
+      },
+      {
+        "nodeIndex": 1641,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "nav-transaction-tabs"
+      },
+      {
+        "nodeIndex": 1664,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "transaction-list-filter-date-range-button"
+      },
+      {
+        "nodeIndex": 1671,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "transaction-list-filter-amount-range-button"
+      },
+      {
+        "nodeIndex": 1678,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "transaction-list"
+      },
+      {
+        "nodeIndex": 1682,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-J5Fd3dlBEBu"
+      },
+      {
+        "nodeIndex": 1697,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-J5Fd3dlBEBu"
+      },
+      {
+        "nodeIndex": 1699,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-J5Fd3dlBEBu"
+      },
+      {
+        "nodeIndex": 1701,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-J5Fd3dlBEBu"
+      },
+      {
+        "nodeIndex": 1710,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1716,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1719,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-J5Fd3dlBEBu"
+      },
+      {
+        "nodeIndex": 1724,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-Ec6hHyL6SC2F"
+      },
+      {
+        "nodeIndex": 1739,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-Ec6hHyL6SC2F"
+      },
+      {
+        "nodeIndex": 1741,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-Ec6hHyL6SC2F"
+      },
+      {
+        "nodeIndex": 1743,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-Ec6hHyL6SC2F"
+      },
+      {
+        "nodeIndex": 1752,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1758,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1761,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-Ec6hHyL6SC2F"
+      },
+      {
+        "nodeIndex": 1766,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-GiWvOORKa8fF"
+      },
+      {
+        "nodeIndex": 1781,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-GiWvOORKa8fF"
+      },
+      {
+        "nodeIndex": 1783,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-GiWvOORKa8fF"
+      },
+      {
+        "nodeIndex": 1785,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-GiWvOORKa8fF"
+      },
+      {
+        "nodeIndex": 1794,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1800,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1803,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-GiWvOORKa8fF"
+      },
+      {
+        "nodeIndex": 1808,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-sx3I6rnO3KND"
+      },
+      {
+        "nodeIndex": 1823,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-sx3I6rnO3KND"
+      },
+      {
+        "nodeIndex": 1825,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-sx3I6rnO3KND"
+      },
+      {
+        "nodeIndex": 1827,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-sx3I6rnO3KND"
+      },
+      {
+        "nodeIndex": 1836,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1842,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1845,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-sx3I6rnO3KND"
+      },
+      {
+        "nodeIndex": 1850,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-kq0Jxb46fvI3"
+      },
+      {
+        "nodeIndex": 1865,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-kq0Jxb46fvI3"
+      },
+      {
+        "nodeIndex": 1867,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-kq0Jxb46fvI3"
+      },
+      {
+        "nodeIndex": 1869,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-kq0Jxb46fvI3"
+      },
+      {
+        "nodeIndex": 1878,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1884,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1887,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-kq0Jxb46fvI3"
+      },
+      {
+        "nodeIndex": 1892,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-6XY0Ud1i8sp4"
+      },
+      {
+        "nodeIndex": 1907,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-6XY0Ud1i8sp4"
+      },
+      {
+        "nodeIndex": 1909,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-6XY0Ud1i8sp4"
+      },
+      {
+        "nodeIndex": 1911,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-6XY0Ud1i8sp4"
+      },
+      {
+        "nodeIndex": 1920,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1926,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1929,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-6XY0Ud1i8sp4"
+      },
+      {
+        "nodeIndex": 1934,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-h0wVZHk9xRKv"
+      },
+      {
+        "nodeIndex": 1949,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-h0wVZHk9xRKv"
+      },
+      {
+        "nodeIndex": 1951,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-h0wVZHk9xRKv"
+      },
+      {
+        "nodeIndex": 1953,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-h0wVZHk9xRKv"
+      },
+      {
+        "nodeIndex": 1962,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 1968,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 1971,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-h0wVZHk9xRKv"
+      },
+      {
+        "nodeIndex": 1976,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-naC0cj694hqn"
+      },
+      {
+        "nodeIndex": 1991,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-naC0cj694hqn"
+      },
+      {
+        "nodeIndex": 1993,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-naC0cj694hqn"
+      },
+      {
+        "nodeIndex": 1995,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-naC0cj694hqn"
+      },
+      {
+        "nodeIndex": 2004,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 2010,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 2013,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-naC0cj694hqn"
+      },
+      {
+        "nodeIndex": 2018,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-fA1Negs9ETlg"
+      },
+      {
+        "nodeIndex": 2033,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-fA1Negs9ETlg"
+      },
+      {
+        "nodeIndex": 2035,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-fA1Negs9ETlg"
+      },
+      {
+        "nodeIndex": 2037,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-fA1Negs9ETlg"
+      },
+      {
+        "nodeIndex": 2046,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 2052,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 2055,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-fA1Negs9ETlg"
+      },
+      {
+        "nodeIndex": 2060,
+        "nodeName": "LI",
+        "attribute": "data-test",
+        "value": "transaction-item-yS5W0NC2-4ZV"
+      },
+      {
+        "nodeIndex": 2075,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-sender-yS5W0NC2-4ZV"
+      },
+      {
+        "nodeIndex": 2077,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-action-yS5W0NC2-4ZV"
+      },
+      {
+        "nodeIndex": 2079,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-receiver-yS5W0NC2-4ZV"
+      },
+      {
+        "nodeIndex": 2088,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-like-count"
+      },
+      {
+        "nodeIndex": 2094,
+        "nodeName": "P",
+        "attribute": "data-test",
+        "value": "transaction-comment-count"
+      },
+      {
+        "nodeIndex": 2097,
+        "nodeName": "SPAN",
+        "attribute": "data-test",
+        "value": "transaction-amount-yS5W0NC2-4ZV"
+      },
+      {
+        "nodeIndex": 2134,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "user-onboarding-dialog"
+      },
+      {
+        "nodeIndex": 2139,
+        "nodeName": "H2",
+        "attribute": "data-test",
+        "value": "user-onboarding-dialog-title"
+      },
+      {
+        "nodeIndex": 2141,
+        "nodeName": "DIV",
+        "attribute": "data-test",
+        "value": "user-onboarding-dialog-content"
+      },
+      {
+        "nodeIndex": 2193,
+        "nodeName": "BUTTON",
+        "attribute": "data-test",
+        "value": "user-onboarding-logout"
+      },
+      {
+        "nodeIndex": 2197,
+        "nodeName": "BUTTON",
+        "attribute": "data-test",
+        "value": "user-onboarding-next"
+      }
+    ],
+    "highSignalAxNodes": [
+      {
+        "nodeId": "1296",
+        "backendDOMNodeId": 1296,
+        "role": "StaticText",
+        "name": "Real World App requires a Bank Account to perform transactions."
+      },
+      {
+        "nodeId": "-1000000248",
+        "role": "InlineTextBox",
+        "name": "transactions."
+      }
+    ],
+    "thirdPartySources": [
+      "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-calendar/dist/Calendar.css",
+      "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css"
+    ]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\containers\\UserOnboardingContainer.tsx",
+      "relativeFile": "src/containers/UserOnboardingContainer.tsx",
+      "score": 475,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "user-onboarding-dialog",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 2134,
+          "line": 73
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "user-onboarding-dialog-title",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "H2",
+          "nodeIndex": 2139,
+          "line": 74
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "user-onboarding-dialog-content",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 2141,
+          "line": 79
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "user-onboarding-logout",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "BUTTON",
+          "nodeIndex": 2193,
+          "line": 121
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "user-onboarding-next",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "BUTTON",
+          "nodeIndex": 2197,
+          "line": 128
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "onboarding",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 24
+        },
+        {
+          "kind": "case-text",
+          "value": "onboarding",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 24
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 86
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 3
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 80
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "count",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 25
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "dialog",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "title",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 12
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 10
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "logout",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 119
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionItem.tsx",
+      "relativeFile": "src/components/TransactionItem.tsx",
+      "score": 288,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-like-count",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "P",
+          "nodeIndex": 1710,
+          "line": 130
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-comment-count",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "P",
+          "nodeIndex": 1716,
+          "line": 138
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 15
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 5
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 15
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 15
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 5
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 17
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "sender",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 107
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "receiver",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 100
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "like",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "count",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 26
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "comment",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "title",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 16
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 98
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionDetail.tsx",
+      "relativeFile": "src/components/TransactionDetail.tsx",
+      "score": 267,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-like-count",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "P",
+          "nodeIndex": 1710,
+          "line": 174
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 6
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 6
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 6
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 13
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "date",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 98
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 3
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 15
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 6
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "sender",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 131
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "receiver",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 10
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "like",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 5
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "count",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 174
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "comment",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 5
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "title",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 123
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionListAmountRangeFilter.tsx",
+      "relativeFile": "src/components/TransactionListAmountRangeFilter.tsx",
+      "score": 266,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list-filter-amount-range-button",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1671,
+          "line": 121
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1678,
+          "line": 64
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 24
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "filter",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 24
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "range",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 14
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 14
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 68
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 67
+        },
+        {
+          "kind": "case-text",
+          "value": "content",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 67
+        },
+        {
+          "kind": "case-text",
+          "value": "state",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionDateRangeFilter.tsx",
+      "relativeFile": "src/components/TransactionDateRangeFilter.tsx",
+      "score": 250,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list-filter-date-range-button",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1664,
+          "line": 92
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1678,
+          "line": 92
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "filter",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 12
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "date",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 3
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "range",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 12
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 4
+        },
+        {
+          "kind": "third-party-source",
+          "value": "Calendar",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-calendar/dist/Calendar.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1609,
+          "line": 6
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        },
+        {
+          "kind": "case-text",
+          "value": "state",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\models\\transaction.ts",
+      "relativeFile": "src/models/transaction.ts",
+      "score": 218,
+      "reasons": [
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 4
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 4
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 4
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "filter",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 97
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "date",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 28
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "range",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 76
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 20
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 50
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "sender",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 24
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "receiver",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 23
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "like",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 2
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "count",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 19
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "comment",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 2
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "next",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 104
+        },
+        {
+          "kind": "case-text",
+          "value": "created",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 29
+        },
+        {
+          "kind": "case-text",
+          "value": "create",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionList.tsx",
+      "relativeFile": "src/components/TransactionList.tsx",
+      "score": 217,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "Matches accessible UI labels visible in the captured browser state.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1678,
+          "line": 75
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 3
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "filter",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 32
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 3
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 64
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "next",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 30
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        },
+        {
+          "kind": "ax-node",
+          "value": "transactions.",
+          "weight": 10,
+          "source": "AX InlineTextBox",
+          "role": "InlineTextBox",
+          "line": 52
+        },
+        {
+          "kind": "case-text",
+          "value": "content",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 64
+        },
+        {
+          "kind": "case-text",
+          "value": "create",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 29
+        },
+        {
+          "kind": "ax-node",
+          "value": "transactions",
+          "weight": 6,
+          "source": "AX StaticText",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionCreateStepTwo.tsx",
+      "relativeFile": "src/components/TransactionCreateStepTwo.tsx",
+      "score": 202,
+      "reasons": [
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 9
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 9
+        },
+        {
+          "kind": "case-text",
+          "value": "create",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 9
+        },
+        {
+          "kind": "case-text",
+          "value": "step",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 9
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "date",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 115
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 6
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 35
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 21
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "sender",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 37
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "receiver",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 38
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 98
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        },
+        {
+          "kind": "case-text",
+          "value": "content",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 98
+        },
+        {
+          "kind": "case-text",
+          "value": "state",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionCreateStepThree.tsx",
+      "relativeFile": "src/components/TransactionCreateStepThree.tsx",
+      "score": 196,
+      "reasons": [
+        "Matches accessible UI labels visible in the captured browser state.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 13
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 6
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 6
+        },
+        {
+          "kind": "case-text",
+          "value": "create",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 13
+        },
+        {
+          "kind": "case-text",
+          "value": "step",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 20
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "button",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 4
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "amount",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 18
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 30
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "receiver",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 56
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "content",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 63
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "next",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 131
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        },
+        {
+          "kind": "case-text",
+          "value": "content",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 63
+        },
+        {
+          "kind": "case-text",
+          "value": "state",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 11
+        },
+        {
+          "kind": "ax-node",
+          "value": "transactions",
+          "weight": 6,
+          "source": "AX StaticText",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "file": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\.surgeon-targets\\cypress-realworld-app\\src\\components\\TransactionInfiniteList.tsx",
+      "relativeFile": "src/components/TransactionInfiniteList.tsx",
+      "score": 193,
+      "reasons": [
+        "Matches data-test hooks found in the captured DOM.",
+        "Matches accessible UI labels visible in the captured browser state.",
+        "File path/name matches the case vocabulary."
+      ],
+      "matchedSignals": [
+        {
+          "kind": "dom-attribute",
+          "value": "transaction-list",
+          "weight": 45,
+          "source": "DOM data-test",
+          "attribute": "data-test",
+          "nodeName": "DIV",
+          "nodeIndex": 1678,
+          "line": 77
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "transaction",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "list",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 5
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "action",
+          "weight": 18,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "case-text",
+          "value": "action",
+          "weight": 12,
+          "source": "case keyword",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "item",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 8
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "count",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 42
+        },
+        {
+          "kind": "dom-attribute",
+          "value": "next",
+          "weight": 12,
+          "source": "DOM data-test",
+          "line": 29
+        },
+        {
+          "kind": "third-party-source",
+          "value": "styles",
+          "weight": 10,
+          "source": "D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/node_modules/react-virtualized/styles.css",
+          "attribute": "data-vite-dev-id",
+          "nodeName": "STYLE",
+          "nodeIndex": 1611,
+          "line": 2
+        },
+        {
+          "kind": "ax-node",
+          "value": "transactions.",
+          "weight": 10,
+          "source": "AX InlineTextBox",
+          "role": "InlineTextBox",
+          "line": 42
+        },
+        {
+          "kind": "case-text",
+          "value": "overflow",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 22
+        },
+        {
+          "kind": "case-text",
+          "value": "mobile",
+          "weight": 6,
+          "source": "case keyword",
+          "line": 40
+        },
+        {
+          "kind": "ax-node",
+          "value": "transactions",
+          "weight": 6,
+          "source": "AX StaticText",
+          "line": 28
+        }
+      ]
+    }
+  ]
+}

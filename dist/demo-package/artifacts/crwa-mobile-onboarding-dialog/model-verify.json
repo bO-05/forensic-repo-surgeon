@@ -1,0 +1,105 @@
+{
+  "caseId": "crwa-mobile-onboarding-dialog",
+  "status": "failing",
+  "checkedAt": "2026-04-26T08:33:17.413Z",
+  "screenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
+  "assertions": [
+    {
+      "name": "onboarding dialog is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "next button is visible",
+      "pass": true,
+      "expected": "element visible",
+      "actual": "visible check completed"
+    },
+    {
+      "name": "logout button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 8,
+        "y": 761.125,
+        "width": 192.875,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button is within the mobile viewport",
+      "pass": true,
+      "expected": "x/y bounds within 390x844",
+      "actual": {
+        "x": 208.875,
+        "y": 761.125,
+        "width": 173.125,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "logout button uses mobile touch width",
+      "pass": false,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 8,
+        "y": 761.125,
+        "width": 192.875,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "next button uses mobile touch width",
+      "pass": false,
+      "expected": "element width >= 300",
+      "actual": {
+        "x": 208.875,
+        "y": 761.125,
+        "width": 173.125,
+        "height": 33.4375
+      }
+    },
+    {
+      "name": "onboarding action buttons do not overlap",
+      "pass": true,
+      "expected": "boxes do not overlap",
+      "actual": {
+        "targetBox": {
+          "x": 8,
+          "y": 761.125,
+          "width": 192.875,
+          "height": 33.4375
+        },
+        "blockerBox": {
+          "x": 208.875,
+          "y": 761.125,
+          "width": 173.125,
+          "height": 33.4375
+        }
+      }
+    },
+    {
+      "name": "onboarding step one does not introduce horizontal overflow",
+      "pass": true,
+      "expected": "document scrollWidth <= viewport width",
+      "actual": {
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "no unexpected console errors appear during onboarding verification",
+      "pass": true,
+      "expected": "no console errors during verification run",
+      "actual": []
+    }
+  ],
+  "error": "Verification failed for crwa-mobile-onboarding-dialog. See ./artifacts/crwa-mobile-onboarding-dialog/verify.json"
+}

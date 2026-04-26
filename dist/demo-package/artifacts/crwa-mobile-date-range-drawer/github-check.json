@@ -1,0 +1,27 @@
+{
+  "caseId": "crwa-mobile-date-range-drawer",
+  "title": "Authenticated mobile date range drawer evidence capture",
+  "conclusion": "success",
+  "summary": {
+    "status": "passing",
+    "score": 100,
+    "verificationStatus": "passing",
+    "beforeNegativeControlStatus": "passing",
+    "redactionReport": "./artifacts/crwa-mobile-date-range-drawer/redaction-report.json"
+  },
+  "failedGates": [],
+  "artifacts": {
+    "scorecard": "./artifacts/crwa-mobile-date-range-drawer/scorecard.json",
+    "beforeVerify": "./artifacts/crwa-mobile-date-range-drawer/before-verify.json",
+    "verify": "./artifacts/crwa-mobile-date-range-drawer/verify.json",
+    "screenshot": "./artifacts/crwa-mobile-date-range-drawer/failure.png",
+    "success": "./artifacts/crwa-mobile-date-range-drawer/success.png",
+    "trace": "./artifacts/crwa-mobile-date-range-drawer/trace.zip",
+    "redactionReport": "./artifacts/crwa-mobile-date-range-drawer/redaction-report.json"
+  },
+  "residualRisks": [
+    "Desktop popover behavior should be reviewed before upstreaming.",
+    "Adjacent mobile viewport sizes are not exhaustively checked.",
+    "Anthropic error: Unterminated string in JSON at position 2500"
+  ]
+}

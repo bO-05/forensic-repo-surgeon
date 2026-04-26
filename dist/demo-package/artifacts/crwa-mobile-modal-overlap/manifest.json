@@ -1,0 +1,18 @@
+{
+  "caseId": "crwa-mobile-modal-overlap",
+  "status": "planned",
+  "files": {
+    "input": "./artifacts/crwa-mobile-modal-overlap/input.json",
+    "screenshot": "./artifacts/crwa-mobile-modal-overlap/failure.png",
+    "trace": "./artifacts/crwa-mobile-modal-overlap/trace.zip",
+    "console": "./artifacts/crwa-mobile-modal-overlap/console.ndjson",
+    "network": "./artifacts/crwa-mobile-modal-overlap/network.ndjson",
+    "axTree": "./artifacts/crwa-mobile-modal-overlap/ax-tree.json",
+    "domSnapshot": "./artifacts/crwa-mobile-modal-overlap/dom-snapshot.json",
+    "candidates": "./artifacts/crwa-mobile-modal-overlap/candidates.json",
+    "patch": "./artifacts/crwa-mobile-modal-overlap/patch.diff",
+    "success": "./artifacts/crwa-mobile-modal-overlap/success.png",
+    "verify": "./artifacts/crwa-mobile-modal-overlap/verify.json",
+    "report": "./artifacts/crwa-mobile-modal-overlap/PR.md"
+  }
+}
