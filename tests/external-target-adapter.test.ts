@@ -46,10 +46,10 @@ test("external adapter can apply and reverse a patch in a local target repo", as
   );
 
   await adapter.setPatchState("patched", patchPath);
-  assert.equal(await readFile(filePath, "utf8"), "new\n");
+  assert.equal((await readFile(filePath, "utf8")).replace(/\r\n/gu, "\n"), "new\n");
 
   await adapter.setPatchState("clean", patchPath);
-  assert.equal(await readFile(filePath, "utf8"), "old\n");
+  assert.equal((await readFile(filePath, "utf8")).replace(/\r\n/gu, "\n"), "old\n");
 });
 
 test("lifecycle command resolution maps package managers to cmd shims on Windows", () => {

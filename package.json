@@ -11,6 +11,8 @@
     "surgeon": "tsx packages/cli/src/index.ts",
     "demo": "tsx packages/cli/src/index.ts demo",
     "demo:live-opus": "tsx packages/cli/src/index.ts demo --live-opus",
+    "stage:cockpit": "tsx scripts/deploy-cockpit.ts --stage-only",
+    "deploy:cockpit": "tsx scripts/deploy-cockpit.ts --deploy",
     "typecheck": "tsc --noEmit",
     "test": "tsx tests/run-tests.ts",
     "verify:source": "pnpm typecheck && pnpm test && pnpm surgeon intake --case cases/cypress-realworld-mobile-date-range-drawer.case.json && pnpm surgeon intake --case cases/cypress-realworld-mobile-onboarding-dialog.case.json"
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.119",
-    "@anthropic-ai/sdk": "^0.91.1"
+    "@anthropic-ai/sdk": "^0.91.1",
+    "fflate": "0.8.2"
   }
 }

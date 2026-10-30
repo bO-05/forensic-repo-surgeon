@@ -6,7 +6,7 @@
 
 Built for the [Built with Opus 4.7: a Claude Code hackathon](https://cerebralvalley.ai/events/~/e/built-with-4-7-hackathon).
 
-**Live cockpit:** [forensic-cockpit.vercel.app](https://forensic-cockpit.vercel.app) — fixture-vs-model side-by-side, full agent transcript, all artifacts browsable. No install required.
+**Static proof:** [Recorded proof package](dist/demo-package/README.md), with privacy-sanitized transcripts and refreshed integrity maps. The live cockpit link is withheld until its sanitized deployment is verified. See the [public export and deployment guide](docs/public-export.md).
 
 ## What This Is, Honestly
 

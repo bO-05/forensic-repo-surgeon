@@ -1,8 +1,11 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { dirname, resolve, sep } from "node:path";
 
 import { createPlannedArtifactManifest } from "./artifacts.ts";
-import { generateExportIntegrityManifest } from "./integrity.ts";
+import { generateCaseEvidenceManifest, generateExportIntegrityManifest } from "./integrity.ts";
+import { sanitizePublicDirectory } from "./public-export.ts";
+import { generateArtifactViewer } from "./viewer.ts";
 import { type CaseFile } from "../../schemas/src/index.ts";
 
 const DEFAULT_EXPORT_DIR = "dist/demo-package";
@@ -13,12 +16,18 @@ const DOCS_TO_EXPORT = [
   "docs/architecture.md",
   "docs/positioning.md",
   "docs/roadmap.md",
+  "docs/public-export.md",
 ] as const;
 
 export async function exportDemoPackage(caseFile: CaseFile, outDir = DEFAULT_EXPORT_DIR): Promise<string> {
   const resolvedOutDir = resolve(outDir);
-  const manifest = createPlannedArtifactManifest(caseFile);
+  const manifest = createPlannedArtifactManifest({ ...caseFile, artifacts: { ...caseFile.artifacts, directory: `artifacts/${caseFile.id}` } });
   const artifactDirectory = resolve(caseFile.artifacts.directory);
+  const sourceDirectories = [artifactDirectory, ...["artifacts", "evals", "docs"].map(path => resolve(path))];
+  if (process.cwd() === resolvedOutDir || process.cwd().startsWith(`${resolvedOutDir}${sep}`) ||
+      sourceDirectories.some(path => path === resolvedOutDir || path.startsWith(`${resolvedOutDir}${sep}`) || resolvedOutDir.startsWith(`${path}${sep}`))) {
+    throw new Error("Public export must be separate from the workspace and operational artifacts.");
+  }
 
   await rm(resolvedOutDir, { recursive: true, force: true });
   await mkdir(resolvedOutDir, { recursive: true });
@@ -40,6 +49,32 @@ export async function exportDemoPackage(caseFile: CaseFile, outDir = DEFAULT_EXP
     renderPackageReadme(caseFile),
     "utf8",
   );
+  const roots = [
+    { path: process.cwd(), label: "[workspace]" },
+    { path: resolvedOutDir, label: "[public-package]" },
+  ];
+  await sanitizePublicDirectory(resolvedOutDir, roots);
+  const recordedCases = [caseFile];
+  const onboardingPath = resolve("cases/cypress-realworld-mobile-onboarding-dialog.case.json");
+  if (existsSync(onboardingPath) && caseFile.id !== "crwa-mobile-onboarding-dialog") {
+    recordedCases.push(JSON.parse(await readFile(onboardingPath, "utf8")) as CaseFile);
+  }
+  for (const recorded of recordedCases) {
+    const directory = resolve(resolvedOutDir, "artifacts", recorded.id);
+    if (!existsSync(resolve(directory, "scorecard.json"))) continue;
+    const publicCase = { ...recorded, artifacts: { ...recorded.artifacts, directory } };
+    await generateCaseEvidenceManifest(publicCase, { relativeTo: resolvedOutDir });
+    // Rebuild the dossier from sanitized inputs rather than patching stale HTML.
+    await generateArtifactViewer(publicCase);
+  }
+  await writeFile(resolve(resolvedOutDir, "artifacts/public-export-notice.json"), `${JSON.stringify({
+    policyVersion: "2026-10-30.public-copy",
+    exportedAt: new Date().toISOString(),
+    recordedEvidence: true,
+    newModelOrVerifierRun: false,
+    privacyBoundary: "Producer-machine paths and text secrets were sanitized, including archived browser trace text. Operational originals were not modified. Binary screenshots are retained recorded evidence, not a claim of universal data anonymization.",
+  }, null, 2)}\n`, "utf8");
+  await sanitizePublicDirectory(resolvedOutDir, roots);
   const integrity = await generateExportIntegrityManifest(resolvedOutDir, caseFile);
   await writeFile(
     resolve(resolvedOutDir, "package-manifest.json"),
@@ -85,7 +120,7 @@ export async function exportDemoPackage(caseFile: CaseFile, outDir = DEFAULT_EXP
           markdown: "package-integrity.md",
         },
         recordedRunNotice:
-          "doctor.json and the doctor summaries inside this package describe the machine that produced the recorded run. They do not inspect the evaluator's current machine.",
+          "Privacy-sanitized recorded evidence, not a new model or verifier run. Producer paths and text secrets were removed, including archived browser trace text; case and package hashes were refreshed. doctor.json describes the recorded producer, not the evaluator's machine.",
         sourceArtifactManifest: manifest.files,
       },
       null,
@@ -150,6 +185,8 @@ function renderPackageReadme(caseFile: CaseFile): string {
     "The model agent loop runs through the official `@anthropic-ai/claude-agent-sdk` package using `claude-opus-4-7`. It is given Read, Glob, Grep, and Edit tools inside the target repository. It cannot run shell commands, fetch the web, or write tests. After the agent finishes, `git diff` captures its changes as `model-patch.diff`. The fixture pipeline above already produced a verified scorecard. The model patch is then evaluated against the SAME deterministic gates: artifact completeness, verification pass rate, patch relevance, and absence of console regressions. The verifier is identical for both. That is the proof boundary.",
     "",
     "The recorded `doctor.json` describes the producer machine. It does not validate the evaluator's current machine.",
+    "",
+    "This public copy privacy-sanitizes local paths and text secrets, including text inside browser trace ZIPs. Dossiers are regenerated from the sanitized inputs and case/package hashes are refreshed. Verification outcomes are retained recorded results, not a fresh model or verifier run. Operational originals are not changed. Screenshots remain recorded binary evidence; this is not a claim of universal anonymization.",
     "",
     "## Rerun the live pipeline",
     "",

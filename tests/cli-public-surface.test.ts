@@ -24,9 +24,12 @@ test("package exposes a small product script surface", () => {
   // - surgeon                   — the underlying CLI for advanced sub-commands
   // - test / typecheck          — engineering basics
   // - verify:source             — the hackathon-grade smoke check
+  // - stage:cockpit / deploy:cockpit — integrity-checked staging, explicit target deployment
   assert.deepEqual(Object.keys(pkg.scripts).sort(), [
     "demo",
     "demo:live-opus",
+    "stage:cockpit",
+    "deploy:cockpit",
     "surgeon",
     "test",
     "typecheck",

@@ -49,7 +49,7 @@ const EXPORTED_INTEGRITY_EXCLUSIONS = new Set([
   "package-integrity.md",
 ]);
 
-export async function generateCaseEvidenceManifest(caseFile: CaseFile): Promise<string> {
+export async function generateCaseEvidenceManifest(caseFile: CaseFile, options: { relativeTo?: string } = {}): Promise<string> {
   const manifest = createPlannedArtifactManifest(caseFile);
   const integrityKeys = caseFile.verification.negativeControl
     ? CASE_INTEGRITY_KEYS
@@ -57,7 +57,7 @@ export async function generateCaseEvidenceManifest(caseFile: CaseFile): Promise<
   const entries = await Promise.all(
     integrityKeys.map(async (key) => {
       const path = resolve(manifest.files[key]);
-      return hashFile(path, manifest.files[key], key);
+      return hashFile(path, options.relativeTo ? relative(resolve(options.relativeTo), path) : manifest.files[key], key);
     }),
   );
   const summary = buildIntegritySummary(entries);
@@ -71,7 +71,10 @@ export async function generateCaseEvidenceManifest(caseFile: CaseFile): Promise<
 
   await mkdir(dirname(jsonPath), { recursive: true });
   await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-  await writeFile(mdPath, renderCaseEvidenceMarkdown(caseFile, payload), "utf8");
+  const displayCase = options.relativeTo
+    ? { ...caseFile, artifacts: { ...caseFile.artifacts, directory: normalizePath(relative(resolve(options.relativeTo), resolve(caseFile.artifacts.directory))) } }
+    : caseFile;
+  await writeFile(mdPath, renderCaseEvidenceMarkdown(displayCase, payload), "utf8");
 
   return jsonPath;
 }
