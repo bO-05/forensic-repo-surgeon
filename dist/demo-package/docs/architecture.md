@@ -98,14 +98,14 @@ That keeps the scope sharp. Other tools can be better at broad code generation. 
 
 - Add assertion types before claiming more bug classes.
 - Add target adapters before claiming arbitrary-repo support.
-- Add GitHub PR publishing after static proof export stays reliable.
+- GitHub Check Run posting is implemented; richer PR-level publishing (inline annotations, status comments) follows once the static proof export stays reliable across more cases.
 - Add source-map and AST/JSX localization behind provider interfaces.
 - Keep generated artifacts out of source control.
 
 ## Current Limitations
 
-- The verified cases are controlled same-target cases.
+- The verified cases are controlled same-target cases against `cypress-realworld-app`.
 - The verified CRWA lifecycle is implemented in Node through the TypeScript CLI; PowerShell scripts remain only as legacy local helpers.
-- Patch fixtures are tracked; the current product demonstrates verified repair packaging, not fully autonomous synthesis.
+- Both fixture-authored and model-authored patches are evaluated by the same deterministic verifier; the model patch is genuinely autonomous synthesis (Opus 4.7 reading and editing inside the target repo via `@anthropic-ai/claude-agent-sdk`), but acceptance still requires the verifier, not the model.
 - Broader framework support requires more target adapters and localization providers.
 - Scaffolded custom cases reduce engine coupling but still require a working reproduction workflow and a reviewed negative-control expectation.

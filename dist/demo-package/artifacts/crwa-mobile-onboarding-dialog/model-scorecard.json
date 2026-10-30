@@ -21,10 +21,10 @@
     "patchRelevant": true
   },
   "artifacts": {
-    "modelPatch": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.diff",
-    "modelVerify": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-verify.json",
-    "modelScreenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
-    "modelTrace": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-agent-trace.json"
+    "modelPatch": "[workspace]\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.diff",
+    "modelVerify": "[workspace]\\artifacts\\crwa-mobile-onboarding-dialog\\model-verify.json",
+    "modelScreenshot": "[workspace]\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
+    "modelTrace": "[workspace]\\artifacts\\crwa-mobile-onboarding-dialog\\model-agent-trace.json"
   },
   "notes": [
     "Model patch did not pass the deterministic verifier.",

@@ -1,5 +1,15 @@
 # Quickstart
 
+## Browse The Live Cockpit (No Install)
+
+The full proof package is hosted at:
+
+> https://forensic-cockpit.vercel.app
+
+That is the fastest way to evaluate the project: every diff, scorecard, agent transcript, and redaction report is browsable as a static page. No Node, Playwright, or API key required.
+
+The local install below is only needed to **regenerate** the proof bundle on a compatible machine.
+
 ## Install
 
 ```bash
@@ -54,7 +64,7 @@ Useful generated files:
 
 The current expected evaluation result is that the controlled-demo bar passes and production-confidence fails until more cases, another target repo, and more bug classes are added.
 
-## Live Opus Reasoner
+## Live Opus Reasoner And Model-Authored Patch
 
 ```bash
 cp .env.example .env.local
@@ -74,7 +84,36 @@ Run:
 pnpm demo:live-opus
 ```
 
+`pnpm demo:live-opus` runs the fixture pipeline AND the Claude Code agent loop. Opus 4.7 reads the target repo with `Read`/`Glob`/`Grep`/`Edit` tools and authors a candidate patch; the same deterministic verifier that grades the fixture grades the model patch and writes `model-scorecard.json` next to `scorecard.json`.
+
+To run only the model-authored pass against a single case (without rerunning the fixture):
+
+```bash
+pnpm surgeon model-patch --case cases/cypress-realworld-mobile-date-range-drawer.case.json --max-turns 12
+```
+
 `.env.local` is ignored by git and is not copied into exported proof packages.
+
+## Deploy The Cockpit Yourself
+
+The static cockpit at `dist/demo-package/artifacts/index.html` can be deployed to any static host. A Vercel deploy is wired up:
+
+```bash
+pnpm deploy:cockpit
+```
+
+This stages the artifacts directory into `dist/forensic-cockpit/`, drops a `vercel.json` with cache headers, and runs `vercel deploy --prod --yes`. Requires `vercel` CLI v47.2.2+ and an authenticated session.
+
+## Record A Demo Walkthrough
+
+For a recorded video walkthrough of the live cockpit:
+
+```bash
+pnpm demo:walkthrough --auto    # silent, ~75s, hands-off (recommended)
+pnpm demo:walkthrough           # interactive, advances on ENTER while you narrate live
+```
+
+`--auto` mode renders an intro and outro text card and walks the cockpit on a fixed timer, so you can hit record on any screen recorder, walk away for ~75 seconds, and stop. The cockpit content tells the story without narration. Pass `--local` to drive `artifacts/index.html` directly instead of the live deploy.
 
 ## Scaffold A New UI Bug
 

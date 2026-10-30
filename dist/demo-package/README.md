@@ -36,6 +36,8 @@ The model agent loop runs through the official `@anthropic-ai/claude-agent-sdk` 
 
 The recorded `doctor.json` describes the producer machine. It does not validate the evaluator's current machine.
 
+This public copy privacy-sanitizes local paths and text secrets, including text inside browser trace ZIPs. Dossiers are regenerated from the sanitized inputs and case/package hashes are refreshed. Verification outcomes are retained recorded results, not a fresh model or verifier run. Operational originals are not changed. Screenshots remain recorded binary evidence; this is not a claim of universal anonymization.
+
 ## Rerun the live pipeline
 
 ```bash

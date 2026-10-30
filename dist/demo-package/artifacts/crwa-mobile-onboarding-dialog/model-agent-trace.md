@@ -26,11 +26,11 @@ Model-authored patch produced by Claude Code agent loop running inside the targe
 
 ## Files Read
 
-- `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
+- `[workspace]/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
 
 ## Files Edited
 
-- `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
+- `[workspace]/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
 
 ## Final Assistant Text
 
@@ -44,7 +44,7 @@ I edited `src/containers/UserOnboardingContainer.tsx` in the `<DialogActions>` b
 ### Turn 2
 
 - tool: `Read`
-  - file: `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
+  - file: `[workspace]/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
 
 ### Turn 3
 
@@ -59,7 +59,7 @@ Let me make the minimal fix:
 ### Turn 5
 
 - tool: `Edit`
-  - file: `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
+  - file: `[workspace]/.surgeon-targets/cypress-realworld-app/src/containers/UserOnboardingContainer.tsx`
 
 ### Turn 6
 

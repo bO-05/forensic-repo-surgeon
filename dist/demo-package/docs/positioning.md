@@ -28,7 +28,7 @@ That is a smaller product, but a clearer one.
 
 The claim is not that other agents cannot run browsers. Devin explicitly advertises visual QA. The sharper claim is that this project makes the proof contract first-class, local, inspectable, exportable, and benchmarked.
 
-The honest current weakness is reproduction authoring. Broad agents may be better at taking an issue and navigating an unfamiliar app. Forensic Repo Surgeon should integrate that capability as an agentic scaffolder, then remain strict about proof gates once the repro exists.
+The honest current weakness is reproduction authoring. Broad agents may be better at taking an issue and navigating an unfamiliar app. The current `pnpm surgeon scaffold --agentic` path uses the Claude Code agent loop to draft a Playwright workflow from a bug description, but the case stays draft until a human reviews the selectors and the deterministic verifier produces a passing scorecard. Reproduction authoring is integrated; trust still comes from proof gates, not from the agent's confidence.
 
 ## Why This Can Matter
 

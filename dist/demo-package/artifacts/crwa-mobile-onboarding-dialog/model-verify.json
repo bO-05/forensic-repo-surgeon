@@ -2,7 +2,7 @@
   "caseId": "crwa-mobile-onboarding-dialog",
   "status": "failing",
   "checkedAt": "2026-04-26T08:33:17.413Z",
-  "screenshot": "D:\\Repo\\ALL HACKATHONS\\Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
+  "screenshot": "[workspace]\\artifacts\\crwa-mobile-onboarding-dialog\\model-patch.png",
   "assertions": [
     {
       "name": "onboarding dialog is visible",

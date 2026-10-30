@@ -1,12 +1,12 @@
 {
   "caseId": "crwa-mobile-date-range-drawer",
-  "generatedAt": "2026-04-26T13:26:27.471Z",
+  "generatedAt": "2026-10-30T11:59:58.146Z",
   "root": ".",
   "integrityType": "unsigned-sha256-map",
   "signed": false,
   "note": "This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.",
-  "fileCount": 84,
-  "bundleFingerprint": "7bf64f95df93f5d1c03dfb6595cf8bb11f932d36749c9b11807d2762f643e4b4",
+  "fileCount": 86,
+  "bundleFingerprint": "e29c55df6731d0bac60e20446b67c11146be8f88290404f85bc21c830b23e77b",
   "files": [
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/ax-tree.json",
@@ -25,8 +25,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/candidates.json",
-      "sha256": "21eb7806eb6e58c3b0d77e34b5b9dfba889648eeaac926fa60ef911a5e9af383",
-      "sizeBytes": 48111
+      "sha256": "927887ec52d3504bc841cb716fea22ef9fb3a41e12e37bf93c86c70f99b456e1",
+      "sizeBytes": 46415
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/console.ndjson",
@@ -35,23 +35,23 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/doctor.json",
-      "sha256": "e088de29dc91df41c9bb5fbb6943d3cd34749d43331a3e35a747ee1865c41a68",
-      "sizeBytes": 2302
+      "sha256": "9381881ee785b5713da9a6548369f00d83066a93650ee69521117829e30d187c",
+      "sizeBytes": 1700
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json",
-      "sha256": "3cc3db20c7f8c85b1bf82250182242d05b4782f2261792b00b2eb889f7053495",
-      "sizeBytes": 715905
+      "sha256": "96b936b2a19b44cd8b6c3bdf4ae53c68469966a7ce258d2bfb525b93607851f6",
+      "sizeBytes": 715739
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/evidence-manifest.json",
-      "sha256": "542152c4ea110e35f7e8da0b7cecb74619e5b5e82042e922664c53172ebb0239",
-      "sizeBytes": 4611
+      "sha256": "512c0420549761a4a2813b28dcbc8b1d5d81e3fbca35b44a2a487897bd411c70",
+      "sizeBytes": 4573
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/evidence-manifest.md",
-      "sha256": "b0fd44a3a3534ab879d065f464126c9b447425a013ed7b885b8ac86e83f9c11c",
-      "sizeBytes": 3813
+      "sha256": "f2149e318f58197471b1402943ea8a61075ff745abbf343a7014ab8cf13a64a6",
+      "sizeBytes": 3765
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/failure.png",
@@ -75,8 +75,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/index.html",
-      "sha256": "e7fd4678bd105fd3b8af9859c85de833bf4e9b031a78eb6b48526e00c3955590",
-      "sizeBytes": 36285
+      "sha256": "10f18ad7ab4e8f6f0963830dd1a04b385804cb39918ff76c9f544edafb1d2ed0",
+      "sizeBytes": 35927
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/input.json",
@@ -90,13 +90,13 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/model-agent-trace.json",
-      "sha256": "90f99eabeff5c4829161895dc2b54c3537c00b60672706d3b4f0dc22b8b16b4a",
-      "sizeBytes": 10690
+      "sha256": "e6466d8e05fbd3f8597e5c13f6508e635883fff97ec739799e8431c421e30012",
+      "sizeBytes": 10094
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/model-agent-trace.md",
-      "sha256": "fd6faf41cc4d1859aaed53be6a97bf1868c60aec1537af22dcb8017b074c1da2",
-      "sizeBytes": 3700
+      "sha256": "98ee0af8978c2e5138026072e46f8e4ad589a9245b81c6cc2dadeb363c9254a9",
+      "sizeBytes": 3368
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/model-patch.diff",
@@ -110,13 +110,13 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/model-scorecard.json",
-      "sha256": "dc2c13729ed357a06e6f0cf2b063947bb6795031de32f9fd2c23d8c9217cd50d",
-      "sizeBytes": 1399
+      "sha256": "57d552aab6eaaadc70920a3c158e1df66a65b752f274ebbd13712918d2e3e4f5",
+      "sizeBytes": 1055
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/model-verify.json",
-      "sha256": "23ab5f7ccb39d34eca82e2a489b36ce46adf55326c11af0348eabca289688f36",
-      "sizeBytes": 1327
+      "sha256": "49c9db1f1e64644865d752c13c9cdc2a9260fb895d3ed094e89df5bada57d445",
+      "sizeBytes": 1241
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/network.ndjson",
@@ -150,8 +150,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/run.json",
-      "sha256": "43e332661ed9f598f6ffb670d8032a32c7aeab91ebf2fd6c1803b6b87de710d1",
-      "sizeBytes": 7471
+      "sha256": "11d52c080bd0d523db7da53aaa87fbd138ba77861a1acbf84bd24497b6675686",
+      "sizeBytes": 6095
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/scorecard.json",
@@ -165,8 +165,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/trace.zip",
-      "sha256": "b78fc1343c1cf7235890a2c2df024ef8ac95ad4a49b6cfcad1b6b94ddfc5c7a4",
-      "sizeBytes": 1109801
+      "sha256": "1905361dad93dce15f2a636dba80396307e5c461f3ae8bdd6b55f698d1ae136b",
+      "sizeBytes": 1110035
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/verify.json",
@@ -210,8 +210,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/candidates.json",
-      "sha256": "b8b27b69d612292b55bd887cb3f1df0142aa1fd5a03efc7502c24051453306cf",
-      "sizeBytes": 49197
+      "sha256": "81b8a16f06c818ec37facca26f6088d60f82b457779731a6f4d085cc646a0104",
+      "sizeBytes": 47418
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/console.ndjson",
@@ -220,23 +220,23 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/doctor.json",
-      "sha256": "39c676673f741278feecbe6f56933185466a2bb83cdc4cab85f4afbee7f3f697",
-      "sizeBytes": 2302
+      "sha256": "44fc2c0cb9de54aae008204d1907dbc219aa90522850bdc0978d8954a6d33c33",
+      "sizeBytes": 1700
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json",
-      "sha256": "a8e7344b30e7b466a98fce621805ccd5112aa025bacf329833b1d0a60a15adeb",
-      "sizeBytes": 690391
+      "sha256": "aa652ad262697698e7a053607b8ea2c88116c40deb5d97807bb8b54ae44656e4",
+      "sizeBytes": 690225
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.json",
-      "sha256": "d706ec3c3a3481d97b7f71e0ace2b397bb63a4cd7ab778408b24e98e456be94f",
-      "sizeBytes": 4610
+      "sha256": "4caa434f3cbcb344d839b939b25cdca194ebf7ce409ac6db9fc0364926f442b9",
+      "sizeBytes": 4572
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.md",
-      "sha256": "46bd52959f795c38d058012a6879e510cfcbc4fba6d9e09a720d986694b2a8cd",
-      "sizeBytes": 3812
+      "sha256": "ed6558bd6fcaf6ecf453434539ffb59435ca266a96c4377d4f31a27848351d89",
+      "sizeBytes": 3764
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/failure.png",
@@ -260,8 +260,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/index.html",
-      "sha256": "0ae3e26d866b2e03b6c11a287f554122f788e7976c1396502f11bba49c0e68e7",
-      "sizeBytes": 43678
+      "sha256": "2235494bee315aed9499509e371455a57fd4c957c418200c3f771fea193678f3",
+      "sizeBytes": 43314
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/input.json",
@@ -275,13 +275,13 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/model-agent-trace.json",
-      "sha256": "d2d4893a571fca8dbb2a67dfd291b327735d8d026fc748011feaaf1ca2b29f20",
-      "sizeBytes": 11771
+      "sha256": "ecba5f47de0fec11656e37a7f53590e82e63ab2350d837fb864ab6723316d635",
+      "sizeBytes": 11175
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/model-agent-trace.md",
-      "sha256": "4c02beba3360d73dcb429951659ae3c11d8697f919645cb033b3c5e4eec6ee6a",
-      "sizeBytes": 3149
+      "sha256": "c295572ea1d9a0c943eb3bfe2bf6e08cc05dbdff24481ca8715169270ebf57f0",
+      "sizeBytes": 2817
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/model-patch.diff",
@@ -295,13 +295,13 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/model-scorecard.json",
-      "sha256": "6073acff89a8f5fbcb04b6a39c28f6c12eff3c7077a02360acea30af09a4db99",
-      "sizeBytes": 1520
+      "sha256": "240e6aa2d521dfdb7d2fdf66d49b0157649fb4eb73158ac0d18c5aef779fa979",
+      "sizeBytes": 1176
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/model-verify.json",
-      "sha256": "e87aa725f61a2a9627c48fa18d63470d26451eaa8f145bcdbf1ce5f5043a23ee",
-      "sizeBytes": 2796
+      "sha256": "f61cb867e6d64c41270e758ef2e858efc1d2c11a5c94f434e2ff1e940e4fbe0d",
+      "sizeBytes": 2710
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/network.ndjson",
@@ -335,8 +335,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/run.json",
-      "sha256": "8df30399d4d3e9bbb71e7a551b45df29766f77d1992983aab7e1c6d51e22bbd0",
-      "sizeBytes": 7467
+      "sha256": "f39ade871fec47e8b03732976c1be2ebe8b37664ce27598a56ea5353f389619d",
+      "sizeBytes": 6091
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/scorecard.json",
@@ -350,8 +350,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/trace.zip",
-      "sha256": "0cd145b6eda83bdff5fba8519e43fba643c65ce443de16877f09f68938187c20",
-      "sizeBytes": 1843705
+      "sha256": "c80d7aee288b302cd346caa6bf3dd83bc65656d301ac1914fd7f2349a1cb7f2a",
+      "sizeBytes": 1839653
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/verify.json",
@@ -380,23 +380,33 @@
     },
     {
       "path": "artifacts/index.html",
-      "sha256": "24e1e1158fef23a1d53412ab088971747155e348db8ea9ce247b1df7a538b7dc",
-      "sizeBytes": 19731
+      "sha256": "aa74a41b2cde4a3cafabf7d37b56f948d79d33ff6d2fcf70dcd854a93e8c7ea7",
+      "sizeBytes": 19905
+    },
+    {
+      "path": "artifacts/public-export-notice.json",
+      "sha256": "2fad7b20988d4119a0527610c2bf990824e76d7ade87054bd18efe91e44428d3",
+      "sizeBytes": 410
     },
     {
       "path": "docs/architecture.md",
-      "sha256": "6d276449794659a32f3b1a11f2d996455292284d0b3f1998aad33ec768725db0",
-      "sizeBytes": 4515
+      "sha256": "3106c27a13a82686433c5e641a94ed83ae0b6252e2b019d1c8f2cb4fc4106232",
+      "sizeBytes": 4837
     },
     {
       "path": "docs/positioning.md",
-      "sha256": "2a2f57443be12dfb1afcd01deb9da3c36f4c98cc8683224e2ce15e8b6f1701ef",
-      "sizeBytes": 3752
+      "sha256": "6848c27175f509bd2bb222ac5542312535fee36fe9279ca3f933f997cbdf0dd6",
+      "sizeBytes": 3978
+    },
+    {
+      "path": "docs/public-export.md",
+      "sha256": "da18ea1d4bbaeacf323a40bebb580db7d6a422434a03c95720b6e1c2b7c8c807",
+      "sizeBytes": 2216
     },
     {
       "path": "docs/quickstart.md",
-      "sha256": "eaa4082555ec11bf87d464847625f4389ac3d69335c93209b1956745cd980315",
-      "sizeBytes": 3212
+      "sha256": "70582707787d5fbd80d60d8e3cbb1ae705deccd7ab3b138f0ee3e167be8270e2",
+      "sizeBytes": 5148
     },
     {
       "path": "docs/README.md",
@@ -405,8 +415,8 @@
     },
     {
       "path": "docs/roadmap.md",
-      "sha256": "56ae4334b9303a5b1265c17d7ed03703cdd5403b9b36c8636553315bf7ec3859",
-      "sizeBytes": 2069
+      "sha256": "840e3f1a9f248eb1ffa24cf97eb400c16bb40b98d020d402a9cca433caf0bfa2",
+      "sizeBytes": 3217
     },
     {
       "path": "evals/proof-benchmark.json",
@@ -420,13 +430,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "475b6055ea72ee9c1077c9b4a84ccdf91c062e2a91fe82c2a0339319f690c96f",
-      "sizeBytes": 3482
+      "sha256": "022538a04db10e4f4ef70fb51eb6e5da8e62a076c23dc58b516180de69fd07ee",
+      "sizeBytes": 3900
     },
     {
       "path": "README.source.md",
-      "sha256": "5750971492acaa4522110549e97dc6763c10b84173fb31e6df93308ba2bd2173",
-      "sizeBytes": 8100
+      "sha256": "8ca2211652eada30a395b156d1420b1303ea60b272d4a2d5c70fa2b14e5f15d2",
+      "sizeBytes": 8196
     }
   ]
 }

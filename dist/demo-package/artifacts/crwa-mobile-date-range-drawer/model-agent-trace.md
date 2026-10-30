@@ -26,11 +26,11 @@ Model-authored patch produced by Claude Code agent loop running inside the targe
 
 ## Files Read
 
-- `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
+- `[workspace]/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
 
 ## Files Edited
 
-- `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
+- `[workspace]/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
 
 ## Final Assistant Text
 
@@ -46,7 +46,7 @@ I edited `src/components/TransactionDateRangeFilter.tsx` and changed the mobile 
 ### Turn 2
 
 - tool: `Read`
-  - file: `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
+  - file: `[workspace]/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
 
 ### Turn 3
 
@@ -59,7 +59,7 @@ Now I understand the bug. The drawer uses `anchor="bottom"`, which slides up fro
 ### Turn 5
 
 - tool: `Edit`
-  - file: `D:/Repo/ALL HACKATHONS/Cerebral Valley & Anthropic - Built with Opus 4.7 Claude Code hackathon/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
+  - file: `[workspace]/.surgeon-targets/cypress-realworld-app/src/components/TransactionDateRangeFilter.tsx`
 
 ### Turn 6
 
