@@ -1,7 +1,7 @@
 # Evidence Integrity Manifest
 
 Case: `crwa-mobile-onboarding-dialog`
-Generated at: `2026-10-30T11:59:55.552Z`
+Generated at: `2026-10-31T05:27:57.376Z`
 Bundle fingerprint: `4deed93cddf1518020c1992c306ff80ec6170bdbab0e5a973b22fd0f12613710`
 
 This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.

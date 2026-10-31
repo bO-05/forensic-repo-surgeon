@@ -8,8 +8,24 @@ import { unzipSync, zipSync } from "fflate";
 
 import { sanitizePublicDirectory, sanitizePublicText } from "../packages/engine/src/public-export.ts";
 import { exportDemoPackage } from "../packages/engine/src/export-package.ts";
-import type { CaseFile } from "../packages/schemas/src/index.ts";
+import { ProofScorecardSchema, VerificationResultSchema, type CaseFile } from "../packages/schemas/src/index.ts";
 import { assertDeploymentTarget, cockpitDeploymentEnvironment, stageCockpit } from "../scripts/deploy-cockpit.ts";
+
+test("schema upgrades retain legacy omitted values and recorded numeric and boolean outcomes", () => {
+  const verification = {
+    caseId: "synthetic-legacy-schema", status: "failing", checkedAt: "recorded",
+    assertions: [{ name: "synthetic", pass: false, expected: "visible" }],
+    retainedExtension: { recorded: true },
+  };
+  assert.deepEqual(VerificationResultSchema.parse(verification), verification);
+  const scorecard = {
+    caseId: "synthetic-legacy-schema", generatedAt: "recorded", status: "failing", score: 92,
+    metrics: { verificationPassRate: 0.8, retainedMetric: 7 },
+    gates: { negativeControlPassed: true, allAssertionsPassing: false },
+    retainedExtension: "recorded",
+  };
+  assert.deepEqual(ProofScorecardSchema.parse(scorecard), scorecard);
+});
 
 test("confirmed deployment IDs override inherited IDs without changing the parent environment", () => {
   const parent = { VERCEL_PROJECT_ID: "prj_other", VERCEL_ORG_ID: "team_other", PATH: "fixture-tools" };
@@ -57,6 +73,24 @@ test("public paths are sanitized without changing browser URLs or verification o
   assert.equal(result.passed, false);
   assert.equal(result.passRate, 0.75);
   assert.doesNotMatch(JSON.stringify(result), /Private Workspace|Another Private|someone\/private-repo|[A-Z]:/u);
+});
+
+test("public HTML preserves long evidence filenames and adds idempotent wrapping and scope notices", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "forensic-export-layout-"));
+  try {
+    const filename = "src/components/TransactionDateRangeFilter.tsx";
+    await writeFile(join(directory, "index.html"), `<!doctype html><html><head><title>Recorded fixture</title></head><body><code>${filename}</code></body></html>`);
+    await sanitizePublicDirectory(directory);
+    const html = await readFile(join(directory, "index.html"), "utf8");
+    assert.match(html, /data-public-export-layout="true"/u);
+    assert.match(html, /overflow-wrap: anywhere/u);
+    assert.match(html, /Binary screenshots are retained/u);
+    assert.match(html, /not universal anonymization/u);
+    assert.ok(html.includes(filename));
+    assert.equal((await sanitizePublicDirectory(directory)).changedFiles, 0);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("public ZIPs sanitize trace text, retain binary resources, and are idempotent", async () => {

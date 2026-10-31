@@ -1,8 +1,8 @@
 # Package Integrity
 
 Case: `crwa-mobile-date-range-drawer`
-Generated at: `2026-10-30T11:59:58.146Z`
-Bundle fingerprint: `e29c55df6731d0bac60e20446b67c11146be8f88290404f85bc21c830b23e77b`
+Generated at: `2026-10-31T05:27:59.840Z`
+Bundle fingerprint: `0ee24bc73899d5314381357523ff44844b84166b39b34e8854a2bcd41575b763`
 Hashed files: `86`
 
 This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.
@@ -23,13 +23,13 @@ This is an unsigned SHA-256 integrity map. It helps compare copies of the packag
 - `artifacts/crwa-mobile-date-range-drawer/console.ndjson` sha256 `fe5abfa24abc0ea8a8fc41fb750f07ace90ad2ce7167931949716332ea66b5cd` size `7033`
 - `artifacts/crwa-mobile-date-range-drawer/doctor.json` sha256 `9381881ee785b5713da9a6548369f00d83066a93650ee69521117829e30d187c` size `1700`
 - `artifacts/crwa-mobile-date-range-drawer/dom-snapshot.json` sha256 `96b936b2a19b44cd8b6c3bdf4ae53c68469966a7ce258d2bfb525b93607851f6` size `715739`
-- `artifacts/crwa-mobile-date-range-drawer/evidence-manifest.json` sha256 `512c0420549761a4a2813b28dcbc8b1d5d81e3fbca35b44a2a487897bd411c70` size `4573`
-- `artifacts/crwa-mobile-date-range-drawer/evidence-manifest.md` sha256 `f2149e318f58197471b1402943ea8a61075ff745abbf343a7014ab8cf13a64a6` size `3765`
+- `artifacts/crwa-mobile-date-range-drawer/evidence-manifest.json` sha256 `81bc184a9ec9f777a09b0b100bbcde9e56d7fb29e1efd7f4b60951f07af22029` size `4573`
+- `artifacts/crwa-mobile-date-range-drawer/evidence-manifest.md` sha256 `aab5e51aa7cb8525d67735d8fabb3387e8c961db3f5c9166a449dff2395c471b` size `3765`
 - `artifacts/crwa-mobile-date-range-drawer/failure.png` sha256 `87606cabfdc494c5cb02533c53d1080ec4bbddc75f3d718134496fa2e768f8b0` size `27554`
 - `artifacts/crwa-mobile-date-range-drawer/github-check.json` sha256 `947283cfb1a60b408b7421936d6fbe0bd605494f8b3e24cba8908c3a656c4f91` size `1192`
 - `artifacts/crwa-mobile-date-range-drawer/github-check.md` sha256 `0730f74a5dcdb6f7c19c0c9ddf6bc267af5712d37380c9b0647fedea3da593ba` size `1083`
 - `artifacts/crwa-mobile-date-range-drawer/hypothesis.md` sha256 `9cc6930247e3a17d37b24c096a705941b5fa4451828eb22164c1e728191da448` size `1755`
-- `artifacts/crwa-mobile-date-range-drawer/index.html` sha256 `10f18ad7ab4e8f6f0963830dd1a04b385804cb39918ff76c9f544edafb1d2ed0` size `35927`
+- `artifacts/crwa-mobile-date-range-drawer/index.html` sha256 `e3196b92d1654ad262c671742aede4fc77a0e5a30fdb1ce4888c1fc67c199869` size `36128`
 - `artifacts/crwa-mobile-date-range-drawer/input.json` sha256 `ea7e59c03b0e6c36337627fe36a9aed83e2bfde8d1b5cfaac54153f71cb1fc0d` size `2451`
 - `artifacts/crwa-mobile-date-range-drawer/manifest.json` sha256 `c1dd41196e0aaeed43b831d3241419e7d2732106114e34dd3c05b4df7f2ec332` size `2605`
 - `artifacts/crwa-mobile-date-range-drawer/model-agent-trace.json` sha256 `e6466d8e05fbd3f8597e5c13f6508e635883fff97ec739799e8431c421e30012` size `10094`
@@ -60,13 +60,13 @@ This is an unsigned SHA-256 integrity map. It helps compare copies of the packag
 - `artifacts/crwa-mobile-onboarding-dialog/console.ndjson` sha256 `851d990a89c4fe5cec1b1036ee5bbd4e21b846e2e1d9b69d87e46dd39569a4a8` size `7236`
 - `artifacts/crwa-mobile-onboarding-dialog/doctor.json` sha256 `44fc2c0cb9de54aae008204d1907dbc219aa90522850bdc0978d8954a6d33c33` size `1700`
 - `artifacts/crwa-mobile-onboarding-dialog/dom-snapshot.json` sha256 `aa652ad262697698e7a053607b8ea2c88116c40deb5d97807bb8b54ae44656e4` size `690225`
-- `artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.json` sha256 `4caa434f3cbcb344d839b939b25cdca194ebf7ce409ac6db9fc0364926f442b9` size `4572`
-- `artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.md` sha256 `ed6558bd6fcaf6ecf453434539ffb59435ca266a96c4377d4f31a27848351d89` size `3764`
+- `artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.json` sha256 `e0704814c6458444a2eebc2e97f957f9b070c5217cfb9bcffb820cd04ae0d810` size `4572`
+- `artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.md` sha256 `5f7051c087cedb1525fd59740c0234c96de90e45f693f691e9845f52ddb85a2a` size `3764`
 - `artifacts/crwa-mobile-onboarding-dialog/failure.png` sha256 `6d2ecc08d42d88fcb19906fb5b545cff7ebd1a3eb39be5d9e70b2800a7810241` size `21415`
 - `artifacts/crwa-mobile-onboarding-dialog/github-check.json` sha256 `19878fd2f675a2e281db783ac38c91f09f4b33e664c1477480dde1eabc4c31a1` size `1553`
 - `artifacts/crwa-mobile-onboarding-dialog/github-check.md` sha256 `fe3be848b0224ec0077c5f80f6364ecc12b6b36e827b824d9c1c31ee01c981a1` size `1436`
 - `artifacts/crwa-mobile-onboarding-dialog/hypothesis.md` sha256 `241ff6b415f00fbc94403c6c17d3fd1082b3c7a68e716a83814a2de6a41f21ff` size `2781`
-- `artifacts/crwa-mobile-onboarding-dialog/index.html` sha256 `2235494bee315aed9499509e371455a57fd4c957c418200c3f771fea193678f3` size `43314`
+- `artifacts/crwa-mobile-onboarding-dialog/index.html` sha256 `9dfb85b1831bd2eab815eb3192831659dc716cefa611e75d4bb5aba0d87d495d` size `43515`
 - `artifacts/crwa-mobile-onboarding-dialog/input.json` sha256 `245c3345d5f143551c6931e67792cb0c2512f80d86d1e44941b8c53d6e261d13` size `3392`
 - `artifacts/crwa-mobile-onboarding-dialog/manifest.json` sha256 `9d599ad70ed1915bc5761ec13de103443eb174f6085ef3640de0a91fcd693c33` size `2605`
 - `artifacts/crwa-mobile-onboarding-dialog/model-agent-trace.json` sha256 `ecba5f47de0fec11656e37a7f53590e82e63ab2350d837fb864ab6723316d635` size `11175`
@@ -90,8 +90,8 @@ This is an unsigned SHA-256 integrity map. It helps compare copies of the packag
 - `artifacts/demo-cockpit-preview.png` sha256 `ee6e3055b5947b3f35aac5ca1a777b4d026d81ed8242d355100d8feecd276265` size `1110578`
 - `artifacts/evals/proof-evaluation.json` sha256 `d45d6cf395684b641921cee22e610a43fee25d10e28746f1bc9c017cec1d4f5f` size `4295`
 - `artifacts/evals/proof-evaluation.md` sha256 `05c4b55ec56e884826a6365d596bb78643461e65820eb8e3868467719d1e2f30` size `1707`
-- `artifacts/index.html` sha256 `aa74a41b2cde4a3cafabf7d37b56f948d79d33ff6d2fcf70dcd854a93e8c7ea7` size `19905`
-- `artifacts/public-export-notice.json` sha256 `2fad7b20988d4119a0527610c2bf990824e76d7ade87054bd18efe91e44428d3` size `410`
+- `artifacts/index.html` sha256 `8bbcaed2e50de267c218d04c8f82ebd943926dae047af010dcb998b7c66c92ef` size `20075`
+- `artifacts/public-export-notice.json` sha256 `e566ff5c856e480e3162f4ebeff15faf06cd36e09eff8bc14f1e10983a6cf76b` size `410`
 - `docs/architecture.md` sha256 `3106c27a13a82686433c5e641a94ed83ae0b6252e2b019d1c8f2cb4fc4106232` size `4837`
 - `docs/positioning.md` sha256 `6848c27175f509bd2bb222ac5542312535fee36fe9279ca3f933f997cbdf0dd6` size `3978`
 - `docs/public-export.md` sha256 `da18ea1d4bbaeacf323a40bebb580db7d6a422434a03c95720b6e1c2b7c8c807` size `2216`
@@ -101,4 +101,4 @@ This is an unsigned SHA-256 integrity map. It helps compare copies of the packag
 - `evals/proof-benchmark.json` sha256 `6c45d2e7eb29f08bd0b928458978981377fa45128a07e4ebdb155d55dc2521a5` size `2550`
 - `evals/README.md` sha256 `6b26617f70a5c6f98f1a6e985e865032b874e30e9cbbb089ad2a60f0cf52344a` size `738`
 - `README.md` sha256 `022538a04db10e4f4ef70fb51eb6e5da8e62a076c23dc58b516180de69fd07ee` size `3900`
-- `README.source.md` sha256 `8ca2211652eada30a395b156d1420b1303ea60b272d4a2d5c70fa2b14e5f15d2` size `8196`
+- `README.source.md` sha256 `f4553b8744d07c6befa92089f95883cc5c776151ab36afbdb325051758ec44ff` size `8690`

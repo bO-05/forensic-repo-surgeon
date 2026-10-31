@@ -1,6 +1,6 @@
 {
   "caseId": "crwa-mobile-date-range-drawer",
-  "generatedAt": "2026-10-30T11:59:58.153Z",
+  "generatedAt": "2026-10-31T05:27:59.843Z",
   "reviewMode": "static-first",
   "entrypoints": {
     "cockpit": "artifacts/index.html",
@@ -33,7 +33,7 @@
     "type": "unsigned-sha256-map",
     "signed": false,
     "note": "This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.",
-    "bundleFingerprint": "e29c55df6731d0bac60e20446b67c11146be8f88290404f85bc21c830b23e77b",
+    "bundleFingerprint": "0ee24bc73899d5314381357523ff44844b84166b39b34e8854a2bcd41575b763",
     "fileCount": 86,
     "json": "package-integrity.json",
     "markdown": "package-integrity.md"

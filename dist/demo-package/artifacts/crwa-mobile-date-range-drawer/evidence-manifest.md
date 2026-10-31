@@ -1,7 +1,7 @@
 # Evidence Integrity Manifest
 
 Case: `crwa-mobile-date-range-drawer`
-Generated at: `2026-10-30T11:59:55.482Z`
+Generated at: `2026-10-31T05:27:57.262Z`
 Bundle fingerprint: `05263e65adc67f4a52cb4face05d0b43029db5e438a6d9a8f56d49e0eee54737`
 
 This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.

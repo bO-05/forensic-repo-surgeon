@@ -1,6 +1,6 @@
 {
   "policyVersion": "2026-10-30.public-copy",
-  "exportedAt": "2026-10-30T11:59:55.596Z",
+  "exportedAt": "2026-10-31T05:27:57.418Z",
   "recordedEvidence": true,
   "newModelOrVerifierRun": false,
   "privacyBoundary": "Producer-machine paths and text secrets were sanitized, including archived browser trace text. Operational originals were not modified. Binary screenshots are retained recorded evidence, not a claim of universal data anonymization."

@@ -18,15 +18,15 @@
     "verify:source": "pnpm typecheck && pnpm test && pnpm surgeon intake --case cases/cypress-realworld-mobile-date-range-drawer.case.json && pnpm surgeon intake --case cases/cypress-realworld-mobile-onboarding-dialog.case.json"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.18",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "zod": "^3.25.7"
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "zod": "^4.6.6"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "^0.2.119",
+    "@anthropic-ai/claude-agent-sdk": "^0.2.141",
     "@anthropic-ai/sdk": "^0.91.1",
-    "fflate": "0.8.2"
+    "fflate": "0.8.3"
   }
 }

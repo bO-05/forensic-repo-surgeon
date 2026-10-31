@@ -1,12 +1,12 @@
 {
   "caseId": "crwa-mobile-date-range-drawer",
-  "generatedAt": "2026-10-30T11:59:58.146Z",
+  "generatedAt": "2026-10-31T05:27:59.840Z",
   "root": ".",
   "integrityType": "unsigned-sha256-map",
   "signed": false,
   "note": "This is an unsigned SHA-256 integrity map. It helps compare copies of the package or case artifacts, but it is not independent signed provenance.",
   "fileCount": 86,
-  "bundleFingerprint": "e29c55df6731d0bac60e20446b67c11146be8f88290404f85bc21c830b23e77b",
+  "bundleFingerprint": "0ee24bc73899d5314381357523ff44844b84166b39b34e8854a2bcd41575b763",
   "files": [
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/ax-tree.json",
@@ -45,12 +45,12 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/evidence-manifest.json",
-      "sha256": "512c0420549761a4a2813b28dcbc8b1d5d81e3fbca35b44a2a487897bd411c70",
+      "sha256": "81bc184a9ec9f777a09b0b100bbcde9e56d7fb29e1efd7f4b60951f07af22029",
       "sizeBytes": 4573
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/evidence-manifest.md",
-      "sha256": "f2149e318f58197471b1402943ea8a61075ff745abbf343a7014ab8cf13a64a6",
+      "sha256": "aab5e51aa7cb8525d67735d8fabb3387e8c961db3f5c9166a449dff2395c471b",
       "sizeBytes": 3765
     },
     {
@@ -75,8 +75,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/index.html",
-      "sha256": "10f18ad7ab4e8f6f0963830dd1a04b385804cb39918ff76c9f544edafb1d2ed0",
-      "sizeBytes": 35927
+      "sha256": "e3196b92d1654ad262c671742aede4fc77a0e5a30fdb1ce4888c1fc67c199869",
+      "sizeBytes": 36128
     },
     {
       "path": "artifacts/crwa-mobile-date-range-drawer/input.json",
@@ -230,12 +230,12 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.json",
-      "sha256": "4caa434f3cbcb344d839b939b25cdca194ebf7ce409ac6db9fc0364926f442b9",
+      "sha256": "e0704814c6458444a2eebc2e97f957f9b070c5217cfb9bcffb820cd04ae0d810",
       "sizeBytes": 4572
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/evidence-manifest.md",
-      "sha256": "ed6558bd6fcaf6ecf453434539ffb59435ca266a96c4377d4f31a27848351d89",
+      "sha256": "5f7051c087cedb1525fd59740c0234c96de90e45f693f691e9845f52ddb85a2a",
       "sizeBytes": 3764
     },
     {
@@ -260,8 +260,8 @@
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/index.html",
-      "sha256": "2235494bee315aed9499509e371455a57fd4c957c418200c3f771fea193678f3",
-      "sizeBytes": 43314
+      "sha256": "9dfb85b1831bd2eab815eb3192831659dc716cefa611e75d4bb5aba0d87d495d",
+      "sizeBytes": 43515
     },
     {
       "path": "artifacts/crwa-mobile-onboarding-dialog/input.json",
@@ -380,12 +380,12 @@
     },
     {
       "path": "artifacts/index.html",
-      "sha256": "aa74a41b2cde4a3cafabf7d37b56f948d79d33ff6d2fcf70dcd854a93e8c7ea7",
-      "sizeBytes": 19905
+      "sha256": "8bbcaed2e50de267c218d04c8f82ebd943926dae047af010dcb998b7c66c92ef",
+      "sizeBytes": 20075
     },
     {
       "path": "artifacts/public-export-notice.json",
-      "sha256": "2fad7b20988d4119a0527610c2bf990824e76d7ade87054bd18efe91e44428d3",
+      "sha256": "e566ff5c856e480e3162f4ebeff15faf06cd36e09eff8bc14f1e10983a6cf76b",
       "sizeBytes": 410
     },
     {
@@ -435,8 +435,8 @@
     },
     {
       "path": "README.source.md",
-      "sha256": "8ca2211652eada30a395b156d1420b1303ea60b272d4a2d5c70fa2b14e5f15d2",
-      "sizeBytes": 8196
+      "sha256": "f4553b8744d07c6befa92089f95883cc5c776151ab36afbdb325051758ec44ff",
+      "sizeBytes": 8690
     }
   ]
 }

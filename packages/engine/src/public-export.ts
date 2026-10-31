@@ -162,8 +162,18 @@ export async function sanitizePublicDirectory(root: string, sourceRoots: readonl
     let after = /\.zip$/iu.test(path) ? archive(before, roots, 0) : sanitizeBytes(before, roots);
     if (/\.html$/iu.test(path)) {
       const html = decodeText(after);
-      if (html !== undefined && /<body\b/iu.test(html) && !html.includes('data-public-export-notice="true"')) {
-        after = new TextEncoder().encode(html.replace(/<body\b[^>]*>/iu, '$&\n<aside data-public-export-notice="true" role="note" style="padding:16px;background:#f5ead1;color:#172024;font:14px/1.6 sans-serif">Privacy-sanitized recorded evidence. Local paths and text secrets were removed from this public copy, including browser trace text. Verification outcomes are recorded results, not a new model or verifier run.</aside>'));
+      if (html !== undefined && /<body\b/iu.test(html)) {
+        let updated = html;
+        if (!updated.includes('data-public-export-layout="true"')) {
+          const style = '<style data-public-export-layout="true">body { overflow-wrap: anywhere; }</style>';
+          updated = /<\/head\s*>/iu.test(updated)
+            ? updated.replace(/<\/head\s*>/iu, `${style}\n$&`)
+            : updated.replace(/<body\b[^>]*>/iu, `$&\n${style}`);
+        }
+        if (!updated.includes('data-public-export-notice="true"')) {
+          updated = updated.replace(/<body\b[^>]*>/iu, '$&\n<aside data-public-export-notice="true" role="note" style="padding:16px;background:#f5ead1;color:#172024;font:14px/1.6 sans-serif">Privacy-sanitized recorded evidence. Known producer paths and detected text secrets were sanitized in this public copy, including browser trace text. Binary screenshots are retained; this is not universal anonymization. Verification outcomes are recorded results, not a new model or verifier run.</aside>');
+        }
+        after = new TextEncoder().encode(updated);
       }
     }
     if (!before.equals(Buffer.from(after))) {

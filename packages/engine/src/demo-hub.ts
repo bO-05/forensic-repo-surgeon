@@ -191,6 +191,7 @@ function renderDemoHub({
 
     body {
       margin: 0;
+      overflow-wrap: anywhere;
       color: var(--ink);
       background:
         radial-gradient(circle at 12% 8%, rgba(214, 157, 66, 0.18), transparent 28%),

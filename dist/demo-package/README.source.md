@@ -2,7 +2,7 @@
 
 > **Models propose. Verifiers decide.**
 >
-> Forensic Repo Surgeon is a portable proof contract for AI-authored frontend repairs. Bring your own agent. Our deterministic verifier decides if the bug actually got fixed.
+> Forensic Repo Surgeon is a prototype for packaging schema-driven before/after checks for AI-authored frontend repairs. Configured assertions, not model self-reports, determine its recorded acceptance outcome.
 
 Built for the [Built with Opus 4.7: a Claude Code hackathon](https://cerebralvalley.ai/events/~/e/built-with-4-7-hackathon).
 
@@ -10,17 +10,19 @@ Built for the [Built with Opus 4.7: a Claude Code hackathon](https://cerebralval
 
 ## What This Is, Honestly
 
-Most AI coding tools generate a diff and a confident PR description. None of them produce **portable, machine-readable proof** that the bug actually got reproduced and fixed.
+A diff and a confident PR description are not, by themselves, reproduction or acceptance evidence. This prototype packages that evidence as a portable, machine-readable contract.
 
 Forensic Repo Surgeon ships:
 
 1. A **case contract** — schema describing the bug, target, viewport, repro steps, assertions, and negative control.
 2. A **deterministic verifier** — Playwright-driven before/after browser evidence + JSON-configured assertions.
-3. A **proof boundary** — `before-verify.json`, `verify.json`, `doctor.json`, `run.json`, `scorecard.json` decide acceptance. Models cannot bypass them.
-4. A **live Claude Code agent loop** — Opus 4.7 authors a candidate patch inside the target repository, using `Read`, `Glob`, `Grep`, and `Edit` tools through `@anthropic-ai/claude-agent-sdk`.
+3. A **proof boundary** — saved verifier outputs determine the configured acceptance result, not the model's description.
+4. A **provider-dependent Claude Code agent loop** — the CLI can request a candidate patch using `Read`, `Glob`, `Grep`, and `Edit` tools through `@anthropic-ai/claude-agent-sdk`. This is not a public hosted agent service.
 5. A **side-by-side proof** — fixture-authored patch and model-authored patch are evaluated by the same verifier. The cockpit shows both scorecards, both diffs, the full agent transcript.
 
-## The Hackathon Hero Result
+## Recorded Hackathon Results
+
+The following are saved results from the original two cases, not newly repeated benchmarks. SDK and parser security updates do not rerun or change those recorded model/verifier outcomes.
 
 On the date-range drawer case, Opus 4.7 (via the Claude Code agent loop) read **one file**, made **one Edit** changing `anchor="bottom"` to `anchor="top"`, and produced a 13-line diff that **passed the same deterministic verifier as the human-authored fixture** (status: passing, score: 100/100).
 
@@ -50,9 +52,12 @@ The acceptance rule is strict and identical for fixture and model:
 ## Quick Start
 
 ```bash
-pnpm install
-pnpm verify:source
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm typecheck
+pnpm test
 ```
+
+These inspection checks do not regenerate the recorded case evidence. The pipeline commands below create or update run artifacts. Preserve originals and use separate artifact directories before running them. Live model commands require provider credentials and can incur usage charges.
 
 Run the full proof package without an API key (fixture pipeline only):
 
@@ -101,7 +106,7 @@ For each verified case the cockpit ships:
 
 ## Differentiation
 
-Cursor, Devin, GitHub Copilot coding agent, and CodeRabbit are broad coding or review systems. **Claude Code with Playwright MCP** can ad-hoc reproduce most of what a single CLI agent does in a session. None of those produce a **portable, machine-readable proof contract** that any agent or CI can attach, verify, and inspect.
+Other coding and review systems cover broader workflows. This prototype focuses on a schema-driven evidence package and configured acceptance checks. The two recorded cases do not establish general superiority over other tools or success on arbitrary repositories.
 
 The defensible position is the **schema and the verifier**, not another agent:
 

@@ -117,7 +117,8 @@ export const VerificationAssertionSchema = z.object({
   name: z.string(),
   pass: z.boolean(),
   expected: z.string(),
-  actual: z.unknown(),
+  // Preserve Zod 3's acceptance of an omitted value in recorded assertions.
+  actual: z.unknown().optional(),
 });
 
 export const VerificationResultSchema = z.object({
@@ -152,7 +153,7 @@ export const ProofScorecardSchema = z.object({
     runStatus: z.string().optional(),
     cleanupSucceeded: z.boolean().optional(),
   }).passthrough(),
-  gates: z.record(z.boolean()),
+  gates: z.record(z.string(), z.boolean()),
 }).passthrough();
 
 export const EvaluationAcceptanceBarSchema = z.object({

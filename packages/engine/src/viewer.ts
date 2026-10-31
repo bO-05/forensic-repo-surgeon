@@ -267,6 +267,7 @@ function renderViewerHtml({
 
     body {
       margin: 0;
+      overflow-wrap: anywhere;
       color: var(--ink);
       background:
         radial-gradient(circle at 16% 12%, rgba(193, 120, 23, 0.18), transparent 30%),
