@@ -6,7 +6,9 @@
 
 Built for the [Built with Opus 4.7: a Claude Code hackathon](https://cerebralvalley.ai/events/~/e/built-with-4-7-hackathon).
 
-**Static proof:** [Recorded proof package](dist/demo-package/README.md), with privacy-sanitized transcripts and refreshed integrity maps. The live cockpit link is withheld until its sanitized deployment is verified. See the [public export and deployment guide](docs/public-export.md).
+**Recorded demo:** [Read-only cockpit](https://forensic-cockpit.vercel.app). It shows saved evidence, not a live analysis service or a new model/verifier run.
+
+**Static proof:** [Recorded proof package](dist/demo-package/README.md), with known producer paths and detected text secrets sanitized and integrity maps refreshed. Binary screenshots are retained; this is not universal anonymization. See the [public export and deployment guide](docs/public-export.md).
 
 ## What This Is, Honestly
 
